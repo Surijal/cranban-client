@@ -11,7 +11,8 @@ const withAuth = WrappedComponent => {
       return (
         <Consumer>
           {/* <Consumer> component provides callback which receives Providers "value" object */}
-          {({ login, signup, user, logout, isLoggedin }) => {
+          {/* (value) => { <WrappedComponent />}  */}
+          {({ login, signup, user, logout, isLoggedin, isLoading }) => {
             return (
               <WrappedComponent
                 login={login}
@@ -19,6 +20,7 @@ const withAuth = WrappedComponent => {
                 user={user}
                 logout={logout}
                 isLoggedin={isLoggedin}
+                isLoading={isLoading}
                 {...this.props}
               />
             );
