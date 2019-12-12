@@ -12,33 +12,50 @@ class ProjectDetails extends Component {
         this.state = {
             title: '',
             description: '',
-            deadline: ''
+            deadline: '',
+            singleProject: null
         }
     }
-
+    
     getSingleProject = () => {
         const id  = this.props.match.params.id;
-
+        
         projectsService.getSingleProject(id) 
-            .then( (singleProject) => {
-                this.setState({ singleProject })
-            })
-            .catch( err => console.log(err))
+        .then( (singleProject) => {
+            this.setState({ singleProject })
+        })
+        .catch( err => console.log(err))
     }
-
-
+    
+    
+    
+    
+    
     componentDidMount() {
-
+        
         this.getSingleProject()
     }
 
-
-
     render() {
+
+        const { singleProject } = this.state;
+        
         return (
             <div>
-                <h2>{this.props.title}</h2>
-                <p>{this.props.description}</p>
+            {
+                !singleProject
+                    ? <h1>Loading</h1>
+                    :
+                    (
+                        <>
+                            <h2>TITLE: {this.state.singleProject.title}</h2>
+                            <p>DESCRIPTION: {this.state.singleProject.description}</p>
+
+                            <h1>ProjectDetails</h1>
+                        </>
+                    )
+
+            }
             </div>
         )
     }

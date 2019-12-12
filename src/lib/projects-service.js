@@ -6,7 +6,7 @@ class Project {
 
         
         this.projects = axios.create({
-            baseURL: 'http://localhost:5000/api',
+            baseURL: 'http://localhost:5000/api/projects',
             withCredentials: true,
         })
     } 
@@ -14,7 +14,7 @@ class Project {
 
     getAllProjects = () => {
         return this.projects
-            .get('/projects')
+            .get('/')
             .then( (response ) => {
                 const listOfProjects = response.data;
                 
@@ -26,19 +26,27 @@ class Project {
 
     getSingleProject = (id) => {
         
-
-        console.log('>>>>>>>>>>>>>>>>>>>> SERVICE PROPS', id);
-        // console('<<<<<<<<<<<<<<<<< Credentials', this.projects.withCredentials);
-        
-        
         return this.projects
-        .get(`/projects/${id}`)
+        .get(`/${id}`)
         .then( response => {
                 const singleProject = response.data
 
                 return singleProject;
             })
             .catch( err => console.log(err))
+    }
+
+
+    createProject = () => {
+
+        return this.projects
+        .post('/')
+        .then( response => {
+            const {newProject} = response.data;
+
+            return newProject;
+        })
+        .catch( err => console.log(err))
     }
     
 }
