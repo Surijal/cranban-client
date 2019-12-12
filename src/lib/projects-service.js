@@ -8,8 +8,6 @@ class Project {
             baseURL: 'http://localhost:5000/api',
             withCredentials: true,
         })
-
-
     } 
 
 
@@ -18,10 +16,22 @@ class Project {
             .get('/projects')
             .then( (response ) => {
                 const listOfProjects = response.data;
-                console.log('GETALLPROJECTS', response.data)
+                
                 return listOfProjects;
             })
             .catch((err) => console.log(err))
+    }
+
+
+    getSingleProject = (id) => {
+        return this.projects
+            .get('/projects/:id')
+            .then( response => {
+                const singleProject = response.data
+
+                return singleProject;
+            })
+            .catch( err => console.log(err))
     }
     
 }
