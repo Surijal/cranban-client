@@ -6,6 +6,7 @@ import ProjectCard from './../components/projects/ProjectCard';
 import AddProject from './../components/projects/AddProject';
 
 
+
 class ProjectsList extends Component {
 
     state = {
@@ -28,7 +29,6 @@ class ProjectsList extends Component {
         return (
             <div>
                 <AddProject refreshProjectList={this.getListOfProjects} />
-                
 
                 <h2>Projects</h2>
 

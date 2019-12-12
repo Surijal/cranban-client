@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
+
 import { withAuth } from './../../lib/AuthProvider';
-
-
 import projectsService from './../../lib/projects-service';
 
 

@@ -52,7 +52,7 @@ class Project {
     }
 
 
-    updatedProject = (updatedProject) => {
+    updateProject = (updatedProject) => {
         const { title, description, deadline } = updatedProject;
 
 
