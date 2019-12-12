@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import projectsService from './../../lib/projects-service';
+import AddProject from './AddProject';
 
 
 class ProjectDetails extends Component {
@@ -12,7 +13,7 @@ class ProjectDetails extends Component {
         this.state = {
             title: '',
             description: '',
-            deadline: '',
+            deadline: null,
             singleProject: null
         }
     }
@@ -26,10 +27,7 @@ class ProjectDetails extends Component {
         })
         .catch( err => console.log(err))
     }
-    
-    
-    
-    
+
     
     componentDidMount() {
         
@@ -51,7 +49,7 @@ class ProjectDetails extends Component {
                             <h2>TITLE: {this.state.singleProject.title}</h2>
                             <p>DESCRIPTION: {this.state.singleProject.description}</p>
 
-                            <h1>ProjectDetails</h1>
+                            <AddProject />
                         </>
                     )
 

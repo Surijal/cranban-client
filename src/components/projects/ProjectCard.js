@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import projectsService from './../../lib/projects-service';
-
-import ProjectDetails from './ProjectDetails';
-
 
 class ProjectCard extends Component {
 
