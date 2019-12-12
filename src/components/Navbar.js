@@ -12,6 +12,13 @@ class Navbar extends Component {
           <div>
             <p>username: {user.username}</p>
             <button onClick={logout}>Logout</button>
+
+
+            <br />
+            <Link to="/projects">
+              {' '}
+              <button>Projects</button>{' '}
+            </Link>
           </div>
         ) : (
           <div>
@@ -20,6 +27,7 @@ class Navbar extends Component {
               <button>Login</button>{' '}
             </Link>
             <br />
+
             <Link to="/signup">
               {' '}
               <button>Signup</button>{' '}

@@ -43,7 +43,7 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
-<label>email:</label>
+          <label>email:</label>
           <input
             type="email"
             name="email"
