@@ -53,11 +53,10 @@ class Project {
 
 
     updateProject = (updatedProject) => {
-        const { title, description, deadline } = updatedProject;
-
+        const { title, description, deadline, id } = updatedProject;
 
         return this.projects
-            .put('/projects/:id', { title, description, deadline })
+            .put(`/projects/${id}`, { title, description, deadline })
             .then( (response) => {
                 const { updatedProject } = response.data;
 

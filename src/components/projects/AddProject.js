@@ -23,8 +23,6 @@ class AddProject extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-
-        // const { title, description, deadline } = this.req.body;
     
         this.createProject()
     }
@@ -68,7 +66,7 @@ class AddProject extends Component {
                     >
 
                 </textarea>
-                <button>Submit</button>    
+                <button>Add Project</button>    
             </form>
         )
     }

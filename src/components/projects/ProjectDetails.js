@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import projectsService from './../../lib/projects-service';
-import EditProject from '../components/projects/EditProject';
+import EditProject from './EditProject';
 
 
 
@@ -21,6 +21,7 @@ class ProjectDetails extends Component {
     
     getSingleProject = () => {
         const id  = this.props.match.params.id;
+        
         
         projectsService.getSingleProject(id) 
         .then( (singleProject) => {
@@ -50,7 +51,7 @@ class ProjectDetails extends Component {
                             <h2>TITLE: {this.state.singleProject.title}</h2>
                             <p>DESCRIPTION: {this.state.singleProject.description}</p>
 
-                            <EditProject refreshProjectDetails={this.getProjecktDetails}/>
+                            <EditProject projectId={this.state.singleProject._id} refreshProjectDetails={this.getSingleProject}/>
                         </>
                     )
 
