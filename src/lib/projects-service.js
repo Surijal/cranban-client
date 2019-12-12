@@ -65,6 +65,14 @@ class Project {
             .catch( err => console.log(err))
     }
     
+
+    deleteProject = (projectToDelete) => {
+        const id = projectToDelete
+
+        return this.projects
+            .delete(`/projects/${id}`)
+            
+    } 
 }
 
 
