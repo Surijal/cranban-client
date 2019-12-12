@@ -30,6 +30,17 @@ class ProjectDetails extends Component {
         .catch( err => console.log(err))
     }
 
+
+    deleteProject = () => {
+        const id = this.props.match.params.id
+
+        projectsService.deleteProject(id)
+            .then( (projectToDelete) => {
+                this.setState({projectToDelete})
+                this.props.refreshProjectDetails()
+            })
+            .catch( err => console.log(err))
+    }
     
     componentDidMount() {
         
@@ -52,6 +63,7 @@ class ProjectDetails extends Component {
                             <p>DESCRIPTION: {this.state.singleProject.description}</p>
 
                             <EditProject projectId={this.state.singleProject._id} refreshProjectDetails={this.getSingleProject}/>
+                            <button refreshProjectDetails={this.getSingleProject}>Delete</button>
                         </>
                     )
 
