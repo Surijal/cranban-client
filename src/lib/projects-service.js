@@ -5,7 +5,8 @@ class Project {
     constructor () {
         
         this.projects = axios.create({
-            baseUrl: 'http://localhost:5000/api',
+            baseURL: 'http://localhost:5000/api',
+            withCredentials: true,
         })
 
 
@@ -13,18 +14,20 @@ class Project {
 
 
     getAllProjects = () => {
-
-        axios.get('/projects')
+        return this.projects
+            .get('/projects')
             .then( (response ) => {
                 const listOfProjects = response.data;
                 console.log('GETALLPROJECTS', response.data)
-                this.setState({ listOfProjects })
+                return listOfProjects;
             })
             .catch((err) => console.log(err))
     }
+    
 }
 
 
 const projectsAxiosRequest = new Project();
+
 
 export default projectsAxiosRequest;
