@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import projectsService from './../lib/projects-service';
 
 import ProjectCard from './../components/projects/ProjectCard';
+import AddProject from './../components/projects/AddProject';
+
 
 class ProjectsList extends Component {
 
@@ -25,8 +27,10 @@ class ProjectsList extends Component {
     render() {
         return (
             <div>
-                <h2>Title</h2>
-                <p>Description</p>
+                <AddProject refreshProjectList={this.getListOfProjects} />
+                
+
+                <h2>Projects</h2>
 
                 {this.state.listOfProjects.map( project => {
                     return(

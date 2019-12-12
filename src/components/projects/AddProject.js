@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withAuth } from './../../lib/AuthProvider';
 
 
 import projectsService from './../../lib/projects-service';
@@ -14,41 +15,50 @@ class AddProject extends Component {
     }
 
 
+
     handleInput = e => {
         const { name, value } = e.target;
 
         this.setState({[name]: value})
     }
 
+    handleSubmit = e => {
+        e.preventDefault()
 
+        // const { title, description, deadline } = this.req.body;
+    
+        this.createProject()
+    }
+    
+    
     createProject = () => {
-        const { title, description, deadline } = this.req.body;
-
-        projectsService.createProject()
-            .then( () => {
-                this.setState( { title, description, deadline })
-            })
-            .then(() =>{
-                this.setState({ title: '', description: '', deadline: null})
+        const { title, description, deadline } = this.state;
+        
+        projectsService.createProject({ title, description, deadline })
+            .then( (newProject) => {
+                this.setState({ title: '', description: '', deadline: null});
+                this.props.refreshProjectList()
             })
             .catch((err) => console.log(err))
     }
 
 
     render() {
+        
         return (
-            <form action="">
-                <label>Titel:</label>
+            <form onSubmit={this.handleSubmit}>
+                <label>Title:</label>
                 <input 
                         type="text"
-                        name='titel'
-                        placeholder="Titel"
-                        value={this.state.titel}
+                        name='title'
+                        placeholder="Title"
+                        value={this.state.title}
                         onChange={this.handleInput}
                     />
 
                 <label>Description:</label>
-                <textarea 
+                <textarea
+                        type="text"
                         name="description" 
                         placeholder="Description"
                         id="" 
@@ -66,4 +76,5 @@ class AddProject extends Component {
 }
 
 
-export default  AddProject;
+
+export default  withAuth(AddProject);

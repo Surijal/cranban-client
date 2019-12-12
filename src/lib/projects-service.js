@@ -6,7 +6,7 @@ class Project {
 
         
         this.projects = axios.create({
-            baseURL: 'http://localhost:5000/api/projects',
+            baseURL: 'http://localhost:5000/api/',
             withCredentials: true,
         })
     } 
@@ -14,7 +14,7 @@ class Project {
 
     getAllProjects = () => {
         return this.projects
-            .get('/')
+            .get('/projects')
             .then( (response ) => {
                 const listOfProjects = response.data;
                 
@@ -27,7 +27,7 @@ class Project {
     getSingleProject = (id) => {
         
         return this.projects
-        .get(`/${id}`)
+        .get(`/projects/${id}`)
         .then( response => {
                 const singleProject = response.data
 
@@ -37,12 +37,17 @@ class Project {
     }
 
 
-    createProject = () => {
+    createProject = (oneProject) => {
+        const { title, description, deadline } = oneProject;
+
 
         return this.projects
-        .post('/')
+        .post('/projects', { title, description, deadline })
         .then( response => {
             const {newProject} = response.data;
+
+            console.log('>>>>>>>>>>>>>> Service', response.data)
+            
 
             return newProject;
         })
