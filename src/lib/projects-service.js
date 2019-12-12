@@ -50,6 +50,21 @@ class Project {
         })
         .catch( err => console.log(err))
     }
+
+
+    updatedProject = (updatedProject) => {
+        const { title, description, deadline } = updatedProject;
+
+
+        return this.projects
+            .put('/projects/:id', { title, description, deadline })
+            .then( (response) => {
+                const { updatedProject } = response.data;
+
+                return updatedProject;
+            })
+            .catch( err => console.log(err))
+    }
     
 }
 
