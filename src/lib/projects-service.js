@@ -46,9 +46,6 @@ class Project {
         .then( response => {
             const {newProject} = response.data;
 
-            console.log('>>>>>>>>>>>>>> Service', response.data)
-            
-
             return newProject;
         })
         .catch( err => console.log(err))
