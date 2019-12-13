@@ -17,16 +17,26 @@ class Task {
         console.log('<<<<<<<<<<<<<<<<<<< TASK SERVICE ', newTask);
 
         return this.tasks
-        .post('/tasks', { title, description, deadline, projectId } )
-        .then( response => {
-            const { newTask  } = response.data
+            .post('/tasks', { title, description, deadline, projectId } )
+            .then( response => {
+                const { newTask  } = response.data
 
-            return newTask
-        })
-        .catch( err => console.log(err))
+                return newTask
+            })
+            .catch( err => console.log(err))
     }
 
 
+    deleteTask = (taskToDelete) => {
+        const id = taskToDelete;
+
+        return this.tasks
+            .delete(`/tasks/${id}`)
+            .then( () => {
+
+            })
+            .catch( err => console.log(err))
+    }
 
 }
 

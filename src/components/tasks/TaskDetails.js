@@ -6,11 +6,15 @@ import AddTask from './AddTask'
 
 class TaskDetails extends Component {
         
-        state = {
-            title: '',
-            description: '',
-            deadline: null
+        constructor(props) {
+            super(props)
+                this.state = {
+                    title: '',
+                    description: '',
+                    deadline: null
+                }
         }
+    
 
 
 
