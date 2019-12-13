@@ -42,8 +42,6 @@ class AddTask extends Component {
         const { title, description, deadline } = this.state;
         const projectId = this.props.projectId;
 
-        console.log('<<<<<<<<<<<<<<<<<<< ADDTASK COMPONENT STATE ', this.state)
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ADDTASK COMPONENT props', this.props.projectId)
         
         tasksService.createTask({ title, description, deadline, projectId })
             .then( (newTask) => {

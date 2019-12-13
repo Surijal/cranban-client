@@ -35,8 +35,6 @@ class AddProject extends Component {
     
     createProject = () => {
         const { title, description, deadline } = this.state;
-
-        console.log('>>>>>>>>>>>>>>>', this.state.isShowing);
         
         
         projectsService.createProject({ title, description, deadline })

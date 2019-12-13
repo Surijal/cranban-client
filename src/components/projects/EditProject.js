@@ -41,7 +41,6 @@ class EditProject extends Component {
         const { title, description, deadline } = this.state;
         const id  = this.props.projectId;
         
-        console.log('>>>>>>>>>>>>>>> COMPONENT', this.props.projectId);
         
         projectsService.updateProject({ title, description, deadline, id })
             .then( updatedProject => {

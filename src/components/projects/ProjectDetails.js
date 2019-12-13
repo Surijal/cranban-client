@@ -73,7 +73,7 @@ class ProjectDetails extends Component {
                             
                             {
                                 (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.map((task) =>{
-                                    console.log('>>>>>>>>>>>>>>>>>>>> TASKS TO MAP', this.state._id)
+                                    
                                     return(
                                         <div key={task._id} className="task-container">
                                             <Link to={`/projecsts/${this.state._id}/tasks/${task._id}`}>
