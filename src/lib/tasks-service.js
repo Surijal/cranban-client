@@ -14,6 +14,8 @@ class Task {
     createTask = (newTask) => {
         const { title, description, deadline, projectId } = newTask;
 
+        console.log('<<<<<<<<<<<<<<<<<<< TASK SERVICE newTask ', newTask);
+
         return this.tasks
         .post('/tasks', { title, description, deadline, projectId } )
         .then( response => {
@@ -29,6 +31,6 @@ class Task {
 }
 
 
-const tasksService = Task();
+const tasksService = new Task();
 
-module.exports = tasksService;
+export default  tasksService;
