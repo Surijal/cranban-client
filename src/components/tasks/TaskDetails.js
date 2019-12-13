@@ -47,8 +47,6 @@ class TaskDetails extends Component {
                             <h2>TITLE: {this.state.singleProject.title}</h2>
                             <p>DESCRIPTION: {this.state.singleProject.description}</p>
 
-
-                <AddTask />
             </div>
         )
     }
