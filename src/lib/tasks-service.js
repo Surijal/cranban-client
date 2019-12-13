@@ -24,6 +24,20 @@ class Task {
     }
 
 
+    getTasksByProject = () => {
+        const { projectId, taskId } = this.props.match.params
+
+        return this.tasks
+            .get(`/projects/${projectId}/tasks/${taskId}`)
+            .then( response => {
+                const projectsTasks = response.data;
+
+                return projectsTasks;
+            })
+            .catch( err => console.log(err))
+    }
+
+
     createTask = (newTask) => {
         const { title, description, deadline, projectId } = newTask;
 

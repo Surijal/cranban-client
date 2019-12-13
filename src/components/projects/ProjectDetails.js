@@ -29,10 +29,10 @@ class ProjectDetails extends Component {
         
         
         projectsService.getSingleProject(id) 
-        .then( (singleProject) => {
-            this.setState({ singleProject })
-        })
-        .catch( err => console.log(err))
+            .then( (singleProject) => {
+                this.setState({ singleProject })
+            })
+            .catch( err => console.log(err))
     }
 
 
