@@ -14,6 +14,10 @@ class AddProject extends Component {
         isShowing: false
     }
 
+    toggleForm = () => {
+        this.setState({isShowing: !this.state.isShowing})
+    }
+
 
 
     handleInput = e => {
@@ -31,10 +35,13 @@ class AddProject extends Component {
     
     createProject = () => {
         const { title, description, deadline } = this.state;
+
+        console.log('>>>>>>>>>>>>>>>', this.state.isShowing);
+        
         
         projectsService.createProject({ title, description, deadline })
             .then( (newProject) => {
-                this.setState({ title: '', description: '', deadline: null});
+                this.setState({ title: '', description: '', deadline: null, isShowing: false});
                 this.props.refreshProjectList()
             })
             .catch((err) => console.log(err))

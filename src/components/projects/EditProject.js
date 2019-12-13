@@ -49,7 +49,8 @@ class EditProject extends Component {
                                         title: '',
                                         description: '',
                                         deadline: null,
-                                        updatedProject: null
+                                        updatedProject: null,
+                                        isShowing: false
                                     })
                 this.props.refreshProjectDetails();
             })

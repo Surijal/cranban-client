@@ -19,7 +19,7 @@ class ProjectDetails extends Component {
             description: '',
             deadline: null,
             singleProject: null,
-            isShowing: false
+            
         }
     }
 
