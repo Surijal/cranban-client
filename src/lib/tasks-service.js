@@ -11,10 +11,21 @@ class Task {
     }
 
 
+    getSingleTask = (id) => {
+
+        return this.tasks
+            .get(`/tasks/${id}` )
+            .then( response => {
+                const singleTask = response.data;
+
+                return singleTask
+            })
+            .catch( err => console.log(err))
+    }
+
+
     createTask = (newTask) => {
         const { title, description, deadline, projectId } = newTask;
-
-        console.log('<<<<<<<<<<<<<<<<<<< TASK SERVICE ', newTask);
 
         return this.tasks
             .post('/tasks', { title, description, deadline, projectId } )
