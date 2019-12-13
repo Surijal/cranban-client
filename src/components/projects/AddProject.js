@@ -10,7 +10,8 @@ class AddProject extends Component {
     state = {
         title: '',
         description: '',
-        deadline: null
+        deadline: null,
+        isShowing: false
     }
 
 
@@ -43,31 +44,44 @@ class AddProject extends Component {
     render() {
         
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>Title:</label>
-                <input 
-                        type="text"
-                        name='title'
-                        placeholder="Title"
-                        value={this.state.title}
-                        onChange={this.handleInput}
-                    />
+            <div>
+                <button onClick={this.toggleForm}>Add Project</button>
 
-                <label>Description:</label>
-                <textarea
-                        type="text"
-                        name="description" 
-                        placeholder="Description"
-                        id="" 
-                        cols="30" 
-                        rows="10"
-                        value={this.state.description}
-                        onChange={this.handleInput}
-                    >
+                {
+                    !this.state.isShowing ?
+                    null
+                    :
+                    (
+                    
+                        <form onSubmit={this.handleSubmit}>
+                            <label>Title:</label>
+                            <input 
+                                    type="text"
+                                    name='title'
+                                    placeholder="Title"
+                                    value={this.state.title}
+                                    onChange={this.handleInput}
+                                />
 
-                </textarea>
-                <button>Add Project</button>    
-            </form>
+                            <label>Description:</label>
+                            <textarea
+                                    type="text"
+                                    name="description" 
+                                    placeholder="Description"
+                                    id="" 
+                                    cols="30" 
+                                    rows="10"
+                                    value={this.state.description}
+                                    onChange={this.handleInput}
+                                >
+
+                            </textarea>
+                            <button>Add Project</button>    
+                        </form>
+                    )
+                }
+            </div>
+
         )
     }
 }

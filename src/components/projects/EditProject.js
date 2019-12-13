@@ -13,7 +13,8 @@ class EditProject extends Component {
                 title: '',
                 description: '',
                 deadline: null,
-                updatedProject: null
+                updatedProject: null,
+                isShowing: false
             }
     }
 
@@ -29,6 +30,10 @@ class EditProject extends Component {
         e.preventDefault();
 
         this.updateProject();
+    }
+
+    toggleForm = () => {
+        this.setState({isShowing: !this.state.isShowing})
     }
 
 
@@ -54,31 +59,44 @@ class EditProject extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                <label>Title:</label>
-                <input 
-                        type="text"
-                        name='title'
-                        placeholder="Title"
-                        value={this.state.title}
-                        onChange={this.handleInput}
-                    />
 
-                <label>Description:</label>
-                <textarea
-                        type="text"
-                        name="description" 
-                        placeholder="Description"
-                        id="" 
-                        cols="30" 
-                        rows="10"
-                        value={this.state.description}
-                        onChange={this.handleInput}
-                    >
+                <button onClick={this.toggleForm}>Edit Project</button>
 
-                </textarea>
-                <button>Update</button>    
-            </form>
+                    {
+                        !this.state.isShowing ?
+                        null
+                        :
+                        (
+
+                            <div>
+                                <form onSubmit={this.handleSubmit}>
+                                <label>Title:</label>
+                                <input 
+                                        type="text"
+                                        name='title'
+                                        placeholder="Title"
+                                        value={this.state.title}
+                                        onChange={this.handleInput}
+                                    />
+
+                                <label>Description:</label>
+                                <textarea
+                                        type="text"
+                                        name="description" 
+                                        placeholder="Description"
+                                        id="" 
+                                        cols="30" 
+                                        rows="10"
+                                        value={this.state.description}
+                                        onChange={this.handleInput}
+                                    >
+
+                                </textarea>
+                                <button>Update</button>    
+                                </form>
+                            </div>
+                        )
+                    }
             </div>
         )
     }

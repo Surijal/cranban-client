@@ -18,9 +18,11 @@ class ProjectDetails extends Component {
             title: '',
             description: '',
             deadline: null,
-            singleProject: null
+            singleProject: null,
+            isShowing: false
         }
     }
+
     
     getSingleProject = () => {
         const id  = this.props.match.params.id;
