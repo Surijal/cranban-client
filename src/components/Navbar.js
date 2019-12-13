@@ -15,11 +15,11 @@ class Navbar extends Component {
 
 
             <br />
-            <Link to="/projects">
-              {' '}
-              <button>Projects</button>{' '}
-            </Link>
+          
+            
           </div>
+
+          
         ) : (
           <div>
             <Link to="/login">

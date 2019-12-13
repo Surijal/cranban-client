@@ -4,7 +4,7 @@ import axios from 'axios';
 class User {
     constructor() {
         this.user = axios.create( {
-            baseURL: 'http://localhost:5000/api/',
+            baseURL: 'http://localhost:5000/api/users',
             withCredentials: true,
         })
     }
@@ -35,10 +35,13 @@ class User {
     }
 
 
-    patchUser = id => {
+    patchUser = userData => {
+
+        const { username, password, email, id } = userData;
+        
 
         return this.user
-            .patch(`/${id}`)
+            .patch(`/${id}`, { username, password, email })
             .then( response => {
                 const singleUser = response.data;
 
