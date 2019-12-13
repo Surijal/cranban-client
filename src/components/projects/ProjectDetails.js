@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import projectsService from './../../lib/projects-service';
 
@@ -19,6 +20,7 @@ class ProjectDetails extends Component {
             description: '',
             deadline: null,
             singleProject: null,
+            tasks: []
             
         }
     }
@@ -26,7 +28,6 @@ class ProjectDetails extends Component {
     
     getSingleProject = () => {
         const id  = this.props.match.params.id;
-        
         
         projectsService.getSingleProject(id) 
             .then( (singleProject) => {
@@ -69,6 +70,22 @@ class ProjectDetails extends Component {
 
                             <EditProject projectId={this.state.singleProject._id} refreshProjectDetails={this.getSingleProject}/>
                             <button onClick={ () => this.deleteProject()}  >Delete</button>
+                            
+                            {
+                                (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.map((task) =>{
+                                    console.log('>>>>>>>>>>>>>>>>>>>> TASKS TO MAP', this.state._id)
+                                    return(
+                                        <div key={task._id} className="task-container">
+                                            <Link to={`/projecsts/${this.state._id}/tasks/${task._id}`}>
+                                                <h5>{task.title}</h5>
+                                                <p>{task.description}</p>
+                                            </Link>
+                                        </div>
+                                    )
+                                })
+                                : <h4>No Tasks to Display</h4>
+                            }
+
 
                             <AddTask projectId={this.state.singleProject._id} refreshSingleProject={this.getSingleProject}/>
                         </>

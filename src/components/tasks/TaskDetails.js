@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import AddTask from './AddTask';
-
 import tasksService from './../../lib/tasks-service';
 
 
@@ -14,7 +12,8 @@ class TaskDetails extends Component {
                     title: '',
                     description: '',
                     deadline: null,
-                    singleTask: null
+                    singleTask: null,
+                    projectTasks: null
                 }
         }
     
@@ -30,10 +29,25 @@ class TaskDetails extends Component {
         }
 
 
+        getProjectTask = () => {
+            const { projectId, taskId } = this.props.match.params
+
+            tasksService.getTasksByProject({projectId, taskId})
+                .then( projectTasks => {
+                    this.setState({projectTasks})
+                })
+                .catch( err => console.log(err))
+        }
+
+
 
     render() {
         return (
             <div>
+                            <h2>TITLE: {this.state.singleProject.title}</h2>
+                            <p>DESCRIPTION: {this.state.singleProject.description}</p>
+
+
                 <AddTask />
             </div>
         )
