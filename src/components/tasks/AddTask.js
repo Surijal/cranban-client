@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+
 import tasksService from './../../lib/tasks-service';
+import { withAuth } from './../../lib/AuthProvider';
 
 
 class AddTask extends Component {
-
+        
     constructor(props){
         super(props)
+        
         this.state = {
             title: '',
             description: '',
@@ -13,6 +16,8 @@ class AddTask extends Component {
             isShowing: false
         }
     }
+
+
 
     handleChange = e => {
         const {name, value } = e.target
@@ -33,14 +38,17 @@ class AddTask extends Component {
     }
 
 
-    createTask =  () => {
+    createTask =  (newTask) => {
         const { title, description, deadline } = this.state;
+        const projectId = this.props.projectId;
 
-        console.log('<<<<<<<<<<<<<<<<<<< ADDTASK COMPONENT PROPS ', this.props);
-
-        tasksService.createTask({ title, description, deadline })
+        console.log('<<<<<<<<<<<<<<<<<<< ADDTASK COMPONENT STATE ', this.state)
+        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ADDTASK COMPONENT props', this.props.projectId)
+        
+        tasksService.createTask({ title, description, deadline, projectId })
             .then( (newTask) => {
                 this.setState({ title: '', description: '', deadline: null})
+                this.props.refreshSingleProject()
             })
             .catch(err => console.log(err))
     }   
@@ -93,4 +101,4 @@ class AddTask extends Component {
 
 
 
-export default AddTask;
+export default withAuth(AddTask);

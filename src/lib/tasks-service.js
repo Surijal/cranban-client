@@ -14,7 +14,7 @@ class Task {
     createTask = (newTask) => {
         const { title, description, deadline, projectId } = newTask;
 
-        console.log('<<<<<<<<<<<<<<<<<<< TASK SERVICE newTask ', newTask);
+        console.log('<<<<<<<<<<<<<<<<<<< TASK SERVICE ', newTask);
 
         return this.tasks
         .post('/tasks', { title, description, deadline, projectId } )

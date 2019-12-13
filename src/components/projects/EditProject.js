@@ -40,7 +40,12 @@ class EditProject extends Component {
         
         projectsService.updateProject({ title, description, deadline, id })
             .then( updatedProject => {
-                this.setState({updatedProject})
+                this.setState({
+                                        title: '',
+                                        description: '',
+                                        deadline: null,
+                                        updatedProject: null
+                                    })
                 this.props.refreshProjectDetails();
             })
             .catch( err => console.log(err))

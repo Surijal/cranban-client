@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import projectsService from './../../lib/projects-service';
 
 import EditProject from './EditProject';
-import TaskDetails from './..//tasks/TaskDetails';
+// import TaskDetails from './..//tasks/TaskDetails';
+import AddTask from './../tasks/AddTask';
 
 
 
@@ -67,7 +68,7 @@ class ProjectDetails extends Component {
                             <EditProject projectId={this.state.singleProject._id} refreshProjectDetails={this.getSingleProject}/>
                             <button onClick={ () => this.deleteProject()}  >Delete</button>
 
-                            <TaskDetails />
+                            <AddTask projectId={this.state.singleProject._id} refreshSingleProject={this.getSingleProject}/>
                         </>
                     )
 
