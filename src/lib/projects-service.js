@@ -24,15 +24,28 @@ class Project {
     }
 
 
+    getUserProjects = (userId) => {
+
+        return this.projects
+            .get(`/projects/${userId}`)
+            .then( response => {
+                const userProjects = response.data
+
+                return userProjects
+            })
+            .catch( err => console.log(err))
+    }
+
+
     getSingleProject = (id) => {
         
         return this.projects
-        .get(`/projects/${id}`)
-        .then( response => {
-                const singleProject = response.data
+            .get(`/projects/${id}`)
+            .then( response => {
+                    const singleProject = response.data
 
-                return singleProject;
-            })
+                    return singleProject;
+                })
             .catch( err => console.log(err))
     }
 
