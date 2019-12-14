@@ -9,26 +9,43 @@ class NavbarBot extends Component {
 
     
         return (
-            <div style={{ height: '100px', position: 'fixed', bottom: 0, backgroundColor: 'pink'}}>
+            <div >
                 { isLoggedin ? (
 
-                    <div>
-                        <Link to="/projects">
-                            {' '}
-                            <button>Projects</button>{' '}
-                            </Link>
-
-                            <br />
+                    <div className='navbot'>
+                        <div className='nav-user-profile-link'>
                             <Link to={`/user/${user._id}`}>
                             {' '}
                             <button>User Profile</button>{' '}
-                        </Link>
+                            </Link>
+                        </div>
+
+                        <div className='nav-projects-link'>
+                            <Link to="/projects">
+                            {' '}
+                            <button>Projects</button>{' '}
+                            </Link>
+                        </div>    
+
+                        <div className='nav-graph-link'>
+                            <Link to="/projects">
+                            {' '}
+                            <button>Graph</button>{' '}
+                            </Link>
+                        </div>
+
+                        <div className='nav-add-project-link'>
+                            <Link to={`/user/${user._id}`}>
+                            {' '}
+                            <button>Add Project</button>{' '}
+                            </Link>
+                        </div>
                     </div>
 
                 )  
                 :
                 (
-                    <div style={{ height: '100px', position: 'fixed', backgroundColor: 'pink'}}>
+                    <div className="navbot">
                         <h1>HELLO NavbarBot</h1>
                     </div>
                 )}

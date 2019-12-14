@@ -1,0 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.navbot {
+    position: fixed;
+    bottom: 0;
+    height: 5vh;
+    width: 100%;
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-user-profile-link, .nav-add-project-link, .nav-projects-link, .nav-graph-link {
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+}
+
+.nav-user-profile-link {
+    background-image: url('./../images/person.svg');
+}
+
+.nav-add-project-link {
+    background-image: url('./../images/add_circle.svg');
+}
+
+.nav-projects-link {
+    background-image: url('./../images/view_week.svg');
+}
+
+.nav-graph-link {
+    background-image: url('./../images//bar_chart.svg');
+}

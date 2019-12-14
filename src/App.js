@@ -13,6 +13,8 @@ import NavbarBot from './components/NavbarBot';
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
 
+import './styles/navbot.css'
+
 class App extends Component {
   render() {
     return (

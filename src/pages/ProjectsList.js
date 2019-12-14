@@ -30,9 +30,7 @@ class ProjectsList extends Component {
             <div>
                 <AddProject refreshProjectList={this.getListOfProjects} />
 
-                <h2>Projects</h2>
-
-                {this.state.listOfProjects.map( project => {
+                {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
                     return(
     
 
@@ -40,7 +38,9 @@ class ProjectsList extends Component {
                         
                         
                     )
-                })}
+                })
+                : <h1> Add your first project </h1>
+                }
             </div>
         )
     }
