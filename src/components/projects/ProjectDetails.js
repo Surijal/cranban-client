@@ -69,7 +69,7 @@ class ProjectDetails extends Component {
                             <p>DESCRIPTION: {this.state.singleProject.description}</p>
 
                             <EditProject projectId={this.state.singleProject._id} refreshProjectDetails={this.getSingleProject}/>
-                            <button onClick={ () => this.deleteProject()}  >Delete</button>
+                            <button onClick={ () => this.deleteProject()}  >Delete Project</button>
                             
                             {
                                 (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.map((task) =>{

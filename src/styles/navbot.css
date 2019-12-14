@@ -10,7 +10,7 @@
     width: 100%;
     background-color: blue;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 

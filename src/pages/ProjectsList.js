@@ -33,9 +33,7 @@ class ProjectsList extends Component {
     render() {
         
         const { listOfProjects } = this.state;
-        console.log('>>>>>>>>>>>>>>>>>> list of', this.state)
-
-
+        
         return (
             <>
                 {
