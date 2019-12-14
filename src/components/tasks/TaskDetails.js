@@ -22,15 +22,17 @@ class TaskDetails extends Component {
             const id = this.props.match.params.id;
 
             tasksService.getSingleTask(id)
-                .then( singleTask => {
-                    this.setState({singleTask})
-                })
-                .catch( err => console.log(err))
+            .then( singleTask => {
+                this.setState({singleTask})
+            })
+            .catch( err => console.log(err))
         }
-
-
+        
+        
         getProjectTask = () => {
             const { projectId, taskId } = this.props.match.params
+            console.log('>>>>>>>>>>>>>>>>>', this.props.match.params);
+            
 
             tasksService.getTasksByProject({projectId, taskId})
                 .then( projectTasks => {
@@ -39,13 +41,19 @@ class TaskDetails extends Component {
                 .catch( err => console.log(err))
         }
 
+        componentDidMount(){
+            this.getProjectTask()
+        }
 
 
     render() {
+
+        const { projectTasks } = this.state
+        
         return (
             <div>
-                            <h2>TITLE: {this.state.singleProject.title}</h2>
-                            <p>DESCRIPTION: {this.state.singleProject.description}</p>
+                            <h2>TITLE: {projectTasks.title}</h2>
+                            <p>DESCRIPTION: {projectTasks.description}</p>
 
             </div>
         )

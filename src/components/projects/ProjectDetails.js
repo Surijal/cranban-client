@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import projectsService from './../../lib/projects-service';
 
 import EditProject from './EditProject';
-// import TaskDetails from './..//tasks/TaskDetails';
+import TaskDetails from './../tasks/TaskDetails';
 import AddTask from './../tasks/AddTask';
 
 
@@ -30,33 +30,35 @@ class ProjectDetails extends Component {
         const id  = this.props.match.params.id;
         
         projectsService.getSingleProject(id) 
-            .then( (singleProject) => {
-                this.setState({ singleProject })
-            })
-            .catch( err => console.log(err))
+        .then( (singleProject) => {
+            this.setState({ singleProject })
+        })
+        .catch( err => console.log(err))
     }
-
-
+    
+    
     deleteProject = () => {
         const id = this.props.match.params.id
-
+        
         projectsService.deleteProject(id)
-            .then( () => {
-                this.props.history.push('/projects')
-                
-            })
-            .catch( err => console.log(err))
+        .then( () => {
+            this.props.history.push('/projects')
+            
+        })
+        .catch( err => console.log(err))
     }
     
     componentDidMount() {
         
         this.getSingleProject()
     }
-
+    
     render() {
-
+        
         const { singleProject } = this.state;
         
+        console.log('>>>>>>>>>>>>>>>>>',this.state)
+
         return (
             <div>
             {
@@ -76,7 +78,7 @@ class ProjectDetails extends Component {
                                     
                                     return(
                                         <div key={task._id} className="task-container">
-                                            <Link to={`/projecsts/${this.state._id}/tasks/${task._id}`}>
+                                            <Link to={`/projects/${this.state.singleProject._id}/tasks/${this.state.singleProject.tasks._id}`}>
                                                 <h5>{task.title}</h5>
                                                 <p>{task.description}</p>
                                             </Link>
@@ -88,6 +90,8 @@ class ProjectDetails extends Component {
 
 
                             <AddTask projectId={this.state.singleProject._id} refreshSingleProject={this.getSingleProject}/>
+                            {/* <TaskDetails /> */}
+                            
                         </>
                     )
 

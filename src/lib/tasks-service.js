@@ -24,8 +24,10 @@ class Task {
     }
 
 
-    getTasksByProject = () => {
-        const { projectId, taskId } = this.props.match.params
+    getTasksByProject = (singleTask) => {
+        const { projectId, taskId } = singleTask;
+        console.log('>>>>>>>>>>>>>>>>>', singleTask);
+        
 
         return this.tasks
             .get(`/projects/${projectId}/tasks/${taskId}`)

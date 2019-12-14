@@ -46,7 +46,7 @@ class AddTask extends Component {
         tasksService.createTask({ title, description, deadline, projectId })
             .then( (newTask) => {
                 this.setState({ title: '', description: '', deadline: null, isShowing: false})
-                this.props.refreshSingleProject()
+                this.props.refreshSingleProject(newTask)
             })
             .catch(err => console.log(err))
     }   
