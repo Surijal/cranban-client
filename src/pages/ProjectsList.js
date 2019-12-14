@@ -20,6 +20,7 @@ class ProjectsList extends Component {
 
         projectsService.getUserProjects(userId)
             .then( (listOfProjects) => {
+                
                 this.setState({ listOfProjects })
             })
             .catch( (err) => console.log(err))
@@ -30,22 +31,37 @@ class ProjectsList extends Component {
     }
 
     render() {
+        
+        const { listOfProjects } = this.state;
+        console.log('>>>>>>>>>>>>>>>>>> list of', this.state)
+
+
         return (
-            <div>
-                <AddProject refreshProjectList={this.getUserListOfProjects} />
+            <>
+                {
 
-                {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
-                    return(
-    
+                    !listOfProjects ?
+                        <h1>Loading</h1>
+                        :
+                        (
+                            <div>
+                                <AddProject refreshProjectList={this.getUserListOfProjects} />
 
-                        <ProjectCard key={project._id} projectData={project} /> 
+                                    {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
+                                        return(
                         
-                        
-                    )
-                })
-                : <h1> Add your first project </h1>
+
+                                            <ProjectCard key={project._id} projectData={project} /> 
+                                            
+                                            
+                                        )
+                                    })
+                                    : <h1> Add your first project </h1>
+                                    }
+                            </div>
+                        )
                 }
-            </div>
+            </>
         )
     }
 }       
