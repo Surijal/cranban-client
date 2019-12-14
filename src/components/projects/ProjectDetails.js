@@ -57,7 +57,7 @@ class ProjectDetails extends Component {
         
         const { singleProject } = this.state;
         
-        console.log('>>>>>>>>>>>>>>>>>',this.state)
+        console.log('>>>>>>>>>>>>>>>>> this state ',this.state)
 
         return (
             <div>
@@ -78,7 +78,7 @@ class ProjectDetails extends Component {
                                     
                                     return(
                                         <div key={task._id} className="task-container">
-                                            <Link to={`/projects/${this.state.singleProject._id}/tasks/${this.state.singleProject.tasks._id}`}>
+                                            <Link to={`/projects/${this.state.singleProject._id}/tasks/${task._id}`}>
                                                 <h5>{task.title}</h5>
                                                 <p>{task.description}</p>
                                             </Link>
