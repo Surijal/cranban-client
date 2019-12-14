@@ -26,8 +26,10 @@ class Project {
 
     getUserProjects = (userId) => {
 
+        const  id  = userId;
+
         return this.projects
-            .get(`/projects/${userId}`)
+            .get(`/projects/user/${id}`)
             .then( response => {
                 const userProjects = response.data
 

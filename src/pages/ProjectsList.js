@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import projectsService from './../lib/projects-service';
+import { withAuth } from './../lib/AuthProvider';
 
 import ProjectCard from './../components/projects/ProjectCard';
 import AddProject from './../components/projects/AddProject';
@@ -13,8 +14,11 @@ class ProjectsList extends Component {
         listOfProjects: []
     }
 
-    getListOfProjects = () => {
-        projectsService.getAllProjects()
+    getUserListOfProjects = () => {
+
+        const  userId  = this.props.user._id;
+
+        projectsService.getUserProjects(userId)
             .then( (listOfProjects) => {
                 this.setState({ listOfProjects })
             })
@@ -22,13 +26,13 @@ class ProjectsList extends Component {
     }
 
     componentDidMount() {
-        this.getListOfProjects()
+        this.getUserListOfProjects()
     }
 
     render() {
         return (
             <div>
-                <AddProject refreshProjectList={this.getListOfProjects} />
+                <AddProject refreshProjectList={this.getUserListOfProjects} />
 
                 {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
                     return(
@@ -47,4 +51,4 @@ class ProjectsList extends Component {
 }       
 
 
-export default ProjectsList;
+export default withAuth(ProjectsList);
