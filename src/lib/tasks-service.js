@@ -57,8 +57,6 @@ class Task {
     updateTask = updatedTask => {
         const { title, description, deadline, taskId } = updatedTask;
 
-        console.log('>>>>>>>>>> in task Service', updatedTask)
-
         return this.tasks
             .put(`/tasks/${taskId}`,  { title, description, deadline })
             .then( response => {

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import projectsService from './../../lib/projects-service';
 
 import EditProject from './EditProject';
-import TaskDetails from './../tasks/TaskDetails';
 import AddTask from './../tasks/AddTask';
 
 
@@ -41,11 +40,11 @@ class ProjectDetails extends Component {
         const id = this.props.match.params.id
         
         projectsService.deleteProject(id)
-        .then( () => {
-            this.props.history.push('/projects')
-            
-        })
-        .catch( err => console.log(err))
+            .then( () => {
+                this.props.history.push('/projects')
+                
+            })
+            .catch( err => console.log(err))
     }
     
     componentDidMount() {
@@ -89,7 +88,7 @@ class ProjectDetails extends Component {
 
 
                             <AddTask projectId={this.state.singleProject._id} refreshSingleProject={this.getSingleProject}/>
-                            {/* <TaskDetails taskId={this.state.singleProject.tasks._id} projectId={this.state.singleProject._id}/> */}
+                        
                             
                         </>
                     )

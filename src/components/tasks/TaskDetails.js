@@ -25,7 +25,7 @@ class TaskDetails extends Component {
         const {id} = this.props.match.params
         
         tasksService.getSingleTask(id)
-        .then( singleTask => {
+            .then( singleTask => {
     
                 this.setState({
                     title: singleTask.title,

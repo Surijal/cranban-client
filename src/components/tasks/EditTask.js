@@ -38,7 +38,6 @@ class EditTask extends Component {
     updateTask = () => {
         const { title, description, deadline } = this.state;
         const taskId = this.props.taskId;
-        console.log('>>>>>>>>>>>>>>>>  props in Edittask', this.props)
 
         tasksService.updateTask({ title, description, deadline, taskId })
             .then( updatedTasks => {
