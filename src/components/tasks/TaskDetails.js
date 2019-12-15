@@ -14,7 +14,8 @@ class TaskDetails extends Component {
                     description: '',
                     deadline: null,
                     projectTasks: null,
-                    taskId: ''
+                    taskId: '',
+                    projectId: ''
                 }
         }
     
@@ -25,13 +26,14 @@ class TaskDetails extends Component {
         const {id} = this.props.match.params
         
         tasksService.getSingleTask(id)
-            .then( singleTask => {
+        .then( singleTask => {
     
                 this.setState({
                     title: singleTask.title,
                     description: singleTask.description,
                     deadline: singleTask.deadline,
-                    taskId: singleTask._id
+                    taskId: singleTask._id,
+                    projectId: singleTask.project
                 })
             })
             .catch( err => console.log(err))
@@ -52,13 +54,13 @@ class TaskDetails extends Component {
 
         deleteTask = () => {
             const  id  = this.props.match.params.id
-
-            console.log('>>>>>>>>>>>>>>>>>>>>>> in taskDetails, deletetask', this.props);
+            const projectId = this.state.projectId
             
             
             tasksService.deleteTask(id)
-            .then( () => {
-                    this.props.history.push('/projects/:id')
+            .then( (deleteTask) => {
+                    
+                    this.props.history.push(`/projects/${projectId}`)
                 })
                 .catch( err => console.log(err))
         }
