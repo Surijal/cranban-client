@@ -51,13 +51,13 @@ class TaskDetails extends Component {
 
 
         deleteTask = () => {
-            const { id } = this.props.match.params.id
+            const  id  = this.props.match.params.id
 
-            console.log('>>>>>>>>>>>>>>>>>>>>>> in taskDetails, deletetask', this.props.match.params.id);
+            console.log('>>>>>>>>>>>>>>>>>>>>>> in taskDetails, deletetask', this.props);
             
-
+            
             tasksService.deleteTask(id)
-                .then( () => {
+            .then( () => {
                     this.props.history.push('/projects/:id')
                 })
                 .catch( err => console.log(err))
