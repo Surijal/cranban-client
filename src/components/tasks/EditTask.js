@@ -162,7 +162,7 @@ class EditTask extends Component {
                                     <option >frontend</option>
                                     <option >backend</option>
                                     <option >styles</option>
-                                    <option >preparation</option>
+                                    <option >preperation</option>
                                 </select>
 
                                 <label>Deadline:</label>

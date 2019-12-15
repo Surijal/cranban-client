@@ -13,7 +13,10 @@ class AddTask extends Component {
             title: '',
             description: '',
             deadline: '',
-            isShowing: false
+            isShowing: false,
+            type: '',
+            status: '',
+            done: false
         }
     }
 
@@ -39,11 +42,11 @@ class AddTask extends Component {
 
 
     createTask =  (newTask) => {
-        const { title, description, deadline } = this.state;
+        const { title, description, deadline, status, type, done } = this.state;
         const projectId = this.props.projectId;
 
         
-        tasksService.createTask({ title, description, deadline, projectId })
+        tasksService.createTask({ title, description, deadline, projectId, status,type, done })
             .then( (newTask) => {
                 this.setState({ title: '', description: '', deadline: '', isShowing: false})
                 this.props.refreshSingleProject(newTask)
@@ -84,6 +87,39 @@ class AddTask extends Component {
                                             value={this.state.description}
                                             onChange={ (e) => this.handleChange(e)}
                                         />
+
+                                <label htmlFor="status">Status</label>
+                                <select 
+                                    type="text"
+                                    name='status'
+                                    id="status"
+                                    
+                                    defaultValue='to do'
+                                    // value={this.state.type}
+                                    onChange={ (e) => this.handleChange(e)}
+                                >
+                                    <option >to do</option>
+                                    <option >doing</option>
+                                    <option >done</option>
+                                    <option >testing</option>
+                                    <option >backlog</option>
+                                </select>
+
+                                <label htmlFor="type">Type {this.props.type}</label>
+                                <select 
+                                    type="text"
+                                    name='type'
+                                    id="testid"
+                                    
+                                    defaultValue='preperation'
+                                    // value={this.state.type}
+                                    onChange={ (e) => this.handleChange(e)}
+                                >
+                                    <option >frontend</option>
+                                    <option >backend</option>
+                                    <option >styles</option>
+                                    <option >preperation</option>
+                                </select>
 
                                     <label>Deadline:</label>
                                     <input

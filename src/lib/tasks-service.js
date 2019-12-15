@@ -41,10 +41,10 @@ class Task {
 
 
     createTask = (newTask) => {
-        const { title, description, deadline, projectId } = newTask;
+        const { title, description, deadline, projectId, status, type, done } = newTask;
 
         return this.tasks
-            .post('/tasks', { title, description, deadline, projectId } )
+            .post('/tasks', { title, description, deadline, projectId, status, type, done } )
             .then( response => {
                 const { newTask  } = response.data
 
