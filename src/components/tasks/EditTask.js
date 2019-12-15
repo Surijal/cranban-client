@@ -15,6 +15,7 @@ class EditTask extends Component {
             isShowing: null,
             done: false,
             type: '',
+            status: '',
             singleTask: {}
         }
     }
@@ -43,7 +44,7 @@ class EditTask extends Component {
 
 
     updateTask = () => {
-        const { title, description, deadline, done, type } = this.state;
+        const { title, description, deadline, done, type, status } = this.state;
         const taskId = this.props.taskId;
 
         console.log('>>>>>>>>>>>>>> update tasl edittask state', this.state)
@@ -52,7 +53,7 @@ class EditTask extends Component {
         else {
 
 
-            tasksService.updateTask({ title, description, deadline, done, type, taskId })
+            tasksService.updateTask({ title, description, deadline, done, type, status, taskId })
             .then( updatedTasks => {
                 this.setState({
                     title: '',
@@ -63,6 +64,7 @@ class EditTask extends Component {
                     isChecked: false,
                     done: false,
                     type: '',
+                    status: ''
                 })
                 this.props.refreshTaskDetails();
             })
@@ -77,7 +79,7 @@ class EditTask extends Component {
     
         console.log('>>>>>>>>>>>>>> EDIT TASK STATE', this.state)
         console.log('>>>>>>>>>>>>>> EDIT TASK PROPS', this.props)
-        const { title, description } = this.props.singleTask
+        const { title, description, type, status } = this.props.singleTask
         return (
             <div>
 
@@ -130,13 +132,13 @@ class EditTask extends Component {
                                     checked={this.state.done}
                                 />
 
-                                <label htmlFor="test">Status</label>
+                                <label htmlFor="status">Status</label>
                                 <select 
                                     type="text"
-                                    name='type'
-                                    id="testid"
-                                    placeholder={this.state.type}
-                                    defaultValue={this.state.type}
+                                    name='status'
+                                    id="status"
+                                    
+                                    defaultValue={status}
                                     // value={this.state.type}
                                     onChange={ (e) => this.handleInput(e)}
                                 >
@@ -145,6 +147,22 @@ class EditTask extends Component {
                                     <option >done</option>
                                     <option >testing</option>
                                     <option >backlog</option>
+                                </select>
+
+                                <label htmlFor="type">Type {this.props.type}</label>
+                                <select 
+                                    type="text"
+                                    name='type'
+                                    id="testid"
+                                    
+                                    defaultValue={type}
+                                    // value={this.state.type}
+                                    onChange={ (e) => this.handleInput(e)}
+                                >
+                                    <option >frontend</option>
+                                    <option >backend</option>
+                                    <option >styles</option>
+                                    <option >preparation</option>
                                 </select>
 
                                 <label>Deadline:</label>

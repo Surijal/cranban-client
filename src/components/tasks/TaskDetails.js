@@ -18,6 +18,7 @@ class TaskDetails extends Component {
                     projectId: '',
                     done: '',
                     type: '',
+                    status: '',
                     singleTask: {}
 
                 }
@@ -40,7 +41,8 @@ class TaskDetails extends Component {
                     projectId: singleTask.project,
                     done: singleTask.done,
                     type: singleTask.type,
-                    singleTask: singleTask
+                    singleTask: singleTask,
+                    status: singleTask.status
                 })
             })
             .catch( err => console.log(err))
@@ -81,8 +83,8 @@ class TaskDetails extends Component {
 
     render() {
 
-        const { title, description, deadline, taskId } = this.state;
-        const singleTask = { title, description, deadline, taskId } 
+        const { title, description, deadline, taskId, status, type, done } = this.state;
+        const singleTask = { title, description, deadline, taskId , status, type, done} 
 
         return (
             <div>
@@ -95,6 +97,9 @@ class TaskDetails extends Component {
                             <h2>TITLE: {title}</h2>
                             <p>DESCRIPTION: {description}</p>
                             <p>Deadline: {deadline}</p>
+                            <p>Status: {status}</p>
+                            <p>Type: {type}</p>
+                            <p>Done: {done}</p>
                             
             </div>
         )
