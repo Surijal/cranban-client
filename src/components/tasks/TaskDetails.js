@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import tasksService from './../../lib/tasks-service';
+import EditTask from './EditTask';
 
 
 
@@ -12,7 +13,8 @@ class TaskDetails extends Component {
                     title: '',
                     description: '',
                     deadline: null,
-                    projectTasks: null
+                    projectTasks: null,
+                    taskId: ''
                 }
         }
     
@@ -24,11 +26,12 @@ class TaskDetails extends Component {
         
         tasksService.getSingleTask(id)
         .then( singleTask => {
-            
+    
                 this.setState({
                     title: singleTask.title,
                     description: singleTask.description,
-                    deadline: singleTask.deadline
+                    deadline: singleTask.deadline,
+                    taskId: singleTask._id
                 })
             })
             .catch( err => console.log(err))
@@ -54,10 +57,11 @@ class TaskDetails extends Component {
 
     render() {
 
-        const { title, description, deadline } = this.state;
+        const { title, description, deadline, taskId } = this.state;
 
         return (
             <div>
+                            <EditTask taskId={taskId} refreshTaskDetails={this.getSingleTask}/>
                             <h2>TITLE: {title}</h2>
                             <p>DESCRIPTION: {description}</p>
                             
