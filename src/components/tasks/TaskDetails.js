@@ -12,10 +12,14 @@ class TaskDetails extends Component {
                 this.state = {
                     title: '',
                     description: '',
-                    deadline: null,
+                    deadline: '',
                     projectTasks: null,
                     taskId: '',
-                    projectId: ''
+                    projectId: '',
+                    done: '',
+                    type: '',
+                    singleTask: {}
+
                 }
         }
     
@@ -27,13 +31,16 @@ class TaskDetails extends Component {
         
         tasksService.getSingleTask(id)
         .then( singleTask => {
-    
+            console.log(singleTask)
                 this.setState({
                     title: singleTask.title,
                     description: singleTask.description,
                     deadline: singleTask.deadline,
                     taskId: singleTask._id,
-                    projectId: singleTask.project
+                    projectId: singleTask.project,
+                    done: singleTask.done,
+                    type: singleTask.type,
+                    singleTask: singleTask
                 })
             })
             .catch( err => console.log(err))
@@ -75,11 +82,16 @@ class TaskDetails extends Component {
     render() {
 
         const { title, description, deadline, taskId } = this.state;
+        const singleTask = { title, description, deadline, taskId } 
 
         return (
             <div>
                             <button onClick={ () => this.deleteTask() }>Delete Task</button>
-                            <EditTask taskId={taskId} refreshTaskDetails={this.getSingleTask}/>
+                            <EditTask 
+                                taskId={taskId} 
+                                refreshTaskDetails={this.getSingleTask} 
+                                {...this.props} 
+                                singleTask={singleTask}/>
                             <h2>TITLE: {title}</h2>
                             <p>DESCRIPTION: {description}</p>
                             <p>Deadline: {deadline}</p>

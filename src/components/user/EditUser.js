@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { withAuth } from './../../lib/AuthProvider';
 import userService from './../../lib/users-service';
 
+import DeleteUser from './DeleteUser';
+
 
 class EditUser extends Component {
 
@@ -61,6 +63,8 @@ class EditUser extends Component {
             
                 <button onClick={this.toggleForm}>Edit User</button>
 
+                <DeleteUser />
+
                     {
                         !this.state.isShowing ?
                         null
@@ -78,13 +82,13 @@ class EditUser extends Component {
                                         onChange={ (e) => this.handleInput(e)}
                                     />
 
-                                <label>Description:</label>
+                                <label>Email:</label>
                                 <input
                                         type="text"
                                         name="email" 
-                                        placeholder="email"
+                                        placeholder={this.props.user.email}
                                         id="" 
-                                        value={this.props.user.email}
+                                        value={this.state.email}
                                         onChange={ (e) => this.handleInput(e)}
                                 />
 

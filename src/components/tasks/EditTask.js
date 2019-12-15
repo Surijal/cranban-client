@@ -12,7 +12,10 @@ class EditTask extends Component {
             title: "",
             description: "",
             deadline: '',
-            isShowing: null
+            isShowing: null,
+            done: false,
+            type: '',
+            singleTask: {}
         }
     }
 
@@ -34,27 +37,47 @@ class EditTask extends Component {
         this.setState({ isShowing: !this.state.isShowing })
     }
 
+    toggleChange = () => {
+        this.setState({ done: !this.state.done})
+    }
+
 
     updateTask = () => {
-        const { title, description, deadline } = this.state;
+        const { title, description, deadline, done, type } = this.state;
         const taskId = this.props.taskId;
 
-        tasksService.updateTask({ title, description, deadline, taskId })
+        console.log('>>>>>>>>>>>>>> update tasl edittask state', this.state)
+
+        if (!title && !description && !deadline && !done && !type ) return
+        else {
+
+
+            tasksService.updateTask({ title, description, deadline, done, type, taskId })
             .then( updatedTasks => {
                 this.setState({
                     title: '',
                     description: '',
                     deadline: '',
                     updatedProject: null,
-                    isShowing: false
+                    isShowing: false,
+                    isChecked: false,
+                    done: false,
+                    type: '',
                 })
                 this.props.refreshTaskDetails();
             })
             .catch( err => console.log(err))
+        }
+
+        
     }
-
-
+    
+    
     render() {
+    
+        console.log('>>>>>>>>>>>>>> EDIT TASK STATE', this.state)
+        console.log('>>>>>>>>>>>>>> EDIT TASK PROPS', this.props)
+        const { title, description } = this.props.singleTask
         return (
             <div>
 
@@ -84,10 +107,45 @@ class EditTask extends Component {
                                         placeholder="Description"
                                         id="" 
                                         cols="30" 
-                                        rows="10"
+                                        rows="5"
                                         value={this.state.description}
                                         onChange={ (e) => this.handleInput(e)}
-                                    />
+                                    >
+                                    {description}
+
+                                    </textarea>
+
+                                <label htmlFor="done">Done</label>
+                                <input 
+                                    type="checkbox"
+                                    name='done'
+                                    // checked=""
+                                    id="done"
+                                    // placeholder={this.state.done}
+                                    value={this.state.done}
+                                    onChange={ (e) => {
+                                        this.handleInput(e)
+                                        this.toggleChange(e)
+                                    }}
+                                    checked={this.state.done}
+                                />
+
+                                <label htmlFor="test">Status</label>
+                                <select 
+                                    type="text"
+                                    name='type'
+                                    id="testid"
+                                    placeholder={this.state.type}
+                                    defaultValue={this.state.type}
+                                    // value={this.state.type}
+                                    onChange={ (e) => this.handleInput(e)}
+                                >
+                                    <option >to do</option>
+                                    <option >doing</option>
+                                    <option >done</option>
+                                    <option >testing</option>
+                                    <option >backlog</option>
+                                </select>
 
                                 <label>Deadline:</label>
                                 <input

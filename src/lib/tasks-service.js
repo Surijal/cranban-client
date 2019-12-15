@@ -55,10 +55,13 @@ class Task {
 
 
     updateTask = updatedTask => {
-        const { title, description, deadline, taskId } = updatedTask;
+        const { title, description, deadline, taskId, done, type } = updatedTask;
+
+        console.log('>>>>>>>>>>> TaskService', updatedTask);
+        
 
         return this.tasks
-            .put(`/tasks/${taskId}`,  { title, description, deadline })
+            .put(`/tasks/${taskId}`,  { title, description, deadline, done, type })
             .then( response => {
                 const {updatedTask} = response.data;
 
