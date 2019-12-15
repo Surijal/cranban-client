@@ -12,7 +12,7 @@ class EditProject extends Component {
             this.state = {
                 title: '',
                 description: '',
-                deadline: null,
+                deadline: '',
                 updatedProject: null,
                 isShowing: false
             }
@@ -47,7 +47,7 @@ class EditProject extends Component {
                 this.setState({
                                         title: '',
                                         description: '',
-                                        deadline: null,
+                                        deadline: '',
                                         updatedProject: null,
                                         isShowing: false
                                     })

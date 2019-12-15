@@ -44,7 +44,7 @@ class EditTask extends Component {
                 this.setState({
                     title: '',
                     description: '',
-                    deadline: null,
+                    deadline: '',
                     updatedProject: null,
                     isShowing: false
                 })

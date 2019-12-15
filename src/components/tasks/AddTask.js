@@ -45,7 +45,7 @@ class AddTask extends Component {
         
         tasksService.createTask({ title, description, deadline, projectId })
             .then( (newTask) => {
-                this.setState({ title: '', description: '', deadline: null, isShowing: false})
+                this.setState({ title: '', description: '', deadline: '', isShowing: false})
                 this.props.refreshSingleProject(newTask)
             })
             .catch(err => console.log(err))
@@ -83,9 +83,17 @@ class AddTask extends Component {
                                             rows="10"
                                             value={this.state.description}
                                             onChange={ (e) => this.handleChange(e)}
-                                        >
+                                        />
 
-                                    </textarea>
+                                    <label>Deadline:</label>
+                                    <input
+                                            type="date"
+                                            name="deadline" 
+                                            placeholder="Deadline"
+                                            value={this.state.deadline}
+                                            onChange={ (e) => this.handleChange(e)}
+                                        />
+                                    
                                     <button>Submit</button>    
                                 </form>
                             </div>
