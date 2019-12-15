@@ -60,7 +60,7 @@ class TaskDetails extends Component {
             <div>
                             <h2>TITLE: {title}</h2>
                             <p>DESCRIPTION: {description}</p>
-                            <h1>Hello Task</h1>
+                            
             </div>
         )
     }
