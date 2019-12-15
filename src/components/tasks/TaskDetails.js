@@ -12,49 +12,55 @@ class TaskDetails extends Component {
                     title: '',
                     description: '',
                     deadline: null,
-                    singleTask: null,
                     projectTasks: null
                 }
         }
     
 
         getSingleTask = () => {
-            const id = this.props.match.params.id;
+        
 
-            tasksService.getSingleTask(id)
-            .then( singleTask => {
-                this.setState({singleTask})
+        const {id} = this.props.match.params
+        
+        tasksService.getSingleTask(id)
+        .then( singleTask => {
+            
+                this.setState({
+                    title: singleTask.title,
+                    description: singleTask.description,
+                    deadline: singleTask.deadline
+                })
             })
             .catch( err => console.log(err))
         }
         
         
         getProjectTask = () => {
-            const { projectId, taskId } = this.props.match.params
-            console.log('>>>>>>>>>>>>>>>>>', this.props.match.params);
+            const { projectId, taskId } = this.props
             
-
-            tasksService.getTasksByProject({projectId, taskId})
-                .then( projectTasks => {
-                    this.setState({projectTasks})
+            tasksService.getTasksByProject({ projectId, taskId })
+                .then( singleTask => {
+                    
+                    this.setState({singleTask})
                 })
                 .catch( err => console.log(err))
         }
 
         componentDidMount(){
-            this.getProjectTask()
+            
+            this.getSingleTask()
         }
 
 
     render() {
 
-        const { projectTasks } = this.state
-        
+        const { title, description, deadline } = this.state;
+
         return (
             <div>
-                            <h2>TITLE: {projectTasks.title}</h2>
-                            <p>DESCRIPTION: {projectTasks.description}</p>
-
+                            <h2>TITLE: {title}</h2>
+                            <p>DESCRIPTION: {description}</p>
+                            <h1>Hello Task</h1>
             </div>
         )
     }

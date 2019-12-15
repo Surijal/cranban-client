@@ -49,16 +49,14 @@ class ProjectDetails extends Component {
     }
     
     componentDidMount() {
-        
-        this.getSingleProject()
+        const { id } = this.props.match.params;   
+        this.getSingleProject(id)
     }
     
     render() {
         
         const { singleProject } = this.state;
         
-        console.log('>>>>>>>>>>>>>>>>> this state ',this.state)
-
         return (
             <div>
             {
@@ -75,12 +73,13 @@ class ProjectDetails extends Component {
                             
                             {
                                 (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.map((task) =>{
-                                    
+                                    console.log('>>>>>>>>>>>>>>> Project Details', this.state.singleProject)
                                     return(
                                         <div key={task._id} className="task-container">
-                                            <Link to={`/projects/${this.state.singleProject._id}/tasks/${task._id}`}>
+                                            <Link to={`/projects/${this.state.singleProject._id}/tasks/${task._id}`} {...this.props}>
                                                 <h5>{task.title}</h5>
                                                 <p>{task.description}</p>
+                                                <h4>{task._id}</h4>
                                             </Link>
                                         </div>
                                     )
@@ -90,7 +89,7 @@ class ProjectDetails extends Component {
 
 
                             <AddTask projectId={this.state.singleProject._id} refreshSingleProject={this.getSingleProject}/>
-                            {/* <TaskDetails /> */}
+                            {/* <TaskDetails taskId={this.state.singleProject.tasks._id} projectId={this.state.singleProject._id}/> */}
                             
                         </>
                     )

@@ -26,14 +26,14 @@ class Task {
 
     getTasksByProject = (singleTask) => {
         const { projectId, taskId } = singleTask;
-        console.log('>>>>>>>>>>>>>>>>>', singleTask);
+        
         
 
         return this.tasks
             .get(`/projects/${projectId}/tasks/${taskId}`)
             .then( response => {
                 const projectsTasks = response.data;
-
+                
                 return projectsTasks;
             })
             .catch( err => console.log(err))

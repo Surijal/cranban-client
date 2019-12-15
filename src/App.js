@@ -3,7 +3,7 @@ import { Switch } from 'react-router-dom';
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Private from './pages/Private';
+// import Private from './pages/Private';
 import Navbar from './components/Navbar';
 import ProjectsList from './pages/ProjectsList';
 import ProjectDetails from './components/projects/ProjectDetails';
@@ -14,6 +14,7 @@ import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
 
 import './styles/navbot.css'
+import TaskDetails from './components/tasks/TaskDetails';
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
             <PrivateRoute exact path="/projects" component={ProjectsList} />
             <PrivateRoute exact path="/projects/:id" component={ProjectDetails} />
             <PrivateRoute exact path="/user/:id" component={UserProfile} />
+            <PrivateRoute exact path="/projects/:id/tasks/:id" component={TaskDetails}/>
           </Switch>
 
       </div>
