@@ -49,6 +49,21 @@ class TaskDetails extends Component {
                 .catch( err => console.log(err))
         }
 
+
+        deleteTask = () => {
+            const { id } = this.props.match.params.id
+
+            console.log('>>>>>>>>>>>>>>>>>>>>>> in taskDetails, deletetask', this.props.match.params.id);
+            
+
+            tasksService.deleteTask(id)
+                .then( () => {
+                    this.props.history.push('/projects/:id')
+                })
+                .catch( err => console.log(err))
+        }
+
+
         componentDidMount(){
             
             this.getSingleTask()
@@ -61,6 +76,7 @@ class TaskDetails extends Component {
 
         return (
             <div>
+                            <button onClick={ () => this.deleteTask() }>Delete Task</button>
                             <EditTask taskId={taskId} refreshTaskDetails={this.getSingleTask}/>
                             <h2>TITLE: {title}</h2>
                             <p>DESCRIPTION: {description}</p>
