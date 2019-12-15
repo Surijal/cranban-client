@@ -79,7 +79,7 @@ class EditTask extends Component {
     
         console.log('>>>>>>>>>>>>>> EDIT TASK STATE', this.state)
         console.log('>>>>>>>>>>>>>> EDIT TASK PROPS', this.props)
-        const { title, description, type, status } = this.props.singleTask
+        const { title, description, type, status, deadline, done } = this.props.singleTask
         return (
             <div>
 
@@ -97,7 +97,7 @@ class EditTask extends Component {
                                 <input 
                                         type="text"
                                         name='title'
-                                        placeholder="Title"
+                                        // defaultValue={title}
                                         value={this.state.title}
                                         onChange={ (e) => this.handleInput(e)}
                                     />
@@ -105,12 +105,12 @@ class EditTask extends Component {
                                 <label>Description:</label>
                                 <textarea
                                         type="text"
-                                        name="description" 
-                                        placeholder="Description"
+                                        name="description"
+                                        value={this.state.description}
                                         id="" 
                                         cols="30" 
                                         rows="5"
-                                        value={this.state.description}
+                                        // defaultValue={description}
                                         onChange={ (e) => this.handleInput(e)}
                                     >
                                     {description}
@@ -121,10 +121,8 @@ class EditTask extends Component {
                                 <input 
                                     type="checkbox"
                                     name='done'
-                                    // checked=""
                                     id="done"
-                                    // placeholder={this.state.done}
-                                    value={this.state.done}
+                                    defaultValue={done}
                                     onChange={ (e) => {
                                         this.handleInput(e)
                                         this.toggleChange(e)
@@ -138,8 +136,8 @@ class EditTask extends Component {
                                     name='status'
                                     id="status"
                                     
-                                    defaultValue={status}
-                                    // value={this.state.type}
+                                    // defaultValue={status}
+                                    value={this.state.type}
                                     onChange={ (e) => this.handleInput(e)}
                                 >
                                     <option >to do</option>
@@ -155,8 +153,8 @@ class EditTask extends Component {
                                     name='type'
                                     id="testid"
                                     
-                                    defaultValue={type}
-                                    // value={this.state.type}
+                                    // defaultValue={type}
+                                    value={this.state.type}
                                     onChange={ (e) => this.handleInput(e)}
                                 >
                                     <option >frontend</option>
@@ -170,6 +168,7 @@ class EditTask extends Component {
                                         type="date"
                                         name="deadline" 
                                         placeholder="Deadline"
+                                        // defaultValue={deadline}
                                         value={this.state.deadline}
                                         onChange={ (e) => this.handleInput(e)}
                                     />

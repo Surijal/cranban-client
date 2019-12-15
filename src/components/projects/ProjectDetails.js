@@ -86,11 +86,12 @@ class ProjectDetails extends Component {
                             <button onClick={ () => this.deleteProject()}  >Delete Project</button>
                             
                             {
-                                (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.map((task) =>{
-                                    
-                                    console.log('>>>>>>>>>>>>>>>> TASK IN PROJECT DETAILS RENDER', task)
+                                (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.filter((task) =>{
+                                    return task.status === 'doing'
+                                })
+                                .map( task => {
 
-                                    return(
+                                    return (
                                         <div key={task._id} className="task-container">
                                             <Link to={`/projects/${this.state.singleProject._id}/tasks/${task._id}`} >
                                                 <h5>{task.title}</h5>
