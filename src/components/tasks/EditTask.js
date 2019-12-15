@@ -11,7 +11,7 @@ class EditTask extends Component {
         this.state = {
             title: "",
             description: "",
-            deadline: null,
+            deadline: '',
             isShowing: null
         }
     }
@@ -87,9 +87,17 @@ class EditTask extends Component {
                                         rows="10"
                                         value={this.state.description}
                                         onChange={this.handleInput}
-                                    >
+                                    />
 
-                                </textarea>
+                                <label>Deadline:</label>
+                                <input
+                                        type="date"
+                                        name="deadline" 
+                                        placeholder="Deadline"
+                                        value={this.state.deadline}
+                                        onChange={this.handleInput}
+                                    />
+                                
                                 <button>Update</button>    
                                 </form>
                             </div>
