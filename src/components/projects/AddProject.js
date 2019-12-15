@@ -10,7 +10,7 @@ class AddProject extends Component {
     state = {
         title: '',
         description: '',
-        deadline: null,
+        deadline: '',
         isShowing: false
     }
 
@@ -39,7 +39,7 @@ class AddProject extends Component {
         
         projectsService.createProject({ title, description, deadline })
             .then( (newProject) => {
-                this.setState({ title: '', description: '', deadline: null, isShowing: false});
+                this.setState({ title: '', description: '', deadline: '', isShowing: false});
                 this.props.refreshProjectList()
             })
             .catch((err) => console.log(err))
@@ -65,7 +65,7 @@ class AddProject extends Component {
                                     name='title'
                                     placeholder="Title"
                                     value={this.state.title}
-                                    onChange={this.handleInput}
+                                    onChange={ (e) => this.handleInput(e)}
                                 />
 
                             <label>Description:</label>
@@ -77,10 +77,18 @@ class AddProject extends Component {
                                     cols="30" 
                                     rows="10"
                                     value={this.state.description}
-                                    onChange={this.handleInput}
-                                >
+                                    onChange={ (e) => this.handleInput(e)}
+                                />
 
-                            </textarea>
+                            <label>Deadline:</label>
+                            <input
+                                    type="date"
+                                    name="deadline" 
+                                    placeholder="Deadline"
+                                    value={this.state.deadline}
+                                    onChange={ (e) => this.handleInput(e)}
+                                />
+
                             <button>Add Project</button>    
                         </form>
                     )

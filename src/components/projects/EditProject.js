@@ -76,7 +76,7 @@ class EditProject extends Component {
                                         name='title'
                                         placeholder="Title"
                                         value={this.state.title}
-                                        onChange={this.handleInput}
+                                        onChange={ (e) => this.handleInput(e)}
                                     />
 
                                 <label>Description:</label>
@@ -88,10 +88,19 @@ class EditProject extends Component {
                                         cols="30" 
                                         rows="10"
                                         value={this.state.description}
-                                        onChange={this.handleInput}
-                                    >
+                                        onChange={ (e) => this.handleInput(e)}
+                                    />
 
-                                </textarea>
+                                    <label>Deadline:</label>
+                                    <input
+                                            type="date"
+                                            name="deadline" 
+                                            placeholder="Deadline"
+                                            value={this.state.deadline}
+                                            onChange={ (e) => this.handleInput(e)}
+                                        />
+
+                                
                                 <button>Update</button>    
                                 </form>
                             </div>
