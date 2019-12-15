@@ -87,12 +87,13 @@ class ProjectDetails extends Component {
                             
                             {
                                 (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.filter((task) =>{
-                                    return task.status === 'doing'
+                                    return task.status === 'backlog'
                                 })
                                 .map( task => {
 
                                     return (
                                         <div key={task._id} className="task-container">
+                                            <h2>Backlog</h2>
                                             <Link to={`/projects/${this.state.singleProject._id}/tasks/${task._id}`} >
                                                 <h5>{task.title}</h5>
                                                 <p>{task.description}</p>
@@ -103,6 +104,85 @@ class ProjectDetails extends Component {
                                 : <h4>No Tasks to Display</h4>
                             }
 
+
+                            {
+                                (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.filter((task) =>{
+                                    return task.status === 'to do'
+                                })
+                                .map( task => {
+
+                                    return (
+                                        <div key={task._id} className="task-container">
+                                            <h2>to do</h2>
+                                            <Link to={`/projects/${this.state.singleProject._id}/tasks/${task._id}`} >
+                                                <h5>{task.title}</h5>
+                                                <p>{task.description}</p>
+                                            </Link>
+                                        </div>
+                                    )
+                                })
+                                : <h4>No Tasks to Display</h4>
+                            }
+
+
+                            {
+                                (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.filter((task) =>{
+                                    return task.status === 'doing'
+                                })
+                                .map( task => {
+
+                                    return (
+                                        <div key={task._id} className="task-container">
+                                            <h2>doing</h2>
+                                            <Link to={`/projects/${this.state.singleProject._id}/tasks/${task._id}`} >
+                                                <h5>{task.title}</h5>
+                                                <p>{task.description}</p>
+                                            </Link>
+                                        </div>
+                                    )
+                                })
+                                : <h4>No Tasks to Display</h4>
+                            }
+
+
+                            {
+                                (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.filter((task) =>{
+                                    return task.status === 'testing'
+                                })
+                                .map( task => {
+
+                                    return (
+                                        <div key={task._id} className="task-container">
+                                            <h2>testing</h2>
+                                            <Link to={`/projects/${this.state.singleProject._id}/tasks/${task._id}`} >
+                                                <h5>{task.title}</h5>
+                                                <p>{task.description}</p>
+                                            </Link>
+                                        </div>
+                                    )
+                                })
+                                : <h4>No Tasks to Display</h4>
+                            }
+
+
+                            {
+                                (this.state.singleProject.tasks.length) ? this.state.singleProject.tasks.filter((task) =>{
+                                    return task.status === 'done'
+                                })
+                                .map( task => {
+
+                                    return (
+                                        <div key={task._id} className="task-container">
+                                            <h2>done</h2>
+                                            <Link to={`/projects/${this.state.singleProject._id}/tasks/${task._id}`} >
+                                                <h5>{task.title}</h5>
+                                                <p>{task.description}</p>
+                                            </Link>
+                                        </div>
+                                    )
+                                })
+                                : <h4>No Tasks to Display</h4>
+                            }
 
                             <AddTask projectId={this.state.singleProject._id} refreshSingleProject={this.getSingleProject}/>
                         
