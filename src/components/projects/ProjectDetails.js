@@ -17,7 +17,7 @@ class ProjectDetails extends Component {
         this.state = {
             title: '',
             description: '',
-            deadline: null,
+            deadline: '',
             singleProject: null,
             tasks: []
             
@@ -80,7 +80,7 @@ class ProjectDetails extends Component {
                         <>
                             <h2>TITLE: {this.state.singleProject.title}</h2>
                             <p>DESCRIPTION: {this.state.singleProject.description}</p>
-
+                            <p>deadline: {this.state.singleProject.deadline}</p>
                             <div>{this.renderEditForm()}</div>
 
                             <button onClick={ () => this.deleteProject()}  >Delete Project</button>

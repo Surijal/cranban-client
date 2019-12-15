@@ -37,7 +37,7 @@ class NavbarBot extends Component {
                         <div className='nav-add-project-link'>
                             <Link to={`/projects`}>
                             {' '}
-                            <button>Add Project</button>{' '}
+                            <button> ProAddject</button>{' '}
                             </Link>
                         </div>
                     </div>

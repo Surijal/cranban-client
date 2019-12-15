@@ -82,6 +82,7 @@ class TaskDetails extends Component {
                             <EditTask taskId={taskId} refreshTaskDetails={this.getSingleTask}/>
                             <h2>TITLE: {title}</h2>
                             <p>DESCRIPTION: {description}</p>
+                            <p>Deadline: {deadline}</p>
                             
             </div>
         )

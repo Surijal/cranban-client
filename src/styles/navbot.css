@@ -17,11 +17,13 @@
 .nav-user-profile-link, .nav-add-project-link, .nav-projects-link, .nav-graph-link {
     padding: 1vh 1vw;
     margin: 1vh 1vw;
+    width: 2vw;
+    height: 2vh;
     background-repeat: no-repeat;
     background-color: #ffffff;
 }
 
-.nav-user-profile-link {
+/* .nav-user-profile-link {
     background-image: url('./../images/person.svg');
 }
 
@@ -35,4 +37,4 @@
 
 .nav-graph-link {
     background-image: url('./../images//bar_chart.svg');
-}
+} */

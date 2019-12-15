@@ -53,9 +53,12 @@ class EditUser extends Component {
 
 
     render() {
+        
+
         return (
             <div>
 
+            
                 <button onClick={this.toggleForm}>Edit User</button>
 
                     {
@@ -70,9 +73,9 @@ class EditUser extends Component {
                                 <input 
                                         type="text"
                                         name='username'
-                                        placeholder={this.state.username}
+                                        placeholder={this.props.user.username}
                                         value={this.state.username}
-                                        onChange={this.handleInput}
+                                        onChange={ (e) => this.handleInput(e)}
                                     />
 
                                 <label>Description:</label>
@@ -81,8 +84,18 @@ class EditUser extends Component {
                                         name="email" 
                                         placeholder="email"
                                         id="" 
-                                        value={this.state.email}
-                                        onChange={this.handleInput}
+                                        value={this.props.user.email}
+                                        onChange={ (e) => this.handleInput(e)}
+                                />
+
+                                <label>Password:</label>
+                                <input
+                                        type="password"
+                                        name="password" 
+                                        placeholder="password"
+                                        id="" 
+                                        value={this.state.password}
+                                        onChange={ (e) => this.handleInput(e)}
                                 />
 
                                 <button>Update</button>    
