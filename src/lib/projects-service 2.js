@@ -1,12 +1,13 @@
 import axios from 'axios';
 
+const baseURL = process.env.REACT_APP_API_URL;
 
 class Project {
     constructor () {
 
         
         this.projects = axios.create({
-            baseURL: 'http://localhost:5000/api/',
+            baseURL: `${baseURL}/api/`,
             withCredentials: true,
         })
     } 
