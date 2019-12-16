@@ -5,7 +5,7 @@ const baseURL = process.env.REACT_APP_API_URL;
 class Auth {
   constructor() {
     this.auth = axios.create({
-      baseURL: `${baseURL}/`,
+      baseURL: baseURL,
       withCredentials: true,
     });
   }
