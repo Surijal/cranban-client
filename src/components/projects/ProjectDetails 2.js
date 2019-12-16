@@ -129,7 +129,7 @@ class ProjectDetails extends Component {
                             (
                                 <>
                                 <div className="project-details-container">
-                                        <div className="project-title-container edit-form">
+                                        <div className="project-title-container">
                                             <h2>TITLE: {this.state.singleProject.title}</h2>
                                             <p>DESCRIPTION: {this.state.singleProject.description}</p>
                                             <p>deadline: {this.state.singleProject.deadline}</p>
@@ -137,17 +137,12 @@ class ProjectDetails extends Component {
 
                                             <div>
                                                 <button
-                                                            className="button"
                                                             onClick={ () => this.deleteProject()}   
                                                             className='button'>
                                                             Delete Project
                                                 </button>
                                 
-                                                <AddTask
-                                                            className="button"
-                                                            projectId={this.state.singleProject._id} 
-                                                            refreshSingleProject={this.getSingleProject}
-                                                        />
+                                                <AddTask projectId={this.state.singleProject._id} refreshSingleProject={this.getSingleProject}/>
 
                                                 <FilterTask singleProject={singleProject} {...this.props}/>
                                             </div>

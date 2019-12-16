@@ -26,10 +26,10 @@ body {
   flex-direction: column;
 }
 
-.project-details-conainter {
+.project-details-container {
   display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+  justify-content: center; 
+  margin: 3vh auto;
 }
 
 .task-container {

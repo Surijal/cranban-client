@@ -97,6 +97,13 @@ class TaskDetails extends Component {
                             <p>Done: {done}</p>
                             
                             <div className="action-container">
+                                <button
+                                    className="button"
+                                    onClick={ () => this.deleteTask() }
+                                >
+                                Delete Task
+                                </button>
+                                
                                 <EditTask
                                     className="button"
                                     taskId={taskId} 
@@ -104,11 +111,6 @@ class TaskDetails extends Component {
                                     {...this.props} 
                                     singleTask={singleTask}/>
 
-                                <button
-                                    className="button"
-                                    onClick={ () => this.deleteTask() }
-                                    >Delete Task
-                                </button>
                             </div>
             </div>
         )

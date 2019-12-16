@@ -67,7 +67,7 @@ class AddTask extends Component {
                         (
                             <div>
                                 <form onSubmit={this.handleSubmit} className="edit-form">
-                                    
+                                    <label>Title:</label>
                                     <input 
                                             type="text"
                                             name='title'
@@ -76,7 +76,7 @@ class AddTask extends Component {
                                             onChange={ (e) =>this.handleChange(e)}
                                         />
 
-                                    
+                                    <label>Description:</label>
                                     <textarea
                                             type="text"
                                             name="description" 
