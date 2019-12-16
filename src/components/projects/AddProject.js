@@ -89,7 +89,7 @@ class AddProject extends Component {
                                     onChange={ (e) => this.handleInput(e)}
                                 />
 
-                            <button className="button">Add Project</button>    
+                            <button className="button">Submit</button>    
                         </form>
                     )
                 }

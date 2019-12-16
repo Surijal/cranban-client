@@ -42,20 +42,26 @@ class ProjectsList extends Component {
                         <h1>Loading</h1>
                         :
                         (
-                            <div>
-                                <AddProject refreshProjectList={this.getUserListOfProjects} />
+                            <div className="project-details-container">
+                                <div className="project-title-container">
 
-                                    {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
-                                        return(
-                        
-
-                                            <ProjectCard key={project._id} projectData={project} /> 
-                                            
-                                            
-                                        )
-                                    })
-                                    : <h1> Add your first project </h1>
-                                    }
+                                    <div className="project-filter-container">
+                                        {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
+                                            return(
+                                                
+                                                <>
+                                                
+                                                    <ProjectCard key={project._id} projectData={project} /> 
+                                        <AddProject refreshProjectList={this.getUserListOfProjects} />
+                                                
+                                                    
+                                                </>    
+                                            )
+                                        })
+                                        : <h1> Add your first project </h1>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         )
                 }

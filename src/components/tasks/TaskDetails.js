@@ -87,22 +87,23 @@ class TaskDetails extends Component {
         const singleTask = { title, description, deadline, taskId , status, type, done} 
 
         return (
-            <div className="edit-form">
-                            <h2>TITLE: {title}</h2>
+            <div className="project-details-container">
+                        <div className="project-title-container">
+                            <h2>{title}</h2>
                             
-                            <p>DESCRIPTION: {description}</p>
+                            <p> {description}</p>
                             <p>Deadline: {deadline}</p>
                             <p>Status: {status}</p>
                             <p>Type: {type}</p>
                             <p>Done: {done}</p>
                             
-                            <div className="action-container">
-                                <button
-                                    className="button"
-                                    onClick={ () => this.deleteTask() }
-                                >
-                                Delete Task
-                                </button>
+                            <button
+                                className="button"
+                                onClick={ () => this.deleteTask() }
+                            >
+                            Delete Task
+                            </button>
+                        </div>
                                 
                                 <EditTask
                                     className="button"
@@ -111,7 +112,6 @@ class TaskDetails extends Component {
                                     {...this.props} 
                                     singleTask={singleTask}/>
 
-                            </div>
             </div>
         )
     }

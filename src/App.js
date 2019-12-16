@@ -13,6 +13,7 @@ import NavbarBot from './components/NavbarBot';
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
 
+import './App.css'
 import './styles/navbot.css'
 import TaskDetails from './components/tasks/TaskDetails';
 
@@ -20,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
+        {/* <Navbar /> */}
         <NavbarBot />
 
           <Switch>

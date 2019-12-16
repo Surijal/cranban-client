@@ -62,7 +62,7 @@ class EditProject extends Component {
         return (
             <div>
 
-                <button onClick={this.toggleForm}>Edit Project</button>
+                <button onClick={this.toggleForm} className="button">Edit Project</button>
 
                     {
                         !this.state.isShowing ?

@@ -1,11 +1,81 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 html, body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    color: black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
@@ -19,6 +89,14 @@ body {
   
 }
 
+
+
+
+
+
+
+
+/* PROJECT STYLES */
 .project-details {
   padding: 1vh 1vw;
   margin: 1vh 1vw;
@@ -27,11 +105,77 @@ body {
 }
 
 .project-details-container {
-  display: flex;
-  justify-content: center; 
-  margin: 3vh auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vh 2vw;
+    border-radius: 2vw;
+    display: flex;
+    justify-content: center;
 }
 
+.project-title-container {
+  position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    padding: 2vh 2vw;
+    background: #FAC325;
+    border-radius: 0 0 1vh 1vh;
+}
+
+.project-title-container  h2 {
+  text-align: center;
+  padding: 1vh 1vw;
+  margin: 1vh auto;
+  font-size: 2.2em;
+}
+
+.project-title-container p {
+  text-align: left;
+  padding: 1vh 1vw;
+  margin: 1vh auto;
+  font-size: 1em;
+}
+
+.project-title-container a {
+  text-decoration: none;
+  color: black;
+}
+
+.project-card {
+  margin: 2vh auto;
+  padding: 1vh 1vw;
+  display: flex;
+  flex-direction: column;
+  background:#F4E485;
+  border-radius: 0.5vh;
+  min-width: 75vw;
+  max-width: 75vw;
+}
+
+.project-filter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 2px solid black;
+  margin: 0 auto 1.5vh auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* TASK STYLES */
 .task-container {
   margin: 1vh 1vw;
   padding: 1vh 1vw;
@@ -46,14 +190,7 @@ body {
   flex-direction: column;
 }
 
-.project-title-container {
-  position: fixed;
-    top: 15vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
+
 
 
 .edit-form {
@@ -62,7 +199,8 @@ body {
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    width: 60vw;
+    margin-bottom: 10vh;
+    width: 75vw;
     background-color: #F4E485;
     padding: 2vh 2vw;
     border-radius: 2vw;
@@ -72,8 +210,8 @@ body {
   max-width: 30vw;
   display: flex;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1vh auto;
+  padding: 1vh 1vw;
   border: 0;
   text-align: center;
   background-color: #F4E485;
@@ -83,31 +221,81 @@ body {
   max-width: 30vw;
   display: flex;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1vh auto;
+  padding: 1vh 1vw;
   border: 0;
   text-align: center;
 }
 
 .edit-form textarea {
   background-color: #F4E485;
+  margin: 1vh;
+  padding: 1vh 1vw;
 }
 
 
 .button {
-  padding: 1.5vh 1vw;
+  padding: 2vh 1vw;
   display: flex;
   text-align: center;
-  margin: 1vh auto;
   border-radius: 2vh;
+  
 }
 
-.filter-container {
-  display: flex;
-  justify-content: space-around;
-}
 
 .action-container {
   display: flex;
   justify-content: space-around;
+}
+
+
+.fancy-color {
+  background-color: pink;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 2px solid black;
+    margin: 0 auto 1.5vh auto;
+    position: relative;
+    top: 200px;
+}
+
+.task-card {
+  display: flex;
+  border: 2px solid red;
+  width: 70%;
+  justify-content: center;
+  margin: 1vh auto 1vh auto;
+  padding: 1vh;
+  min-height: 20vh;
+  border-radius: 0.5vh;
+  background: #468D8E;
+}
+
+.task-card h5 {
+  text-align: center;
+  font-size: 1.6em;
+  color: black;
+  font-weight: bold;
+  padding: 1vh;
+
+}
+
+.task-card a {
+  text-decoration: none;
+}
+
+.task-card p {
+  text-align: left;
+  color: black;
+  font-size: 1em;
+  padding: 1vh;
+}
+
+.action-container-project {
+  display: flex;
+  justify-content: space-evenly;
 }

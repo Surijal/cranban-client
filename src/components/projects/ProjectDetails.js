@@ -7,6 +7,8 @@ import EditProject from './EditProject';
 import AddTask from './../tasks/AddTask';
 import FilterTask from '../tasks/FilterTasks';
 
+import moment from 'moment';
+
 
 class ProjectDetails extends Component {
 
@@ -26,7 +28,7 @@ class ProjectDetails extends Component {
             statusToDO: false,
             statusDone: false,
             statusDoing:false
-
+            
         }
     }
 
@@ -117,7 +119,16 @@ class ProjectDetails extends Component {
     
     render() {
         
+        // const date = new Date(this.state.singleProject.deadline);
+
+        
         const { singleProject } = this.state;
+
+        if (singleProject) {
+            const testMoment = moment(this.state.singleProject.deadline).format('MM DD YYYY,')
+            console.log('testMoment', testMoment);
+        }
+
         
         return (
             <div>
@@ -129,39 +140,46 @@ class ProjectDetails extends Component {
                             (
                                 <>
                                 <div className="project-details-container">
-                                        <div className="project-title-container edit-form">
-                                            <h2>TITLE: {this.state.singleProject.title}</h2>
-                                            <p>DESCRIPTION: {this.state.singleProject.description}</p>
-                                            <p>deadline: {this.state.singleProject.deadline}</p>
-                                            <div>{this.renderEditForm()}</div>
+                                        <div className="project-title-container">
+                                            <h2>{this.state.singleProject.title}</h2>
+                                            <p>{this.state.singleProject.description}</p>
+                                            <p>{this.state.singleProject.deadline}</p>
 
-                                            <div>
+
+                                            
+                                            
+                                            <div className="action-container-project">
+                                                {this.renderEditForm()}
                                                 <button
-                                                            className="button"
+                                                            className="button delete-button"
                                                             onClick={ () => this.deleteProject()}   
-                                                            className='button'>
-                                                            Delete Project
+                                                >
+                                                Delete Project
                                                 </button>
-                                
                                                 <AddTask
-                                                            className="button"
+                                                            className="add-task-button"
                                                             projectId={this.state.singleProject._id} 
                                                             refreshSingleProject={this.getSingleProject}
                                                         />
-
-                                                <FilterTask singleProject={singleProject} {...this.props}/>
+                                        
                                             </div>
+
                                         </div>
-                                </div>
+                                                <FilterTask singleProject={singleProject} {...this.props}/>
+
+                                        
+                                        </div>
+
+                                
                                     
                                     
                                 
                                     
                                 </>
                             )
+                
 
                     }
-                
             </div>
         )
     }

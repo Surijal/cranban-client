@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withAuth } from './../lib/AuthProvider';
 import { Link } from 'react-router-dom';
 
+import AddProject from './projects/AddProject';
+
 
 class NavbarBot extends Component {
     render() {
@@ -35,7 +37,8 @@ class NavbarBot extends Component {
                         </div>
 
                         <div className='nav-add-project-link'>
-                            <Link to={`/projects`}>
+                        
+                            <Link to={`/projects`}  className='nav-add-project-link'>
                             {' '}
                             <button> ProAddject</button>{' '}
                             </Link>

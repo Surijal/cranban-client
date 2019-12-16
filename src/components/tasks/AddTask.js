@@ -58,7 +58,7 @@ class AddTask extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.toggleForm}>Add Task</button>
+                <button onClick={this.toggleForm} className="button">Add Task</button>
 
                     {
                         !this.state.isShowing ?
