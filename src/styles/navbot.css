@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-.nav-user-profile-link, .nav-add-project-link, .nav-projects-link, .nav-graph-link {
+.nav-user-profile-link button, .nav-add-project-link button, .nav-projects-link button, .nav-graph-link button {
     padding: 1vh 1vw;
     margin: 1vh 1vw;
     width: 2vw;
