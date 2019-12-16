@@ -33,7 +33,9 @@ class EditProject extends Component {
     }
 
     toggleForm = () => {
-        this.setState({isShowing: !this.state.isShowing})
+        const { title, description, deadline } = this.props.singleProject
+
+        this.setState({isShowing: !this.state.isShowing, title, description, deadline})
     }
 
 

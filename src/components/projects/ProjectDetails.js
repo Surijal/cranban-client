@@ -54,59 +54,6 @@ class ProjectDetails extends Component {
     }
 
 
-    toggleBacklog = () => {
-        
-        this.setState({ statusBacklog: !this.state.statusType, 
-                                statusTesting: false, 
-                                statusToDO: false, 
-                                statusDone: false, 
-                                statusDoing: false})
-    }
-
-
-    toggleTesting = () => {
-        
-        this.setState({ statusBacklog: false, 
-                                statusTesting: !this.state.statusType, 
-                                statusToDO: false, 
-                                statusDone: false, 
-                                statusDoing: false})
-    }
-
-
-    toggleTodo = () => {
-        
-        this.setState({ statusBacklog: false, 
-                                statusTesting: false, 
-                                statusToDO: !this.state.statusType, 
-                                statusDone: false, 
-                                statusDoing: false})
-    }
-
-
-    toggleDoing = () => {
-        
-        this.setState({ statusBacklog: false, 
-                                statusTesting: false, 
-                                statusToDO: false, 
-                                statusDone: false, 
-                                statusDoing: !this.state.statusType})
-    }
-
-
-    toggleDone = () => {
-        
-        this.setState({ statusBacklog: false, 
-                                statusTesting: false, 
-                                statusToDO: false, 
-                                statusDone: false, 
-                                statusDoing: !this.state.statusType})
-    }
-
-
-
-
-
     handleChange = (e) => {
         const value  = e.target;
 
@@ -155,7 +102,7 @@ class ProjectDetails extends Component {
         else {
             return (
 
-                <EditProject projectId={this.state.singleProject._id} refreshProjectDetails={this.getSingleProject} {...this.props}/>
+                <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshProjectDetails={this.getSingleProject} {...this.props}/>
             )
 
         }
