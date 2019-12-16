@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { withAuth } from './../lib/AuthProvider';
 import { Link } from 'react-router-dom';
 
-import AddProject from './projects/AddProject';
+
 
 
 class NavbarBot extends Component {
     render() {
-        const { user, isLoggedin } = this.props;
+        const { user, isLoggedin, logout } = this.props;
 
     
         return (
@@ -43,13 +43,15 @@ class NavbarBot extends Component {
                             <button> ProAddject</button>{' '}
                             </Link>
                         </div>
+                        <button onClick={logout}>Logout</button>
+
                     </div>
 
                 )  
                 :
                 (
                     <div className="navbot">
-                        <h1>HELLO NavbarBot</h1>
+                        
                     </div>
                 )}
 

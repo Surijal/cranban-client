@@ -19,13 +19,8 @@ class FilterTask extends Component {
 
     toggleFilterStatus = ( e) => {
         const { value } = e.target;
-        const {singleProject} = this.props.singleProject;
-
-        // this.setState({isFiltered: !this.state.isFiltered, statusFilter: value})
+        
         this.setState({isFiltered: true, statusFilter: value})
-
-
-        // this.renderFilterByTypeForm(value)
     }
 
     toggleFilterType = e => {
@@ -34,11 +29,7 @@ class FilterTask extends Component {
         this.setState({ isFiltered: true, typeFilter: value})
     }
 
-    toggleAllTasks = e => {
-        const {value} = e.target;
-
-        this.setState({ allTasks: !this.state.allTasks})
-    }
+    
 
     // Render tasks filtered by both statusFilter or typeFilter
     renderFilteredTasks = () => {
@@ -93,7 +84,6 @@ class FilterTask extends Component {
         const { singleProject } = this.props.singleProject;
 
         this.setState({ singleProject: singleProject})        
-        //this.renderFilterByTypeForm()
     }
     
 
@@ -131,8 +121,8 @@ class FilterTask extends Component {
                             name='type'
                             id="testid"
                             
-                            defaultValue='preperation'
-                            // value={this.state.type}
+                            // defaultValue='preperation'
+                            value={this.state.type}
                             onChange={ (e) => this.toggleFilterType(e)}
                         >
                             <option >frontend</option>

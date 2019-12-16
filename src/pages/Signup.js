@@ -26,12 +26,13 @@ class Signup extends Component {
     return (
       <div>
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit}  autoComplete="off">
           <label>Username:</label>
           <input
             type="text"
             name="username"
             value={username}
+            autoComplete="off"
             onChange={this.handleChange}
           />
 
@@ -40,6 +41,7 @@ class Signup extends Component {
             type="password"
             name="password"
             value={password}
+            autoComplete="off"
             onChange={this.handleChange}
           />
 
@@ -48,6 +50,7 @@ class Signup extends Component {
             type="email"
             name="email"
             value={email}
+            autoComplete="off"
             onChange={this.handleChange}
           />
 

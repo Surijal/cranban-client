@@ -77,7 +77,7 @@ class EditTask extends Component {
     
     render() {
     
-        const { title, description, type, status, deadline, done } = this.props.singleTask
+        const { description, done } = this.props.singleTask
         return (
             <div>
 
