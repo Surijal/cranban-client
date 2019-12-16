@@ -49,8 +49,6 @@ class EditTask extends Component {
         const { title, description, deadline, done, type, status } = this.state;
         const taskId = this.props.taskId;
 
-        console.log('>>>>>>>>>>>>>> update tasl edittask state', this.state)
-
         if (!title && !description && !deadline && !done && !type ) return
         else {
 
@@ -79,8 +77,6 @@ class EditTask extends Component {
     
     render() {
     
-        console.log('>>>>>>>>>>>>>> EDIT TASK STATE', this.state)
-        console.log('>>>>>>>>>>>>>> EDIT TASK PROPS', this.props)
         const { title, description, type, status, deadline, done } = this.props.singleTask
         return (
             <div>

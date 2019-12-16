@@ -174,39 +174,38 @@ class ProjectDetails extends Component {
         
         return (
             <div>
-            {
-                !singleProject
-                    ? <h1>Loading</h1>
-                    :
-                    (
-                        <>
-                            <div className="project-title-container">
-                                <h2>TITLE: {this.state.singleProject.title}</h2>
-                                <p>DESCRIPTION: {this.state.singleProject.description}</p>
-                                <p>deadline: {this.state.singleProject.deadline}</p>
-                                <div>{this.renderEditForm()}</div>
+                
+                    {
+                        !singleProject
+                            ? <h1>Loading</h1>
+                            :
+                            (
+                                <>
+                                <div className="project-details-container">
+                                        <div className="project-title-container">
+                                            <h2>TITLE: {this.state.singleProject.title}</h2>
+                                            <p>DESCRIPTION: {this.state.singleProject.description}</p>
+                                            <p>deadline: {this.state.singleProject.deadline}</p>
+                                            <div>{this.renderEditForm()}</div>
 
-                                <button onClick={ () => this.deleteProject()}  >Delete Project</button>
-                                <button onClick ={ this.toggleBacklog} >Backlog</button>
-                                <button onClick ={ this.toggleTesting} >Testing</button>
-                                <button onClick ={ this.toggleToDo} >ToDo</button>
-                                <button onClick ={ this.toggleDoing} >Doing</button>
-                                <button onClick ={ this.toggleDone} >Backlog</button>
+                                            <div>
+                                                <button onClick={ () => this.deleteProject()}  >Delete Project</button>
                                 
+                                                <AddTask projectId={this.state.singleProject._id} refreshSingleProject={this.getSingleProject}/>
 
-                                <AddTask projectId={this.state.singleProject._id} refreshSingleProject={this.getSingleProject}/>
+                                                <FilterTask singleProject={singleProject} {...this.props}/>
+                                            </div>
+                                        </div>
+                                </div>
+                                    
+                                    
+                                
+                                    
+                                </>
+                            )
 
-                                <FilterTask singleProject={singleProject} {...this.props}/>
-                            </div>
-
-                            
-                            
-                        
-                            
-                        </>
-                    )
-
-            }
+                    }
+                
             </div>
         )
     }

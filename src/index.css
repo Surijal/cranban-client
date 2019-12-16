@@ -14,7 +14,7 @@ code {
 }
 
 body {
-  
+
   width: 100%;
   
 }
@@ -22,8 +22,14 @@ body {
 .project-details {
   padding: 1vh 1vw;
   margin: 1vh 1vw;
-  flex-direction: row;
   display: flex;
+  flex-direction: column;
+}
+
+.project-details-conainter {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 .task-container {
@@ -38,12 +44,13 @@ body {
   padding: 1vh 1vw;
   display: flex;
   flex-direction: column;
-  min-width: 30vw;
-  max-width: 30vw;
 }
 
 .project-title-container {
   position: fixed;
-  top: 10vh;
-  width: 100%;
+    top: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

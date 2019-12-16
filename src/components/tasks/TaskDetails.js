@@ -32,7 +32,7 @@ class TaskDetails extends Component {
         
         tasksService.getSingleTask(id)
         .then( singleTask => {
-            console.log(singleTask)
+            
                 this.setState({
                     title: singleTask.title,
                     description: singleTask.description,
@@ -88,18 +88,19 @@ class TaskDetails extends Component {
 
         return (
             <div>
+                            <h2>TITLE: {title}</h2>
                             <button onClick={ () => this.deleteTask() }>Delete Task</button>
                             <EditTask 
                                 taskId={taskId} 
                                 refreshTaskDetails={this.getSingleTask} 
                                 {...this.props} 
                                 singleTask={singleTask}/>
-                            <h2>TITLE: {title}</h2>
+{/*                             
                             <p>DESCRIPTION: {description}</p>
                             <p>Deadline: {deadline}</p>
                             <p>Status: {status}</p>
                             <p>Type: {type}</p>
-                            <p>Done: {done}</p>
+                            <p>Done: {done}</p> */}
                             
             </div>
         )

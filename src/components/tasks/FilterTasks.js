@@ -39,13 +39,9 @@ class FilterProject extends Component {
 
     renderFilterByTypeForm = input => {
         const value = input;
-        console.log('>>>>>>>>>>>>>>>>>>> THIS PROPS' ,this.props);
+        
         const { singleProject } = this.props.singleProject;
         this.setState({ singleProject: singleProject})
-
-        console.log('>>>>>>>>>>>>>>>>> INUT', input)
-        
-        console.log('>>>>>>>>>>>>>>>>>>> THIS STå‚ATE' ,this.state);
 
         if ( !this.state.isShowing) {
             this.props.singleProject.tasks.filter( task => {
