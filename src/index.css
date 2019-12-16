@@ -54,3 +54,60 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+
+
+.edit-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vw;
+    background-color: #F4E485;
+    padding: 2vh 2vw;
+    border-radius: 2vw;
+}
+
+.edit-form input {
+  max-width: 30vw;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  text-align: center;
+  background-color: #F4E485;
+}
+
+.edit-form select {
+  max-width: 30vw;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  text-align: center;
+}
+
+.edit-form textarea {
+  background-color: #F4E485;
+}
+
+
+.button {
+  padding: 1.5vh 1vw;
+  display: flex;
+  text-align: center;
+  margin: 1vh auto;
+  border-radius: 2vh;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.action-container {
+  display: flex;
+  justify-content: space-around;
+}

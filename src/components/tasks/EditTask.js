@@ -81,7 +81,7 @@ class EditTask extends Component {
         return (
             <div>
 
-                <button onClick={this.toggleForm}>Edit Task</button>
+                <button onClick={this.toggleForm}  className='button'>Edit Task</button>
 
                     {
                         !this.state.isShowing ?
@@ -90,7 +90,7 @@ class EditTask extends Component {
                         (
 
                             <div>
-                                <form onSubmit={this.handleSubmit}>
+                                <form onSubmit={this.handleSubmit} className="edit-form">
                                 <label>Title:</label>
                                 <input 
                                         type="text"
@@ -171,7 +171,7 @@ class EditTask extends Component {
                                         onChange={ (e) => this.handleInput(e)}
                                     />
                                 
-                                <button>Update</button>    
+                                <button className='button'>Update</button>    
                                 </form>
                             </div>
                         )

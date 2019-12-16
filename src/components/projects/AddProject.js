@@ -50,7 +50,7 @@ class AddProject extends Component {
         
         return (
             <div>
-                <button onClick={this.toggleForm}>Add Project</button>
+                <button onClick={this.toggleForm} className="button">Add Project</button>
 
                 {
                     !this.state.isShowing ?
@@ -58,7 +58,7 @@ class AddProject extends Component {
                     :
                     (
                     
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.handleSubmit}  className="edit-form">
                             <label>Title:</label>
                             <input 
                                     type="text"
@@ -89,7 +89,7 @@ class AddProject extends Component {
                                     onChange={ (e) => this.handleInput(e)}
                                 />
 
-                            <button>Add Project</button>    
+                            <button className="button">Add Project</button>    
                         </form>
                     )
                 }

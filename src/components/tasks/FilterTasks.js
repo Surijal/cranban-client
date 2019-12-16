@@ -88,11 +88,15 @@ class FilterProject extends Component {
             <div>
                 <h1>{this.state.statusFilter}</h1>
                 <h2>{this.state.typeFilter}</h2>
-                <button onClick={this.toggleFilterStatus} value="backlog">Backlog</button>
-                <button onClick={this.toggleFilterStatus} value="to do">to do</button>
-                <button onClick={this.toggleFilterStatus} value="doing">doing</button>
-                <button onClick={this.toggleFilterStatus} value="testing">testing</button>
-                <button onClick={this.toggleFilterStatus} value="done">done</button>
+
+                <div className="filter-container">
+                    <button className="button" onClick={this.toggleFilterStatus} value="backlog">Backlog</button>
+                    <button className="button" onClick={this.toggleFilterStatus} value="to do">to do</button>
+                    <button className="button" onClick={this.toggleFilterStatus} value="doing">doing</button>
+                    <button className="button" onClick={this.toggleFilterStatus} value="testing">testing</button>
+                    <button className="button" onClick={this.toggleFilterStatus} value="done">done</button>
+
+                </div>
 
                 <form>
                     <label htmlFor="type">Type {this.props.type}</label>
@@ -142,7 +146,7 @@ class FilterProject extends Component {
                     })
                     .map( task => {
                         return (
-                            <div key={task._id} className="task-container">
+                            <div key={task._id} className="task-container edit-form" >
                                 <Link to={`/projects/${this.props.singleProject._id}/tasks/${task._id}`} >
                                     <h5>{task.title}</h5>
                                     <p>{task.description}</p>

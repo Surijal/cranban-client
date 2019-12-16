@@ -71,8 +71,8 @@ class EditProject extends Component {
                         (
 
                             <div>
-                                <form onSubmit={this.handleSubmit}>
-                                <label>Title:</label>
+                                <form onSubmit={this.handleSubmit} className="edit-form">
+                                
                                 <input 
                                         type="text"
                                         name='title'
@@ -81,7 +81,7 @@ class EditProject extends Component {
                                         onChange={ (e) => this.handleInput(e)}
                                     />
 
-                                <label>Description:</label>
+                                
                                 <textarea
                                         type="text"
                                         name="description" 
@@ -93,7 +93,7 @@ class EditProject extends Component {
                                         onChange={ (e) => this.handleInput(e)}
                                     />
 
-                                    <label>Deadline:</label>
+
                                     <input
                                             type="date"
                                             name="deadline" 
@@ -103,7 +103,7 @@ class EditProject extends Component {
                                         />
 
                                 
-                                <button>Update</button>    
+                                <button className="button">Update Project</button>    
                                 </form>
                             </div>
                         )

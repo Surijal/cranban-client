@@ -136,7 +136,11 @@ class ProjectDetails extends Component {
                                             <div>{this.renderEditForm()}</div>
 
                                             <div>
-                                                <button onClick={ () => this.deleteProject()}  >Delete Project</button>
+                                                <button
+                                                            onClick={ () => this.deleteProject()}   
+                                                            className='button'>
+                                                            Delete Project
+                                                </button>
                                 
                                                 <AddTask projectId={this.state.singleProject._id} refreshSingleProject={this.getSingleProject}/>
 

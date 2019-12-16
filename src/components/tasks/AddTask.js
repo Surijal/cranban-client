@@ -66,7 +66,7 @@ class AddTask extends Component {
                         :
                         (
                             <div>
-                                <form onSubmit={this.handleSubmit}>
+                                <form onSubmit={this.handleSubmit} className="edit-form">
                                     <label>Title:</label>
                                     <input 
                                             type="text"
