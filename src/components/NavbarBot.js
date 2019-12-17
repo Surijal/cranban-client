@@ -12,56 +12,53 @@ class NavbarBot extends Component {
     
         return (
 
-                <div>
-                    { isLoggedin ? (
+            <div>
+
+            
+            { isLoggedin ? (
+                
                     <nav className="navbar  navbar-light bg-light fixed-bottom">
-
-                        <div className="collapse navbar-collapse container " id="navbarSupportedContent">
-                            <ul className='navbar-nav mr-auto'>
-                                <li className="nav-item active">
-                                    <Link to={`/user/${user._id}`} className="nav-link">
+                            
+                                    <Link to={`/user/${user._id}`} className="nav-link nav-brand">
                                     {' '}
-                                    User Profile{' '}
+                                    <img alt="profile" src="/src/images/person.png" width="30px" height="30px"></img>{' '}
                                     </Link>
-                                </li>
-
-                                <li className="nav-item active">
-                                    <Link to="/projects" className="nav-link">
+                                
+                                    <Link to="/projects" className="nav-link nav-brand">
                                     {' '}
                                     Projects{' '}
                                     </Link>
-                                </li>    
+                                
 
-                                <li className="nav-item active">
-                                    <Link to="/projects" className="nav-link">
+                        
+                                    <Link to="/projects" className="nav-link nav-brand">
                                     {' '}
                                     Graph{' '}
                                     </Link>
-                                </li>
+                        
 
-                                <li className="nav-item active">
                                 
-                                    <Link to={`/projects`}  className="nav-link">
+                                
+                                    <Link to={`/projects`}  className="nav-link nav-brand">
                                     {' '}
                                         ProAddject{' '}
                                     </Link>
-                                </li>
-                            </ul>
                             
-
-                        </div>
-                    </nav>
+                            
+                        </nav>
+                        
     
                 )  
                 :
                 (
-                    <div className="navbot">
+                    <nav className="navbar  navbar-light bg-light fixed-bottom">
                         
-                    </div>
+                    </nav>
                 )}
 
-            
             </div>
+            
+            
         )
     }
 }

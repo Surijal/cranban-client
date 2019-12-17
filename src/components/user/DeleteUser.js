@@ -50,7 +50,7 @@ class DeleteUser extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.toggleForm}>Delete User Profile</button>
+                <button onClick={this.toggleForm} className="btn btn-primary">Delete User Profile</button>
 
                 {
                     !this.state.isShowing ?

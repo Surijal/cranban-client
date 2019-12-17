@@ -60,49 +60,65 @@ class EditUser extends Component {
         return (
             <div>
 
-            
-                <button onClick={this.toggleForm}>Edit User</button>
-
-                <DeleteUser />
 
                     {
                         !this.state.isShowing ?
-                        null
+                        
+                            <div className="d-flex justify-content-around">
+                                <button onClick={this.toggleForm} className="btn btn-primary">Edit User</button>
+
+                                <DeleteUser />
+                            </div>
                         :
                         (
 
                             <div>
                                 <form onSubmit={this.handleSubmit}>
-                                <label>username:</label>
-                                <input 
-                                        type="text"
-                                        name='username'
-                                        placeholder={this.props.user.username}
-                                        value={this.state.username}
-                                        onChange={ (e) => this.handleInput(e)}
+
+                                <div className="form-group mt-3">
+                                    <label for="edit-name">Name:</label>
+                                    <input 
+                                            type="text"
+                                            name='username'
+                                            id="edit-name"
+                                            className="form-control"
+                                            placeholder={this.props.user.username}
+                                            value={this.state.username}
+                                            onChange={ (e) => this.handleInput(e)}
+                                        />
+                                </div>
+
+                                <div className="form-group mt-3">
+                                    <label id="edit-email">Email:</label>
+                                    <input
+                                            type="text"
+                                            name="email"
+                                            id="edit-email"
+                                            className="form-control"
+                                            placeholder={this.props.user.email}
+                                            id="" 
+                                            value={this.state.email}
+                                            onChange={ (e) => this.handleInput(e)}
                                     />
+                                </div>
 
-                                <label>Email:</label>
-                                <input
-                                        type="text"
-                                        name="email" 
-                                        placeholder={this.props.user.email}
-                                        id="" 
-                                        value={this.state.email}
-                                        onChange={ (e) => this.handleInput(e)}
-                                />
+                                <div className="form-group">
+                                    <label id="edit-password">Password:</label>
+                                    <input
+                                            type="password"
+                                            name="password"
+                                            id="edit-password"
+                                            className="form-control"
+                                            placeholder="password"
+                                            id="" 
+                                            value={this.state.password}
+                                            onChange={ (e) => this.handleInput(e)}
+                                    />
+                                </div>
 
-                                <label>Password:</label>
-                                <input
-                                        type="password"
-                                        name="password" 
-                                        placeholder="password"
-                                        id="" 
-                                        value={this.state.password}
-                                        onChange={ (e) => this.handleInput(e)}
-                                />
-
-                                <button>Update</button>    
+                                <div className="d-flex justify-content-around">
+                                    <button type="submit" className="btn btn-primary">Update</button>    
+                                </div>
                                 </form>
                             </div>
                         )

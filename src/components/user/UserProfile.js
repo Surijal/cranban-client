@@ -39,13 +39,30 @@ class UserProfile extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
 
-                <h1>UserProfile</h1>
-                <h1>{this.state.username}</h1>
-                <p>{this.state.email}</p>
+                <div className="card mt-3">
+                    <div className="card-header">
+                        <h3 className="card-title">Profile:</h3>
 
-                <EditUser />
+                    </div>    
+
+                    <div className="card-body">
+                        <h4 className="card-title mb-0">{this.state.username}</h4>
+                        <p className="card-text">Name</p>
+                        <p className="card-title mb-0">{this.state.email}</p>
+                        <p className="card-text">Email</p>
+                    </div>
+
+                    
+
+                    
+                    <div className="card-footer">
+                        <EditUser />
+
+                    </div>
+                </div>
+
             </div>
         )
     }
