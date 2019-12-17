@@ -55,7 +55,6 @@ class EditUser extends Component {
 
 
     render() {
-        
 
         return (
             <div>
@@ -96,7 +95,6 @@ class EditUser extends Component {
                                             id="edit-email"
                                             className="form-control"
                                             placeholder={this.props.user.email}
-                                            id="" 
                                             value={this.state.email}
                                             onChange={ (e) => this.handleInput(e)}
                                     />
@@ -109,15 +107,23 @@ class EditUser extends Component {
                                             name="password"
                                             id="edit-password"
                                             className="form-control"
-                                            placeholder="password"
-                                            id="" 
+                                            placeholder="password"                                           
                                             value={this.state.password}
                                             onChange={ (e) => this.handleInput(e)}
                                     />
                                 </div>
 
                                 <div className="d-flex justify-content-around">
-                                    <button type="submit" className="btn btn-primary">Update</button>    
+                                    <button 
+                                        type="submit" 
+                                        className="btn btn-primary"
+                                        onclick={ () => {
+                                                        this.getUserById()
+                                                        this.toggleForm()
+                                        }}
+                                >
+                                        Update
+                                    </button>    
                                 </div>
                                 </form>
                             </div>
