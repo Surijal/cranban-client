@@ -58,79 +58,86 @@ class AddTask extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.toggleForm} className="button">Add Task</button>
+                <button onClick={this.toggleForm} className="btn btn-primary mr-3 ml-3">Add Task</button>
 
                     {
                         !this.state.isShowing ?
                         null
                         :
                         (
-                            <div>
-                                <form onSubmit={this.handleSubmit} className="edit-form">
+                            <div className="card mt-3 mb-3">
+                                <h5 className="card-header">Add Task</h5>
+                                <form onSubmit={this.handleSubmit} 
+                                    className="form-group">
                                     
-                                    <input 
-                                            type="text"
-                                            name='title'
-                                            placeholder="Title"
-                                            value={this.state.title}
-                                            onChange={ (e) =>this.handleChange(e)}
-                                        />
+                                    <div className="card-body">
+                                        <input
+                                                className="form-control mb-3"
+                                                type="text"
+                                                name='title'
+                                                placeholder="Title"
+                                                value={this.state.title}
+                                                onChange={ (e) =>this.handleChange(e)}
+                                            />
 
-                                    
-                                    <textarea
-                                            type="text"
-                                            name="description" 
-                                            placeholder="Description"
-                                            id="" 
-                                            cols="30" 
-                                            rows="10"
-                                            value={this.state.description}
-                                            onChange={ (e) => this.handleChange(e)}
-                                        />
+                                        
+                                        <textarea
+                                                className="form-control"
+                                                type="text"
+                                                name="description" 
+                                                placeholder="Description"
+                                                id="" 
+                                                
+                                                rows="4"
+                                                value={this.state.description}
+                                                onChange={ (e) => this.handleChange(e)}
+                                            />
 
-                                <label htmlFor="status">Status</label>
-                                <select 
-                                    type="text"
-                                    name='status'
-                                    id="status"
-                                    
-                                    defaultValue='to do'
-                                    // value={this.state.type}
-                                    onChange={ (e) => this.handleChange(e)}
-                                >
-                                    <option >to do</option>
-                                    <option >doing</option>
-                                    <option >done</option>
-                                    <option >testing</option>
-                                    <option >backlog</option>
-                                </select>
+                                    <label htmlFor="status">Status</label>
+                                    <select
+                                        className="form-control"
+                                        type="text"
+                                        name='status'
+                                        id="status"
+                                        
+                                        defaultValue='to do'
+                                        // value={this.state.type}
+                                        onChange={ (e) => this.handleChange(e)}
+                                    >
+                                        <option >to do</option>
+                                        <option >doing</option>
+                                        <option >done</option>
+                                        <option >testing</option>
+                                        <option >backlog</option>
+                                    </select>
 
-                                <label htmlFor="type">Type {this.props.type}</label>
-                                <select 
-                                    type="text"
-                                    name='type'
-                                    id="testid"
-                                    
-                                    defaultValue='preperation'
-                                    // value={this.state.type}
-                                    onChange={ (e) => this.handleChange(e)}
-                                >
-                                    <option >frontend</option>
-                                    <option >backend</option>
-                                    <option >styles</option>
-                                    <option >preperation</option>
-                                </select>
+                                    <label htmlFor="type">Type {this.props.type}</label>
+                                    <select 
+                                        type="text"
+                                        name='type'
+                                        id="testid"
+                                        
+                                        defaultValue='preperation'
+                                        // value={this.state.type}
+                                        onChange={ (e) => this.handleChange(e)}
+                                    >
+                                        <option >frontend</option>
+                                        <option >backend</option>
+                                        <option >styles</option>
+                                        <option >preperation</option>
+                                    </select>
 
-                                    <label>Deadline:</label>
-                                    <input
-                                            type="date"
-                                            name="deadline" 
-                                            placeholder="Deadline"
-                                            value={this.state.deadline}
-                                            onChange={ (e) => this.handleChange(e)}
-                                        />
-                                    
-                                    <button>Submit</button>    
+                                        <label>Deadline:</label>
+                                        <input
+                                                type="date"
+                                                name="deadline" 
+                                                placeholder="Deadline"
+                                                value={this.state.deadline}
+                                                onChange={ (e) => this.handleChange(e)}
+                                            />
+                                        
+                                        <button>Submit</button>  
+                                    </div>  
                                 </form>
                             </div>
                         )

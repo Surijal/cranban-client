@@ -50,7 +50,7 @@ class AddProject extends Component {
         
         return (
             <div>
-                <button onClick={this.toggleForm} className="button">Add Project</button>
+                <button onClick={this.toggleForm} className="btn btn-primary">Add Project</button>
 
                 {
                     !this.state.isShowing ?

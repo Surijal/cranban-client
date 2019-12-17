@@ -7,46 +7,51 @@ import { Link } from 'react-router-dom';
 
 class NavbarBot extends Component {
     render() {
-        const { user, isLoggedin, logout } = this.props;
+        const { user, isLoggedin } = this.props;
 
     
         return (
-            <div >
-                { isLoggedin ? (
 
-                    <div className='navbot'>
-                        <div className='nav-user-profile-link'>
-                            <Link to={`/user/${user._id}`}>
-                            {' '}
-                            <button>User Profile</button>{' '}
-                            </Link>
+                <div>
+                    { isLoggedin ? (
+                    <nav className="navbar  navbar-light bg-light fixed-bottom">
+
+                        <div className="collapse navbar-collapse container " id="navbarSupportedContent">
+                            <ul className='navbar-nav mr-auto'>
+                                <li className="nav-item active">
+                                    <Link to={`/user/${user._id}`} className="nav-link">
+                                    {' '}
+                                    User Profile{' '}
+                                    </Link>
+                                </li>
+
+                                <li className="nav-item active">
+                                    <Link to="/projects" className="nav-link">
+                                    {' '}
+                                    Projects{' '}
+                                    </Link>
+                                </li>    
+
+                                <li className="nav-item active">
+                                    <Link to="/projects" className="nav-link">
+                                    {' '}
+                                    Graph{' '}
+                                    </Link>
+                                </li>
+
+                                <li className="nav-item active">
+                                
+                                    <Link to={`/projects`}  className="nav-link">
+                                    {' '}
+                                        ProAddject{' '}
+                                    </Link>
+                                </li>
+                            </ul>
+                            
+
                         </div>
-
-                        <div className='nav-projects-link'>
-                            <Link to="/projects">
-                            {' '}
-                            <button>Projects</button>{' '}
-                            </Link>
-                        </div>    
-
-                        <div className='nav-graph-link'>
-                            <Link to="/projects">
-                            {' '}
-                            <button>Graph</button>{' '}
-                            </Link>
-                        </div>
-
-                        <div className='nav-add-project-link'>
-                        
-                            <Link to={`/projects`}  className='nav-add-project-link'>
-                            {' '}
-                            <button> ProAddject</button>{' '}
-                            </Link>
-                        </div>
-                        <button onClick={logout}>Logout</button>
-
-                    </div>
-
+                    </nav>
+    
                 )  
                 :
                 (
@@ -55,7 +60,7 @@ class NavbarBot extends Component {
                     </div>
                 )}
 
-
+            
             </div>
         )
     }

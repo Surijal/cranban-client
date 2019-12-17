@@ -55,7 +55,7 @@ class Signup extends Component {
           />
 
 
-          <input type="submit" value="Signup" />
+          <input type="submit" value="Signup" autoComplete="off"/>
         </form>
 
         <p>Already have account?</p>

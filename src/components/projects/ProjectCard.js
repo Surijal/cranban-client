@@ -12,12 +12,22 @@ class ProjectCard extends Component {
 
 
     render() {
+        console.log('>>>>>>>>>>', this.props.projectData._id);
+        
+        const { _id, title, description } = this.props.projectData
 
         return (
-            <div className="project-card">
-                <Link to={`/projects/${this.props.projectData._id}`}>
-                    <h2>{this.props.projectData.title}</h2>
-                    <p>{this.props.projectData.description}</p>
+            <div key={_id} className="card mt-3 mb-3">
+                <Link   to={`/projects/${_id}`}>
+                    <div className="card-header">Project:</div>
+
+                    
+                    <div className="card-body">
+                    <h2 className="card-title">{title}</h2>
+                        <p className="card-text
+                        ">{description}</p>
+
+                    </div>
                 </Link>
             </div> 
         )

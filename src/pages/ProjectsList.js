@@ -42,27 +42,28 @@ class ProjectsList extends Component {
                         <h1>Loading</h1>
                         :
                         (
-                            <div className="project-details-container">
-                                <div className="project-title-container">
+                            
 
-                                    <div className="project-filter-container">
+                                    <div className="container">
+                                                    <AddProject refreshProjectList={this.getUserListOfProjects} />
                                         {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
+                                            console.log('project', project)
+                                            const { _id  } = project._id
                                             return(
-                                                
-                                                <>
-                                                
-                                                    <ProjectCard key={project._id} projectData={project} /> 
-                                        <AddProject refreshProjectList={this.getUserListOfProjects} />
-                                                
                                                     
-                                                </>    
+                                                
+                                                    <div key={_id}>
+                                                    <ProjectCard   projectData={project} /> 
+                                                    </div>
+                                                    
+                                                
                                             )
                                         })
-                                        : <h1> Add your first project </h1>
+                                        : 
+                                        <AddProject refreshProjectList={this.getUserListOfProjects} />
                                         }
                                     </div>
-                                </div>
-                            </div>
+                            
                         )
                 }
             </>

@@ -4,6 +4,7 @@ import React from 'react';
 import authService from './auth-service'; // IMPORT functions for axios requests to API
 const { Consumer, Provider } = React.createContext();
 
+
 // HOC to create Consumer
 const withAuth = WrappedComponent => {
   return class extends React.Component {

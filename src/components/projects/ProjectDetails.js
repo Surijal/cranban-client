@@ -27,8 +27,6 @@ class ProjectDetails extends Component {
             statusTesting: false,
             statusToDO: false,
             statusDone: false,
-            statusDoing:false
-            
         }
     }
 
@@ -139,25 +137,28 @@ class ProjectDetails extends Component {
                             :
                             (
                                 <>
-                                <div className="project-details-container">
-                                        <div className="project-title-container">
-                                            <h2>{this.state.singleProject.title}</h2>
-                                            <p>{this.state.singleProject.description}</p>
-                                            <p>{this.state.singleProject.deadline}</p>
+                                <div className="container">
+                                        <div className="card">
+                                            <div className="card-header">Project:</div>
 
+                                            <div className="card-body">
+                                                <h2 className="card-title">{this.state.singleProject.title}</h2>
+                                                <p className="card-text">{this.state.singleProject.description}</p>
+                                                <p>{this.state.singleProject.deadline}</p>
+                                            </div>
 
                                             
                                             
-                                            <div className="action-container-project">
+                                            <div className="card-footer row row-cols-3">
                                                 {this.renderEditForm()}
                                                 <button
-                                                            className="button delete-button"
+                                                            className="btn btn-primary mr-3"
                                                             onClick={ () => this.deleteProject()}   
                                                 >
-                                                Delete Project
+                                                Delete
                                                 </button>
                                                 <AddTask
-                                                            className="add-task-button"
+                                                            className="btn btn-primary"
                                                             projectId={this.state.singleProject._id} 
                                                             refreshSingleProject={this.getSingleProject}
                                                         />

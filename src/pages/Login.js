@@ -21,12 +21,13 @@ class Login extends Component {
     return (
       <div>
         <h1>Login</h1>
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit} autoComplete="off">
           <label>Username:</label>
           <input
             type="text"
             name="username"
             value={username}
+            autoComplete="off"
             onChange={this.handleChange}
           />
 
@@ -35,10 +36,11 @@ class Login extends Component {
             type="password"
             name="password"
             value={password}
+            autoComplete="off"
             onChange={this.handleChange}
           />
 
-          <input type="submit" value="Login" />
+          <input type="submit" value="Login" autoComplete="off"/>
         </form>
       </div>
     );

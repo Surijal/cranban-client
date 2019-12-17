@@ -39,8 +39,6 @@ class FilterTask extends Component {
         const typeNotSelected = () => this.state.typeFilter === '' ;
         const statusMatch = (task) => task.status === this.state.statusFilter;
         const typeMatch = (task) => task.type === this.state.typeFilter;
-        
-        console.log(' >>>>>>>', this.props.singleProject)
 
 
         const filteredTasks = tasks.filter( task => {

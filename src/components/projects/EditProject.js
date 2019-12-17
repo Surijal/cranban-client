@@ -62,7 +62,7 @@ class EditProject extends Component {
         return (
             <div>
 
-                <button onClick={this.toggleForm} className="button">Edit Project</button>
+                <button onClick={this.toggleForm} className="btn btn-primary mr-3 ml-3 ml-3">Edit</button>
 
                     {
                         !this.state.isShowing ?
@@ -70,40 +70,47 @@ class EditProject extends Component {
                         :
                         (
 
-                            <div>
-                                <form onSubmit={this.handleSubmit} className="edit-form">
+                            <div className="card mt-3 mb-3">
+
+                            <h5 className="card-header">Edit Project</h5>
+                                <form onSubmit={this.handleSubmit} className="form-group">
                                 
-                                <input 
-                                        type="text"
-                                        name='title'
-                                        placeholder="Title"
-                                        value={this.state.title}
-                                        onChange={ (e) => this.handleInput(e)}
-                                    />
+                                    <div className="card-body">
+                                    
+                                        <input 
+                                                className="card-title form-control mt-3 mb-3"
+                                                type="text"
+                                                name='title'
+                                                placeholder="Title"
+                                                value={this.state.title}
+                                                onChange={ (e) => this.handleInput(e)}
+                                            />
 
-                                
-                                <textarea
-                                        type="text"
-                                        name="description" 
-                                        placeholder="Description"
-                                        id="" 
-                                        cols="30" 
-                                        rows="10"
-                                        value={this.state.description}
-                                        onChange={ (e) => this.handleInput(e)}
-                                    />
+                                        
+                                        <textarea
+                                                className="form-control"
+                                                type="text"
+                                                name="description" 
+                                                placeholder="Description"
+                                                id="" 
+                                                rows="4"
+                                                value={this.state.description}
+                                                onChange={ (e) => this.handleInput(e)}
+                                            />
 
 
-                                    <input
-                                            type="date"
-                                            name="deadline" 
-                                            placeholder="Deadline"
-                                            value={this.state.deadline}
-                                            onChange={ (e) => this.handleInput(e)}
-                                        />
+                                            <input
+                                                    className="form-control"
+                                                    type="date"
+                                                    name="deadline" 
+                                                    placeholder="Deadline"
+                                                    value={this.state.deadline}
+                                                    onChange={ (e) => this.handleInput(e)}
+                                                />
 
-                                
-                                <button className="button">Update Project</button>    
+                                        
+                                        <button className="btn btn-primary">Submit</button>
+                                    </div>
                                 </form>
                             </div>
                         )

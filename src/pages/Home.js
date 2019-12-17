@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {withAuth} from './../lib/AuthProvider'
 
 
 class Home extends Component {
@@ -22,4 +23,4 @@ class Home extends Component {
 }
 
 
-export default  Home;
+export default  withAuth(Home);
