@@ -79,100 +79,134 @@ class EditTask extends Component {
     
         const { description, done } = this.props.singleTask
         return (
-            <div>
+            <div className="container">
 
-                <button onClick={this.toggleForm}  className='button'>Edit Task</button>
-
+                
                     {
                         !this.state.isShowing ?
-                        null
+                        
+                        <button onClick={this.toggleForm}  className='btn btn-primary'>Edit Task</button>
+
+
                         :
                         (
 
-                            <div>
-                                <form onSubmit={this.handleSubmit} className="edit-form">
-                                <label>Title:</label>
-                                <input 
-                                        type="text"
-                                        name='title'
-                                        // defaultValue={title}
-                                        value={this.state.title}
-                                        onChange={ (e) => this.handleInput(e)}
-                                    />
-
-                                <label>Description:</label>
-                                <textarea
-                                        type="text"
-                                        name="description"
-                                        value={this.state.description}
-                                        id="" 
-                                        cols="30" 
-                                        rows="5"
-                                        // defaultValue={description}
-                                        onChange={ (e) => this.handleInput(e)}
-                                    >
-                                    {description}
-
-                                    </textarea>
-
-                                <label htmlFor="done">Done</label>
-                                <input 
-                                    type="checkbox"
-                                    name='done'
-                                    id="done"
-                                    defaultValue={done}
-                                    onChange={ (e) => {
-                                        this.handleInput(e)
-                                        this.toggleChange(e)
-                                    }}
-                                    checked={this.state.done}
-                                />
-
-                                <label htmlFor="status">Status</label>
-                                <select 
-                                    type="text"
-                                    name='status'
-                                    id="status"
-                                    
-                                    // defaultValue={status}
-                                    value={this.state.type}
-                                    onChange={ (e) => this.handleInput(e)}
-                                >
-                                    <option >to do</option>
-                                    <option >doing</option>
-                                    <option >done</option>
-                                    <option >testing</option>
-                                    <option >backlog</option>
-                                </select>
-
-                                <label htmlFor="type">Type {this.props.type}</label>
-                                <select 
-                                    type="text"
-                                    name='type'
-                                    id="testid"
-                                    
-                                    // defaultValue={type}
-                                    value={this.state.type}
-                                    onChange={ (e) => this.handleInput(e)}
-                                >
-                                    <option >frontend</option>
-                                    <option >backend</option>
-                                    <option >styles</option>
-                                    <option >preperation</option>
-                                </select>
-
-                                <label>Deadline:</label>
-                                <input
-                                        type="date"
-                                        name="deadline" 
-                                        placeholder="Deadline"
-                                        // defaultValue={deadline}
-                                        value={this.state.deadline}
-                                        onChange={ (e) => this.handleInput(e)}
-                                    />
+                            <div className="card mt-3">
+                                <form onSubmit={this.handleSubmit}>
                                 
-                                <button className='button'>Update</button>    
+                                <div className="card-header">
+                                    Edit Task
+                                </div>
+
+                                <div className="card-body">
+                                    <div className="form-group">
+                                        <input 
+                                                type="text"
+                                                name='title'
+                                                className="form-control"
+                                                // defaultValue={title}
+                                                value={this.state.title}
+                                                onChange={ (e) => this.handleInput(e)}
+                                            />
+
+                                    </div>
+
+                                    <div className="form-group">
+                                        <textarea
+                                                className="form-control"
+                                                type="text"
+                                                name="description"
+                                                value={this.state.description}
+                                                id="" 
+                                                cols="30" 
+                                                rows="4"
+                                                // defaultValue={description}
+                                                onChange={ (e) => this.handleInput(e)}
+                                            >
+                                            {description}
+
+                                        </textarea>
+                                            
+                                    <div className="form-group">
+                                        <label htmlFor="done">Done</label>
+                                        <input
+                                            className="form-control"
+                                            type="checkbox"
+                                            name='done'
+                                            id="done"
+                                            defaultValue={done}
+                                            onChange={ (e) => {
+                                                this.handleInput(e)
+                                                this.toggleChange(e)
+                                            }}
+                                            checked={this.state.done}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        
+                                        <select
+                                            className="custom-select form-control"
+                                            type="text"
+                                            name='status'
+                                            id="status"
+                                            
+                                            // defaultValue={status}
+                                            value={this.state.type}
+                                            onChange={ (e) => this.handleInput(e)}
+                                        >
+                                            <option >to do</option>
+                                            <option >doing</option>
+                                            <option >done</option>
+                                            <option >testing</option>
+                                            <option >backlog</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="type">Type {this.props.type}</label>
+                                        <select 
+                                            type="text"
+                                            name='type'
+                                            id="testid"
+                                            className="custom-select form-control"
+                                            // defaultValue={type}
+                                            value={this.state.type}
+                                            onChange={ (e) => this.handleInput(e)}
+                                        >
+                                            <option >frontend</option>
+                                            <option >backend</option>
+                                            <option >styles</option>
+                                            <option >preperation</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Deadline:</label>
+                                        <input
+                                                type="date"
+                                                name="deadline" 
+                                                placeholder="Deadline"
+                                                className="form-control custom-select"
+                                                // defaultValue={deadline}
+                                                value={this.state.deadline}
+                                                onChange={ (e) => this.handleInput(e)}
+                                            />
+                                    </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div className="card-footer">
+                                    <button className='btn btn-primary'>Submit</button>    
+                                    </div>
                                 </form>
+                                
                             </div>
                         )
                     }

@@ -49,48 +49,56 @@ class AddProject extends Component {
     render() {
         
         return (
-            <div>
-                <button onClick={this.toggleForm} className="btn btn-primary">Add Project</button>
+            <div >
 
                 {
                     !this.state.isShowing ?
-                    null
+                    
+                        <button onClick={this.toggleForm} className="btn btn-primary">Add Project</button>
                     :
                     (
-                    
-                        <form onSubmit={this.handleSubmit}  className="edit-form">
-                            <label>Title:</label>
-                            <input 
-                                    type="text"
-                                    name='title'
-                                    placeholder="Title"
-                                    value={this.state.title}
-                                    onChange={ (e) => this.handleInput(e)}
-                                />
+                    <div className="card mt-3">
+                        <form onSubmit={this.handleSubmit}  className="form-group ">
+                            
+                            <div className="card-header">
+                                <input
+                                        className="form-control"
+                                        type="text"
+                                        name='title'
+                                        placeholder="Title"
+                                        value={this.state.title}
+                                        onChange={ (e) => this.handleInput(e)}
+                                    />
+                            </div>
 
-                            <label>Description:</label>
-                            <textarea
-                                    type="text"
-                                    name="description" 
-                                    placeholder="Description"
-                                    id="" 
-                                    cols="30" 
-                                    rows="10"
-                                    value={this.state.description}
-                                    onChange={ (e) => this.handleInput(e)}
-                                />
+                            <div className="card-body">
+                                <textarea
+                                        className="form-control"
+                                        type="text"
+                                        name="description" 
+                                        placeholder="Description"
+                                        id="" 
+                                        cols="30" 
+                                        rows="4"
+                                        value={this.state.description}
+                                        onChange={ (e) => this.handleInput(e)}
+                                    />
 
-                            <label>Deadline:</label>
-                            <input
-                                    type="date"
-                                    name="deadline" 
-                                    placeholder="Deadline"
-                                    value={this.state.deadline}
-                                    onChange={ (e) => this.handleInput(e)}
-                                />
+                                
+                                <input
+                                        className="form-control mb-3 mt-3"
+                                        type="date"
+                                        name="deadline" 
+                                        placeholder="Deadline"
+                                        value={this.state.deadline}
+                                        onChange={ (e) => this.handleInput(e)}
+                                    />
 
-                            <button className="button">Submit</button>    
+                                <button className="btn btn-primary">Submit</button> 
+                            
+                            </div>
                         </form>
+                    </div>
                     )
                 }
             </div>

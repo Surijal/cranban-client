@@ -60,19 +60,22 @@ class EditProject extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
 
-                <button onClick={this.toggleForm} className="btn btn-primary mr-3 ml-3 ml-3">Edit</button>
+                
 
                     {
                         !this.state.isShowing ?
-                        null
+                        
+                            <button onClick={this.toggleForm} className="btn btn-primary mr-3 ml-3 ml-3">Edit</button>
                         :
                         (
 
                             <div className="card mt-3 mb-3">
 
-                            <h5 className="card-header">Edit Project</h5>
+                            <div className="card-header">Edit Project 
+                                {/* <button onClick={ () => this.deleteProject()} >Delete</button> */}
+                            </div>
                                 <form onSubmit={this.handleSubmit} className="form-group">
                                 
                                     <div className="card-body">
@@ -107,11 +110,15 @@ class EditProject extends Component {
                                                     value={this.state.deadline}
                                                     onChange={ (e) => this.handleInput(e)}
                                                 />
-
+                                    </div>
                                         
+                                    <div className="d-flex justify-content-center">
+
                                         <button className="btn btn-primary">Submit</button>
                                     </div>
+                                    
                                 </form>
+                                        
                             </div>
                         )
                     }

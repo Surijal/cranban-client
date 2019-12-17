@@ -58,11 +58,11 @@ class AddTask extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.toggleForm} className="btn btn-primary mr-3 ml-3">Add Task</button>
 
                     {
                         !this.state.isShowing ?
-                        null
+                        
+                            <button onClick={this.toggleForm} className="btn btn-primary mr-3 ml-3">Add Task</button>
                         :
                         (
                             <div className="card mt-3 mb-3">
@@ -116,7 +116,7 @@ class AddTask extends Component {
                                         type="text"
                                         name='type'
                                         id="testid"
-                                        
+                                        className="form-control"
                                         defaultValue='preperation'
                                         // value={this.state.type}
                                         onChange={ (e) => this.handleChange(e)}
@@ -136,7 +136,7 @@ class AddTask extends Component {
                                                 onChange={ (e) => this.handleChange(e)}
                                             />
                                         
-                                        <button>Submit</button>  
+                                        <button className="btn btn-primary">Submit</button>  
                                     </div>  
                                 </form>
                             </div>

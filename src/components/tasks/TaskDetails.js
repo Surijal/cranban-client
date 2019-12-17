@@ -87,30 +87,48 @@ class TaskDetails extends Component {
         const singleTask = { title, description, deadline, taskId , status, type, done} 
 
         return (
-            <div className="project-details-container">
-                        <div className="project-title-container">
-                            <h2>{title}</h2>
-                            
-                            <p> {description}</p>
-                            <p>Deadline: {deadline}</p>
-                            <p>Status: {status}</p>
-                            <p>Type: {type}</p>
-                            <p>Done: {done}</p>
-                            
+            <div className="container mt-3">
+                        <div className="card">
+
+                        <div className="card-header row row-cols-2 ">
+                        <div>
+
                             <button
-                                className="button"
+                                className="btn btn-primary"
                                 onClick={ () => this.deleteTask() }
                             >
                             Delete Task
                             </button>
                         </div>
-                                
-                                <EditTask
+
+                            <EditTask
                                     className="button"
                                     taskId={taskId} 
                                     refreshTaskDetails={this.getSingleTask} 
                                     {...this.props} 
                                     singleTask={singleTask}/>
+
+                        </div>
+
+                        <div className="card-body">
+                            <h2 className="card-title">{title}</h2>
+                            <p className="card-text"> {description}</p>
+                            <p>Deadline: {deadline}</p>
+                            <p>Done: {done}</p>
+
+                        </div>
+
+                        <div className="card-footer row row-cols-2">
+
+                            <p>{status}</p>
+                            <p>s{type}</p>
+
+                        </div>
+                            
+                            
+                        </div>
+                                
+                            
 
             </div>
         )

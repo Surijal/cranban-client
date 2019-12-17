@@ -101,8 +101,12 @@ class ProjectDetails extends Component {
         if (!this.state.title && this.state.description ) return null
         else {
             return (
-
-                <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshProjectDetails={this.getSingleProject} {...this.props}/>
+                <div >
+                    <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshProjectDetails={this.getSingleProject} {...this.props}
+                        deleteProject={this.deleteProject}
+                        className="container"
+                    />
+                </div>
             )
 
         }
@@ -129,17 +133,36 @@ class ProjectDetails extends Component {
 
         
         return (
-            <div>
+            <div className="container">
                 
                     {
                         !singleProject
                             ? <h1>Loading</h1>
                             :
                             (
-                                <>
-                                <div className="container">
-                                        <div className="card">
-                                            <div className="card-header">Project:</div>
+                                
+                                <div className="mt-3 card">
+                                        
+                                            <div className="card-header row row-cols-3">
+                                            
+                                                <button
+                                                            className="btn btn-primary mr-3"
+                                                            onClick={ () => this.deleteProject()}   
+                                                >
+                                                Delete
+                                                </button>
+                                            
+                                                <AddTask
+                                                            projectId={this.state.singleProject._id} 
+                                                            refreshSingleProject={this.getSingleProject}
+                                                        />
+                                                
+                                                <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshProjectDetails={this.getSingleProject} {...this.props}
+                                                deleteProject={this.deleteProject}
+                                            
+                                            />
+
+                                            </div>
 
                                             <div className="card-body">
                                                 <h2 className="card-title">{this.state.singleProject.title}</h2>
@@ -149,34 +172,24 @@ class ProjectDetails extends Component {
 
                                             
                                             
-                                            <div className="card-footer row row-cols-3">
-                                                {this.renderEditForm()}
-                                                <button
-                                                            className="btn btn-primary mr-3"
-                                                            onClick={ () => this.deleteProject()}   
-                                                >
-                                                Delete
-                                                </button>
-                                                <AddTask
-                                                            className="btn btn-primary"
-                                                            projectId={this.state.singleProject._id} 
-                                                            refreshSingleProject={this.getSingleProject}
-                                                        />
-                                        
+                                            <div className="card-footer row row-cols-2">
+                                                    
                                             </div>
 
-                                        </div>
+                                            <div className="card mt-3">
                                                 <FilterTask singleProject={singleProject} {...this.props}/>
+                                            </div>
+                                                    
+                                                    
+                                            </div>
 
-                                        
-                                        </div>
 
                                 
                                     
                                     
                                 
                                     
-                                </>
+                                
                             )
                 
 
