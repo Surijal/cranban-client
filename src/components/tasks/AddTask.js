@@ -74,13 +74,19 @@ class AddTask extends Component {
         
         return (
             <>
-
+                        <div className="container">
                             <div className="card mt-5 mb-3 ">
-                                <h5 className="card-header">Add</h5>
+
+                            <div className="card-header">
+                            <h5 className="card-title">Add new Task</h5>
+                            </div>
+                                
                                 <form onSubmit={this.handleSubmit} 
-                                    className="form-group">
+                                    >
                                     
                                     <div className="card-body">
+
+                                    <div className="form-group">
                                         <input
                                                 className="form-control mb-3"
                                                 type="text"
@@ -89,8 +95,9 @@ class AddTask extends Component {
                                                 value={this.state.title}
                                                 onChange={ (e) =>this.handleChange(e)}
                                             />
-
+                                    </div>
                                         
+                                    <div className="form-group">
                                         <textarea
                                                 className="form-control"
                                                 type="text"
@@ -102,8 +109,9 @@ class AddTask extends Component {
                                                 value={this.state.description}
                                                 onChange={ (e) => this.handleChange(e)}
                                             />
-
+                                    </div>
                                     
+                                    <div className="form-group">
                                     <select
                                         className="form-control"
                                         type="text"
@@ -120,8 +128,10 @@ class AddTask extends Component {
                                         <option >testing</option>
                                         <option >backlog</option>
                                     </select>
+                                    </div>
+                                    
 
-                                    <label htmlFor="type">Type {this.props.type}</label>
+                                    <div className="form-group">
                                     <select 
                                         type="text"
                                         name='type'
@@ -136,21 +146,27 @@ class AddTask extends Component {
                                         <option >styles</option>
                                         <option >preperation</option>
                                     </select>
-
-                                        <label>Deadline:</label>
+                                    </div>
+                                        
+                                    <div className="form-group">
                                         <input
                                                 type="date"
                                                 name="deadline" 
                                                 placeholder="Deadline"
                                                 value={this.state.deadline}
                                                 onChange={ (e) => this.handleChange(e)}
+                                                className="form-control custom-control"
                                             />
-                                        
-                                        <button className="btn btn-primary">Submit</button>  
+                                    </div>
+
                                     </div>  
                                 </form>
+                                    <div className="card-footer">
+                                        
+                                        <button className="btn btn-primary">Submit</button>  
+                                    </div>
                             </div>
-                            
+                        </div>
                 
             </>
         )

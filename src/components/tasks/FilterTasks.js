@@ -98,8 +98,10 @@ class FilterTask extends Component {
                 <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <h3>Backlog</h3>
 
+                        <div className="d-flex justify-content-around">
+                            <h3>Backlog</h3>
+                        </div>
                         {
                             this.props.singleProject.tasks.filter( task => {
                                 
@@ -122,8 +124,9 @@ class FilterTask extends Component {
                     </div>
                     <div className="carousel-item">
                     
-                    <h3>To do</h3>
-
+                        <div className="d-flex justify-content-around">
+                            <h3>To do</h3>
+                        </div>
                         {
                             this.props.singleProject.tasks.filter( task => {
                                 
@@ -145,7 +148,13 @@ class FilterTask extends Component {
                     </div>
                     <div className="carousel-item">
                     
-                    <h3>Done</h3>
+                    <div className="d-flex justify-content-around">
+
+                        <div className="d-flex justify-content-around">
+                            <h3>Done</h3>
+                        </div>
+
+                    </div>
 
                             {
                                 this.props.singleProject.tasks.filter( task => {
@@ -169,8 +178,9 @@ class FilterTask extends Component {
 
                     <div className="carousel-item">
                     
-                    <h3>Testing</h3>
-
+                            <div className="d-flex justify-content-around">
+                                <h3>Testing</h3>
+                            </div>
                             {
                                 this.props.singleProject.tasks.filter( task => {
                                     
@@ -191,10 +201,10 @@ class FilterTask extends Component {
 
                     </div>
 
-                    <div className="carousel-item">
-                    
-                    <h3>Done</h3>
-
+                        <div className="carousel-item">
+                            <div className="d-flex justify-content-around">
+                                <h3>Done</h3>
+                            </div>
                             {
                                 this.props.singleProject.tasks.filter( task => {
                                     
@@ -202,11 +212,17 @@ class FilterTask extends Component {
                                 })
                                 .map( task => {
                                     return (
-                                        <div key={task._id} className="task-card" >
-                                            <Link to={`/projects/${task.project}/tasks/${task._id}`} >
-                                                <h5>{task.title}</h5>
-                                                <p>{task.description}</p>
-                                            </Link>
+                                        <div className="card" key={task._id}>
+                                        
+                                                <Link to={`/projects/${task.project}/tasks/${task._id}`} >
+                                                <div  className="card-header" >
+                                                    <h5 className="card-title">{task.title}</h5>
+                                                </div>
+                                                <div className="card-body">
+                                                    <p className="card-text">{task.description}</p>
+                                                </div>
+                                                </Link>
+                                            
                                         </div>
                                     )
                                 })
