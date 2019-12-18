@@ -77,8 +77,8 @@ class EditProject extends Component {
                                         deadline: '',
                                         updatedProject: null,
                                         isShowing: false
-                                    })
-                this.props.refreshProjectDetails();
+                                    }
+                                    )
             })
             .catch( err => console.log(err))
     }
@@ -150,7 +150,7 @@ class EditProject extends Component {
                                         
                                     <div className="d-flex justify-content-around card-footer">
 
-                                        <button className="btn btn-primary">Submit</button>
+                                        <button className="btn btn-primary" onClick={this.props.refreshProjectDetails}>Submit</button>
 
                                         <button
                                                                 className="btn btn-primary"

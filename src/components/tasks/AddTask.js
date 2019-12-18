@@ -164,7 +164,7 @@ class AddTask extends Component {
                                     </div>  
                                     <div className="card-footer">
                                         
-                                        <button className="btn btn-primary">Submit</button>  
+                                        <button className="btn btn-primary" onClick={this.props.refreshSingleProject}>Submit</button>  
                                     </div>
                                 </form>
                             </div>
