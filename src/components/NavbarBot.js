@@ -21,12 +21,14 @@ class NavbarBot extends Component {
                             
                                     <Link to={`/user/${user._id}`} className="nav-link nav-brand">
                                     {' '}
-                                    <img alt="profile" src="/src/images/person.png" width="30px" height="30px"></img>{' '}
+                                    <img alt="profile" src="/images/person.png" width="30px" height="30px"></img>
+                                    {' '}
                                     </Link>
                                 
                                     <Link to="/projects" className="nav-link nav-brand">
                                     {' '}
-                                    Projects{' '}
+                                    <img alt="projects" src="/images/week.png" width="30px" height="30px"></img>
+                                    {' '}
                                     </Link>
                                 
 

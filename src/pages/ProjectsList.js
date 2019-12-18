@@ -47,12 +47,12 @@ class ProjectsList extends Component {
                                     <div className="container">
                                                     <AddProject refreshProjectList={this.getUserListOfProjects} />
                                         {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
+
                                             
-                                            const { _id  } = project._id
                                             return(
                                                     
                                                 
-                                                    <div key={_id}>
+                                                    <div key={project._id}>
                                                     <ProjectCard   projectData={project} /> 
                                                     </div>
                                                     

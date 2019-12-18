@@ -137,24 +137,7 @@ class ProjectDetails extends Component {
                                         
                                             <div className="card-header">
                                             
-                                                <div className="d-flex justify-content-evenly flex-wrap">
-
-                                                
-                                                
-                                                    <AddTask
-                                                                projectId={this.state.singleProject._id} 
-                                                                refreshSingleProject={this.getSingleProject}
-                                                                className="mr-0"
-                                                            />
-                                                    
-                                                
-                                                        <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshProjectDetails={this.getSingleProject} {...this.props}
-                                                        deleteProject={this.deleteProject}
-                                                        className="p-0"
-                                                    />
-
-                                                    
-                                            </div>
+                                                <h1>Project:</h1>
                                         </div>
 
                                             <div className="card-body">
@@ -166,7 +149,27 @@ class ProjectDetails extends Component {
                                             
                                             
                                             <div className="card-footer">
+
+                                            <div className="d-flex justify-content-around">
+
+                                                
+                                                
+                                                    <AddTask
+                                                                projectId={this.state.singleProject._id} 
+                                                                refreshSingleProject={this.getSingleProject}
+                                                                className="mr-0"
+                                                            />
                                                     
+
+                                                    <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshProjectDetails={this.getSingleProject} {...this.props}
+                                                    deleteProject={this.deleteProject}
+                                                    className="p-0"
+                                                />
+
+                                    
+
+                                                </div>
+                                                                                                    
                                             </div>
 
                                                     

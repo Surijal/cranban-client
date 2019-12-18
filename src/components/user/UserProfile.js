@@ -68,7 +68,7 @@ class UserProfile extends Component {
                 </div>
 
                 <div className="d-flex align-content-end">
-                    <Link to="/home">
+                    <Link to="/">
                     {' '}
                     <button className="btn btn-primary mt-3" onClick={logout}>Logout</button>{' '}
                     </Link>
