@@ -139,15 +139,15 @@ class ProjectDetails extends Component {
                             :
                             (
                             <div className="container">
-                                <div className="mt-3 card project-card-color">
+                                <div className="card project-card-color">
                                         
                                             <div className="card-header">
                                             
-                                                <h1>Project:</h1>
+                                                <h3>Project:</h3>
                                         </div>
 
                                             <div className="card-body project-card-color">
-                                                <h2 className="card-title">{this.state.singleProject.title}</h2>
+                                                <h4 className="card-title">{this.state.singleProject.title}</h4>
                                                 <p className="card-text">{this.state.singleProject.description}</p>
                                                 <p>Deadline: {this.state.deadline}</p>
                                             </div>
@@ -159,9 +159,9 @@ class ProjectDetails extends Component {
                                             <div className="container">
 
                                             <div className="row d-flex justify-content-around">
-                                                <button onClick={this.toggleAddForm} className="btn btn-primary">Add</button>
+                                                <button onClick={this.toggleAddForm} className="btn btn-scondary">Add</button>
 
-                                                <button onClick={this.toggleEditForm} className="btn btn-primary">Edit</button>
+                                                <button onClick={this.toggleEditForm} className="btn btn-scondary">Edit</button>
                                             </div>
 
                                             {

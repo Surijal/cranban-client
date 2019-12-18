@@ -45,13 +45,15 @@ class DeleteUser extends Component {
         }
 
 
-    
+    componentDidMount(){
+        
+    }
 
 
     render() {
         return (
             <div>
-                <button onClick={this.toggleForm} className="btn btn-primary">Delete User Profile</button>
+                <button onClick={this.toggleForm} className="btn btn-scondary">Delete User Profile</button>
 
                 {
                     !this.state.isShowing ?
@@ -78,7 +80,7 @@ class DeleteUser extends Component {
 
                         </div>
 
-                            <button className="btn btn-primary">Delete Profile</button> 
+                            <button className="btn btn-scondary">Delete Profile</button> 
                         </form>
 
                     </div>

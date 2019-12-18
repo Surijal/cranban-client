@@ -52,7 +52,9 @@ class EditUser extends Component {
             .catch( err => console.log(err))
     }
 
-
+    componentDidMount(){
+        
+    }
 
     render() {
 
@@ -64,7 +66,7 @@ class EditUser extends Component {
                         !this.state.isShowing ?
                         
                             <div className="d-flex justify-content-around">
-                                <button onClick={this.toggleForm} className="btn btn-primary">Edit User</button>
+                                <button onClick={this.toggleForm} className="btn btn-scondary">Edit User</button>
 
                                 <DeleteUser />
                             </div>
@@ -119,7 +121,7 @@ class EditUser extends Component {
                                 <div className="d-flex justify-content-around form-group">
                                     <button 
                                         type="submit" 
-                                        className="btn btn-primary form-control"
+                                        className="btn btn-scondary form-control"
                                         onClick={ () => {
                                                         // this.getUserById()
                                                         this.toggleForm()

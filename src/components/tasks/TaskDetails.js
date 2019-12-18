@@ -87,8 +87,8 @@ class TaskDetails extends Component {
         const singleTask = { title, description, deadline, taskId , status, type, done} 
 
         return (
-            <div className="container mt-5">
-                        <div className="card">
+            <div className="container mt-5 container-color">
+                        <div className="card card-color">
 
                         <div className="card-header">
                     
@@ -108,7 +108,7 @@ class TaskDetails extends Component {
                             <h2 className="card-title">{title}</h2>
                             <p className="card-text"> {description}</p>
                             <p>Deadline: {this.state.deadline}</p>
-                            <p>Done: {done}</p>
+                            
 
                         </div>
 

@@ -106,7 +106,7 @@ class FilterTask extends Component {
                             this.props.singleProject.tasks
                             .map( task => {
                                 return (
-                                    <div className="card" key={task._id}>
+                                    <div className="card mt-3 mb-3 card-color" key={task._id}>
                                         
                                         <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                         <div  className="card-header" >
@@ -141,14 +141,14 @@ class FilterTask extends Component {
                             })
                             .map( task => {
                                 return (
-                                    <div className="card  mt-3" key={task._id}>
+                                    <div className="card  mt-3 mb-3 card-color" key={task._id}>
                                         
                                         <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                         <div  className="card-header" >
                                             <h5 className="card-title">{task.title}</h5>
                                         </div>
                                         <div className="card-body">
-                                            <p className="card-text">{task.description}</p>
+                                            
                                         </div>
                                         </Link>
                                     
@@ -176,14 +176,14 @@ class FilterTask extends Component {
                             })
                             .map( task => {
                                 return (
-                                    <div className="card  mt-3" key={task._id}>
+                                    <div className="card  mt-3 mb-3 card-color" key={task._id}>
                                         
                                         <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                         <div  className="card-header" >
                                             <h5 className="card-title">{task.title}</h5>
                                         </div>
                                         <div className="card-body">
-                                            <p className="card-text">{task.description}</p>
+                                            
                                         </div>
                                         </Link>
                                     
@@ -199,7 +199,7 @@ class FilterTask extends Component {
                     <div className="d-flex justify-content-around">
 
                         <div className="d-flex justify-content-around">
-                            <h3>Done</h3>
+                            <h3>Doing</h3>
                         </div>
 
                     </div>
@@ -211,14 +211,14 @@ class FilterTask extends Component {
                                 })
                                 .map( task => {
                                     return (
-                                        <div className="card  mt-3" key={task._id}>
+                                        <div className="card  mt-3 mb-3 card-color" key={task._id}>
                                         
                                                 <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                                 <div  className="card-header" >
                                                     <h5 className="card-title">{task.title}</h5>
                                                 </div>
                                                 <div className="card-body">
-                                                    <p className="card-text">{task.description}</p>
+                                                    
                                                 </div>
                                                 </Link>
                                             
@@ -242,14 +242,14 @@ class FilterTask extends Component {
                                 })
                                 .map( task => {
                                     return (
-                                        <div className="card  mt-3" key={task._id}>
+                                        <div className="card  mt-3 mb-3 card-color" key={task._id}>
                                         
                                         <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                         <div  className="card-header" >
                                             <h5 className="card-title">{task.title}</h5>
                                         </div>
                                         <div className="card-body">
-                                            <p className="card-text">{task.description}</p>
+                                            
                                         </div>
                                         </Link>
                                     
@@ -272,14 +272,14 @@ class FilterTask extends Component {
                                 })
                                 .map( task => {
                                     return (
-                                        <div className="card  mt-3" key={task._id}>
+                                        <div className="card  mt-3 mb-3 card-color" key={task._id}>
                                         
                                                 <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                                 <div  className="card-header" >
                                                     <h5 className="card-title">{task.title}</h5>
                                                 </div>
                                                 <div className="card-body">
-                                                    <p className="card-text">{task.description}</p>
+                                                    
                                                 </div>
                                                 </Link>
                                             

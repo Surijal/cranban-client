@@ -36,9 +36,10 @@ class NavbarBot extends Component {
 
                                     {
                                     
-                                    <button className="nav-link nav-brand" onClick={this.goBack}>
+                                    <button className="nav-link nav-brand back-image" onClick={this.goBack}>
                                     {' '}
-                                    Go back{' '}
+                                    
+                                    {' '}
                                     </button>
                                 
                                     }
@@ -67,7 +68,12 @@ class NavbarBot extends Component {
                 )  
                 :
                 (
-                    <nav className="navbar  navbar-light bg-light fixed-bottom">
+                    <nav className="navbar  navbar-light  fixed-bottom navbar-color">
+                        <Link to={`/login`} className="nav-link nav-brand">
+                            {' '}
+                            <img alt="profile" src="/images/person.png" width="30px" height="30px"></img>
+                            {' '}
+                            </Link>
                         
                     </nav>
                 )}

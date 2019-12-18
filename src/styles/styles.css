@@ -2,8 +2,17 @@
 body {
     background-color: #4C443C;
     color: black;
+    background-image: url('/images/background.png');
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
 
 .navbar-color {
     background-color: #71BAA1;
@@ -14,13 +23,20 @@ body {
 }
 
 .container-color {
-    background-color: #4C443C;
+    background-image: url('/images/background.png');
 }
 
 .card-color {
-    background-color: #468D8E;
+    background-color: #71BAA1;
 }
 
 .project-card-color {
-    background-color: #FAC525;
+    background-color: #71BAA1;
+}
+
+.back-image {
+    background-image: url('/images/back.png');
+    height: 30px;
+    width: 30px;
+    background-repeat: contain;
 }

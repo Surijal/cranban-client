@@ -152,10 +152,10 @@ class EditProject extends Component {
                                         
                                     <div className="d-flex justify-content-around card-footer card-color">
 
-                                        <button className="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
+                                        <button className="btn btn-scondary" onClick={this.handleSubmit}>Submit</button>
 
                                         <button
-                                                                className="btn btn-primary"
+                                                                className="btn btn-scondary"
                                                                 onClick={ () => this.deleteProject()}   
                                                     >
                                                     Delete

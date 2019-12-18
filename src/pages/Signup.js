@@ -25,7 +25,7 @@ class Signup extends Component {
     const { username, password, email } = this.state;
     return (
       <div className="container mt-3">
-        <div className="card">
+        <div className="card card-color">
           <div className="card-header">
               <h1>Sign Up</h1>
           </div>
@@ -76,7 +76,7 @@ class Signup extends Component {
 
                 <div className="d-flex justify-content-between">
                   <div>
-                    <input type="submit" value="Signup" autoComplete="off" className="btn btn-primary mt-3"/>
+                    <input type="submit" value="Signup" autoComplete="off" className="btn btn-scondary mt-3"/>
 
                   </div>
 

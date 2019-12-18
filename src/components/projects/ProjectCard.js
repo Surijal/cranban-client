@@ -11,6 +11,10 @@ class ProjectCard extends Component {
     }
 
 
+    componentDidMount(){
+        
+    }
+
     render() {
         
         

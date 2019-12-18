@@ -45,7 +45,7 @@ class UserProfile extends Component {
 
             <div className="container">
 
-                <div className="card mt-3">
+                <div className="card mt-3 card-color">
                     <div className="card-header">
                         <h3 className="card-title">Profile:</h3>
 
@@ -61,7 +61,7 @@ class UserProfile extends Component {
                     
 
                     
-                    <div className="card-footer">
+                    <div className="card-footer ">
                         <EditUser refreshUserProfile={this.getUserById}/>
 
                     </div>
@@ -70,7 +70,7 @@ class UserProfile extends Component {
                 <div className="d-flex align-content-end">
                     <Link to="/">
                     {' '}
-                    <button className="btn btn-primary mt-3" onClick={logout}>Logout</button>{' '}
+                    <button className="btn btn-scondary mt-3" onClick={logout}>Logout</button>{' '}
                     </Link>
                 </div>
 

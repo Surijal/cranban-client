@@ -67,10 +67,10 @@ class AddProject extends Component {
                 {
                     !this.state.isShowing ?
                     
-                        <button onClick={this.toggleForm} className="btn btn-primary">Add Project</button>
+                        <button onClick={this.toggleForm} className="btn btn-scondary">Add Project</button>
                     :
                     (
-                    <div className="card mt-3">
+                    <div className="card mt-3 project-card-color">
                         <form onSubmit={this.handleSubmit}>
                             
                             <div className="card-header">
@@ -109,7 +109,7 @@ class AddProject extends Component {
 
                             </div>
                                 <div className="card-footer d-flex justify-content-around">
-                                <button className="btn btn-primary">Submit</button> 
+                                <button className="btn btn-scondary">Submit</button> 
                             </div>
                         </form>
                     </div>

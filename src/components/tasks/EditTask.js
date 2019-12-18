@@ -74,7 +74,7 @@ class EditTask extends Component {
         if (!title && !description && !deadline && !done && !type ) return
         else {
 
-
+            
             tasksService.updateTask({ title, description, deadline, done, type, status, taskId })
             .then( updatedTasks => {
                 this.setState({
@@ -113,13 +113,13 @@ class EditTask extends Component {
                     {
                         !this.state.isShowing ?
                         
-                        <button onClick={this.toggleForm}  className='btn btn-primary'>Edit Task</button>
+                        <button onClick={this.toggleForm}  className='btn btn-scondary'>Edit Task</button>
 
 
                         :
                         (
 
-                            <div className="card mt-3">
+                            <div className="card mt-3 card-color">
                                 <form onSubmit={this.handleSubmit}>
                                 
                                 <div className="card-header">
@@ -230,9 +230,9 @@ class EditTask extends Component {
 
 
                                 <div className="card-footer d-flex justify-content-around">
-                                    <button className='btn btn-primary'>Submit</button>
+                                    <button className='btn btn-scondary'>Submit</button>
                                     <button
-                                        className="btn btn-primary"
+                                        className="btn btn-scondary"
                                         onClick={ () => this.deleteTask() }
                                     >
                                     Delete Task

@@ -21,7 +21,7 @@ class Login extends Component {
 
     return (
       <div className="container mt-5">
-        <div className="card">
+        <div className="card card-color">
             <div className="card-header">
               <h1>Login</h1>
             </div>
@@ -58,7 +58,7 @@ class Login extends Component {
                   </div>
 
                   <div className="d-flex justify-content-end">
-                    <input type="submit" value="Login" autoComplete="off" className="btn btn-primary"/>
+                    <input type="submit" value="Login" autoComplete="off" className="btn btn-scondary"/>
                   </div>
 
                 </form>
