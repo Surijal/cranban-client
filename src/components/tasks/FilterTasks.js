@@ -91,56 +91,148 @@ class FilterTask extends Component {
                 <h1>{this.state.statusFilter}</h1>
                 <h2>{this.state.typeFilter}</h2>
 
-                <div className="filter-container">
-                    <form clas="form group">
-                        {/* <label htmlFor="status">Status {this.props.status}</label> */}
-                        <select 
-                            type="text"
-                            name='status'
-                            id="testid"
-                            className="form-control custom-control"
-                            defaultValue='preperation'
-                            // value={this.state.type}
-                            onChange={ (e) => this.toggleFilterStatus(e)}
-                        >
-                            <option >backlog</option>
-                            <option >to do</option>
-                            <option >doing</option>
-                            <option >testing</option>
-                            <option >done</option>
-                        </select>
-                    </form>
-
-                    <form>
-
-                        {/* <label htmlFor="type">Type {this.props.type}</label> */}
-                        <select 
-                            type="text"
-                            name='type'
-                            id="testid"
-                            className="form-control custom-control"
-                            // defaultValue='preperation'
-                            value={this.state.type}
-                            onChange={ (e) => this.toggleFilterType(e)}
-                        >
-                            <option >frontend</option>
-                            <option >backend</option>
-                            <option >styles</option>
-                            <option >preperation</option>
-                        </select>
-                    </form>
-
-
-                </div>
+                
 
                 <div className='tasks-container'>
-                {
+
+                <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                <div className="carousel-inner">
+                    <div className="carousel-item active">
+                        <h3>Backlog</h3>
+
+                        {
+                            this.props.singleProject.tasks.filter( task => {
+                                
+                                return task.status === 'backlog'
+                            })
+                            .map( task => {
+                                return (
+                                    <div key={task._id} className="task-card" >
+                                        <Link to={`/projects/${task.project}/tasks/${task._id}`} >
+                                            <h5>{task.title}</h5>
+                                            <p>{task.description}</p>
+                                        </Link>
+                                    </div>
+                                )
+                            })
+                        }
+
+
+
+                    </div>
+                    <div className="carousel-item">
+                    
+                    <h3>To do</h3>
+
+                        {
+                            this.props.singleProject.tasks.filter( task => {
+                                
+                                return task.status === 'to do'
+                            })
+                            .map( task => {
+                                return (
+                                    <div key={task._id} className="task-card" >
+                                        <Link to={`/projects/${task.project}/tasks/${task._id}`} >
+                                            <h5>{task.title}</h5>
+                                            <p>{task.description}</p>
+                                        </Link>
+                                    </div>
+                                )
+                            })
+                        }
+
+
+                    </div>
+                    <div className="carousel-item">
+                    
+                    <h3>Done</h3>
+
+                            {
+                                this.props.singleProject.tasks.filter( task => {
+                                    
+                                    return task.status === 'doing'
+                                })
+                                .map( task => {
+                                    return (
+                                        <div key={task._id} className="task-card" >
+                                            <Link to={`/projects/${task.project}/tasks/${task._id}`} >
+                                                <h5>{task.title}</h5>
+                                                <p>{task.description}</p>
+                                            </Link>
+                                        </div>
+                                    )
+                                })
+                            }
+
+
+                    </div>
+
+                    <div className="carousel-item">
+                    
+                    <h3>Testing</h3>
+
+                            {
+                                this.props.singleProject.tasks.filter( task => {
+                                    
+                                    return task.status === 'testing'
+                                })
+                                .map( task => {
+                                    return (
+                                        <div key={task._id} className="task-card" >
+                                            <Link to={`/projects/${task.project}/tasks/${task._id}`} >
+                                                <h5>{task.title}</h5>
+                                                <p>{task.description}</p>
+                                            </Link>
+                                        </div>
+                                    )
+                                })
+                            }
+
+
+                    </div>
+
+                    <div className="carousel-item">
+                    
+                    <h3>Done</h3>
+
+                            {
+                                this.props.singleProject.tasks.filter( task => {
+                                    
+                                    return task.status === 'done'
+                                })
+                                .map( task => {
+                                    return (
+                                        <div key={task._id} className="task-card" >
+                                            <Link to={`/projects/${task.project}/tasks/${task._id}`} >
+                                                <h5>{task.title}</h5>
+                                                <p>{task.description}</p>
+                                            </Link>
+                                        </div>
+                                    )
+                                })
+                            }
+
+
+                    </div>
+                </div>
+                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="sr-only">Previous</span>
+                </a>
+                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="sr-only">Next</span>
+                </a>
+                </div>
+
+
+                {/* {
 
                     ( this.state.isFiltered) 
                         ? this.renderFilteredTasks()
                         :  this.renderAllTasks()
-                }        
-                </div>
+                }         */}
+                </div> 
                 
             </div>
                 

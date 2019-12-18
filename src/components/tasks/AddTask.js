@@ -14,8 +14,8 @@ class AddTask extends Component {
             description: '',
             deadline: "",
             isShowing: false,
-            type: 'to do',
-            status: 'preperation',
+            type: '',
+            status: '',
             done: false
         }
     }
@@ -47,7 +47,7 @@ class AddTask extends Component {
         console.log('in create task', this.state)
 
         
-        tasksService.createTask({ title, description, deadline, projectId, status,type, done })
+        tasksService.createTask({ title, description, deadline, projectId, status, type, done })
             .then( (newTask) => {
                 this.setState({ title: '', description: '', deadline: '', isShowing: false})
                 this.props.refreshSingleProject(newTask)
@@ -111,7 +111,7 @@ class AddTask extends Component {
                                         id="status"
                                         
                                         
-                                        value={this.state.type}
+                                        value=""
                                         onChange={ (e) => this.handleChange(e)}
                                     >
                                         <option >to do</option>
@@ -128,7 +128,7 @@ class AddTask extends Component {
                                         id="testid"
                                         className="form-control"
                                         
-                                        value={this.state.type}
+                                        value=""
                                         onChange={ (e) => this.handleChange(e)}
                                     >
                                         <option >frontend</option>

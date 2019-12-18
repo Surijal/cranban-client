@@ -59,7 +59,7 @@ class Task {
     updateTask = updatedTask => {
         const { title, description, deadline, taskId, done, type, status } = updatedTask;
 
-        console.log('>>>>>>>>>>> TaskService', updatedTask);
+        
         
 
         return this.tasks
