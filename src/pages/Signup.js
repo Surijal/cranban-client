@@ -24,42 +24,78 @@ class Signup extends Component {
   render() {
     const { username, password, email } = this.state;
     return (
-      <div>
-        <h1>Sign Up</h1>
-        <form onSubmit={this.handleFormSubmit}  autoComplete="off">
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            autoComplete="off"
-            onChange={this.handleChange}
-          />
+      <div className="container mt-3">
+        <div className="card">
+          <div className="card-header">
+              <h1>Sign Up</h1>
+          </div>
 
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            autoComplete="off"
-            onChange={this.handleChange}
-          />
+          <div className="card-body">
+              <form onSubmit={this.handleFormSubmit}  autoComplete="off">
 
-          <label>email:</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            autoComplete="off"
-            onChange={this.handleChange}
-          />
+                <div className="form-group">
+                  <label for="signup-username">Username:</label>
+                    <input
+                      type="text"
+                      name="username"
+                      value={username}
+                      autoComplete="off"
+                      onChange={this.handleChange}
+                      id="signup-username"
+                      className="form-control"
+                    />
+
+                </div>
+
+                <div className="form-group">
+                  <label for="signup-email">email:</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    autoComplete="off"
+                    onChange={this.handleChange}
+                    id="signup-email"
+                    className="form-control"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label for="signup-password">Password:</label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    autoComplete="off"
+                    onChange={this.handleChange}
+                    id="signup-password"
+                    className="form-control"
+                  />
+                </div>
 
 
-          <input type="submit" value="Signup" autoComplete="off"/>
-        </form>
+                <div className="d-flex justify-content-between">
+                  <div>
+                    <input type="submit" value="Signup" autoComplete="off" className="btn btn-primary mt-3"/>
 
-        <p>Already have account?</p>
-        <Link to={'/login'}> Login</Link>
+                  </div>
+
+                  <div>
+                    <p>Already have account?</p>
+                    <Link to={'/login'}> Login</Link>
+
+                  </div>
+
+                </div>
+              </form>
+
+
+          </div>
+              <div className="card-footer d-flex justify-content-end">
+
+            <Link to={'/'}> Back</Link>
+            </div>
+        </div>
       </div>
     );
   }

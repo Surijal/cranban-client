@@ -30,7 +30,7 @@ class NavbarBot extends Component {
                                     </Link>
                                 
 
-                        
+{/*                         
                                     <Link to="/projects" className="nav-link nav-brand">
                                     {' '}
                                     Graph{' '}
@@ -41,8 +41,8 @@ class NavbarBot extends Component {
                                 
                                     <Link to={`/projects`}  className="nav-link nav-brand">
                                     {' '}
-                                        ProAddject{' '}
-                                    </Link>
+                                        Add{' '}
+                                    </Link> */}
                             
                             
                         </nav>

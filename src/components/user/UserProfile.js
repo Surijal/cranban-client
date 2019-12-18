@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { withAuth } from '../../lib/AuthProvider';
 import userService from '../../lib/users-service';
 
@@ -38,7 +39,10 @@ class UserProfile extends Component {
 
 
     render() {
+        const { logout } = this.props;
         return (
+
+
             <div className="container">
 
                 <div className="card mt-3">
@@ -61,6 +65,13 @@ class UserProfile extends Component {
                         <EditUser refreshUserProfile={this.getUserById}/>
 
                     </div>
+                </div>
+
+                <div className="d-flex align-content-end">
+                    <Link to="/home">
+                    {' '}
+                    <button className="btn btn-primary mt-3" onClick={logout}>Logout</button>{' '}
+                    </Link>
                 </div>
 
             </div>

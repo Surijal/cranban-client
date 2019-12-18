@@ -57,16 +57,16 @@ class AddTask extends Component {
 
     render() {
         return (
-            <div>
+            <>
 
                     {
                         !this.state.isShowing ?
                         
-                            <button onClick={this.toggleForm} className="btn btn-primary mr-3 ml-3">Add Task</button>
+                            <button onClick={this.toggleForm} className="btn btn-primary">Add</button>
                         :
                         (
-                            <div className="card mt-3 mb-3">
-                                <h5 className="card-header">Add Task</h5>
+                            <div className="card mt-5 mb-3 ">
+                                <h5 className="card-header">Add</h5>
                                 <form onSubmit={this.handleSubmit} 
                                     className="form-group">
                                     
@@ -93,7 +93,7 @@ class AddTask extends Component {
                                                 onChange={ (e) => this.handleChange(e)}
                                             />
 
-                                    <label htmlFor="status">Status</label>
+                                    
                                     <select
                                         className="form-control"
                                         type="text"
@@ -143,7 +143,7 @@ class AddTask extends Component {
                         )
 
                     }
-            </div>
+            </>
         )
     }
 }

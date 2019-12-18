@@ -39,6 +39,18 @@ class EditProject extends Component {
     }
 
 
+    deleteProject = () => {
+        const id = this.props.match.params.id
+        
+        projectsService.deleteProject(id)
+            .then( () => {
+                this.props.history.push('/projects')
+                
+            })
+            .catch( err => console.log(err))
+    }
+
+
     updateProject = () => {
         const { title, description, deadline } = this.state;
         const id  = this.props.projectId;
@@ -67,11 +79,11 @@ class EditProject extends Component {
                     {
                         !this.state.isShowing ?
                         
-                            <button onClick={this.toggleForm} className="btn btn-primary mr-3 ml-3 ml-3">Edit</button>
+                            <button onClick={this.toggleForm} className="btn btn-primary">Edit</button>
                         :
                         (
 
-                            <div className="card mt-3 mb-3">
+                            <div className="card mt-3">
 
                             <div className="card-header">Edit Project 
                                 {/* <button onClick={ () => this.deleteProject()} >Delete</button> */}
@@ -112,9 +124,16 @@ class EditProject extends Component {
                                                 />
                                     </div>
                                         
-                                    <div className="d-flex justify-content-center">
+                                    <div className="d-flex justify-content-around">
 
                                         <button className="btn btn-primary">Submit</button>
+
+                                        <button
+                                                                className="btn btn-primary"
+                                                                onClick={ () => this.deleteProject()}   
+                                                    >
+                                                    Delete
+                                                    </button>
                                     </div>
                                     
                                 </form>

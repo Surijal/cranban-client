@@ -25,7 +25,7 @@ class EditTask extends Component {
         const { name, value } = e.target;
         this.setState({[name]: value})
     }
-
+    
 
     handleSubmit = e => {
         e.preventDefault();
@@ -38,10 +38,39 @@ class EditTask extends Component {
         const { description, title, deadline, done, type, status } = this.props.singleTask;
 
         this.setState({ isShowing: !this.state.isShowing,  description, title, deadline, done, type, status })
+        this.convertDate()
+
     }
 
     toggleChange = () => {
         this.setState({ done: !this.state.done})
+    }
+
+    deleteTask = () => {
+        const  id  = this.props.match.params.id
+        const projectId = this.state.projectId
+        
+        
+        tasksService.deleteTask(id)
+        .then( (deleteTask) => {
+                
+                this.props.history.push(`/projects/${projectId}`)
+            })
+            .catch( err => console.log(err))
+    }
+
+    
+    convertDate = () => {
+        const {newDate} = this.props.singleTask.deadline
+        console.log('>>>>>>>>>>>>>>', this.props.singleTask.deadline);
+        // newDate = new Date ()
+        
+        // var newDeadline = newDate.toISOString().substring( 0, 6)
+        
+        
+        
+        // console.log(date)
+
     }
 
 
@@ -73,13 +102,15 @@ class EditTask extends Component {
 
         
     }
+
+    
     
     
     render() {
     
-        const { description, done } = this.props.singleTask
+        const { description } = this.props.singleTask
         return (
-            <div className="container">
+            <div>
 
                 
                     {
@@ -95,7 +126,7 @@ class EditTask extends Component {
                                 <form onSubmit={this.handleSubmit}>
                                 
                                 <div className="card-header">
-                                    Edit Task
+                                    Edit Task:
                                 </div>
 
                                 <div className="card-body">
@@ -111,7 +142,7 @@ class EditTask extends Component {
 
                                     </div>
 
-                                    <div className="form-group">
+                                    <div className="form-group mt-3">
                                         <textarea
                                                 className="form-control"
                                                 type="text"
@@ -127,7 +158,7 @@ class EditTask extends Component {
 
                                         </textarea>
                                             
-                                    <div className="form-group">
+                                    {/* <div className="form-group">
                                         <label htmlFor="done">Done</label>
                                         <input
                                             className="form-control"
@@ -141,9 +172,9 @@ class EditTask extends Component {
                                             }}
                                             checked={this.state.done}
                                         />
-                                    </div>
+                                    </div> */}
 
-                                    <div className="form-group">
+                                    <div className="form-group mt-3">
                                         
                                         <select
                                             className="custom-select form-control"
@@ -163,14 +194,14 @@ class EditTask extends Component {
                                         </select>
                                     </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="type">Type {this.props.type}</label>
+                                    <div className="form-group mt-3 mb-3">
+                                    
                                         <select 
                                             type="text"
                                             name='type'
                                             id="testid"
                                             className="custom-select form-control"
-                                            // defaultValue={type}
+                                            
                                             value={this.state.type}
                                             onChange={ (e) => this.handleInput(e)}
                                         >
@@ -181,14 +212,13 @@ class EditTask extends Component {
                                         </select>
                                     </div>
 
-                                    <div className="form-group">
-                                        <label>Deadline:</label>
+                                    <div className="form-group mt-3">
+                                    
                                         <input
                                                 type="date"
                                                 name="deadline" 
                                                 placeholder="Deadline"
                                                 className="form-control custom-select"
-                                                // defaultValue={deadline}
                                                 value={this.state.deadline}
                                                 onChange={ (e) => this.handleInput(e)}
                                             />
@@ -202,8 +232,14 @@ class EditTask extends Component {
 
 
 
-                                <div className="card-footer">
-                                    <button className='btn btn-primary'>Submit</button>    
+                                <div className="card-footer d-flex justify-content-around">
+                                    <button className='btn btn-primary'>Submit</button>
+                                    <button
+                                        className="btn btn-primary"
+                                        onClick={ () => this.deleteTask() }
+                                    >
+                                    Delete Task
+                                </button>    
                                     </div>
                                 </form>
                                 

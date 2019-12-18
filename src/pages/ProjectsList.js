@@ -47,7 +47,7 @@ class ProjectsList extends Component {
                                     <div className="container">
                                                     <AddProject refreshProjectList={this.getUserListOfProjects} />
                                         {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
-                                            console.log('project', project)
+                                            
                                             const { _id  } = project._id
                                             return(
                                                     

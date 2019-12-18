@@ -61,19 +61,7 @@ class TaskDetails extends Component {
         }
 
 
-        deleteTask = () => {
-            const  id  = this.props.match.params.id
-            const projectId = this.state.projectId
-            
-            
-            tasksService.deleteTask(id)
-            .then( (deleteTask) => {
-                    
-                    this.props.history.push(`/projects/${projectId}`)
-                })
-                .catch( err => console.log(err))
-        }
-
+        
 
         componentDidMount(){
             
@@ -87,26 +75,20 @@ class TaskDetails extends Component {
         const singleTask = { title, description, deadline, taskId , status, type, done} 
 
         return (
-            <div className="container mt-3">
+            <div className="container mt-5">
                         <div className="card">
 
-                        <div className="card-header row row-cols-2 ">
-                        <div>
+                        <div className="card-header">
+                    
+                            <div className="d-flex justify-content-center">
+                                <EditTask
+                                        className="button"
+                                        taskId={taskId} 
+                                        refreshTaskDetails={this.getSingleTask} 
+                                        {...this.props} 
+                                        singleTask={singleTask}/>
 
-                            <button
-                                className="btn btn-primary"
-                                onClick={ () => this.deleteTask() }
-                            >
-                            Delete Task
-                            </button>
-                        </div>
-
-                            <EditTask
-                                    className="button"
-                                    taskId={taskId} 
-                                    refreshTaskDetails={this.getSingleTask} 
-                                    {...this.props} 
-                                    singleTask={singleTask}/>
+                            </div>
 
                         </div>
 
@@ -118,7 +100,7 @@ class TaskDetails extends Component {
 
                         </div>
 
-                        <div className="card-footer row row-cols-2">
+                        <div className="card-footer">
 
                             <p>{status}</p>
                             <p>s{type}</p>

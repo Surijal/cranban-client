@@ -75,11 +75,12 @@ class EditUser extends Component {
                                 <form onSubmit={this.handleSubmit}>
 
                                 <div className="form-group mt-3">
-                                    <label for="edit-name">Name:</label>
+                                    <label htmlFor="edit-name">Name:</label>
                                     <input 
                                             type="text"
                                             name='username'
                                             id="edit-name"
+                                            autoComplete="off"
                                             className="form-control"
                                             placeholder={this.props.user.username}
                                             value={this.state.username}
@@ -88,23 +89,25 @@ class EditUser extends Component {
                                 </div>
 
                                 <div className="form-group mt-3">
-                                    <label id="edit-email">Email:</label>
+                                    <label htmlFor="edit-email">Email:</label>
                                     <input
                                             type="text"
                                             name="email"
                                             id="edit-email"
+                                            autoComplete="off"
                                             className="form-control"
-                                            placeholder={this.props.user.email}
+                                            placeholder="email"
                                             value={this.state.email}
                                             onChange={ (e) => this.handleInput(e)}
                                     />
                                 </div>
 
                                 <div className="form-group">
-                                    <label id="edit-password">Password:</label>
+                                    <label htmlFor="edit-password">Password:</label>
                                     <input
                                             type="password"
                                             name="password"
+                                            autoComplete="off"
                                             id="edit-password"
                                             className="form-control"
                                             placeholder="password"                                           
@@ -113,20 +116,20 @@ class EditUser extends Component {
                                     />
                                 </div>
 
-                                <div className="d-flex justify-content-around">
+                                <div className="d-flex justify-content-around form-group">
                                     <button 
                                         type="submit" 
-                                        className="btn btn-primary"
-                                        onclick={ () => {
-                                                        this.getUserById()
+                                        className="btn btn-primary form-control"
+                                        onClick={ () => {
+                                                        // this.getUserById()
                                                         this.toggleForm()
                                         }}
                                 >
                                         Update
                                     </button>    
                                 </div>
-                                </form>
-                            </div>
+                            </form>
+                        </div>
                         )
                     }
             </div>

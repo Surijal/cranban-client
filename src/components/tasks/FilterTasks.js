@@ -92,13 +92,13 @@ class FilterTask extends Component {
                 <h2>{this.state.typeFilter}</h2>
 
                 <div className="filter-container">
-                    <form>
-                        <label htmlFor="status">Status {this.props.status}</label>
+                    <form clas="form group">
+                        {/* <label htmlFor="status">Status {this.props.status}</label> */}
                         <select 
                             type="text"
                             name='status'
                             id="testid"
-                            
+                            className="form-control custom-control"
                             defaultValue='preperation'
                             // value={this.state.type}
                             onChange={ (e) => this.toggleFilterStatus(e)}
@@ -113,12 +113,12 @@ class FilterTask extends Component {
 
                     <form>
 
-                        <label htmlFor="type">Type {this.props.type}</label>
+                        {/* <label htmlFor="type">Type {this.props.type}</label> */}
                         <select 
                             type="text"
                             name='type'
                             id="testid"
-                            
+                            className="form-control custom-control"
                             // defaultValue='preperation'
                             value={this.state.type}
                             onChange={ (e) => this.toggleFilterType(e)}

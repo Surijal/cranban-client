@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
   state = { username: '', password: '' };
@@ -19,29 +20,58 @@ class Login extends Component {
     const { username, password } = this.state;
 
     return (
-      <div>
-        <h1>Login</h1>
-        <form onSubmit={this.handleFormSubmit} autoComplete="off">
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            autoComplete="off"
-            onChange={this.handleChange}
-          />
+      <div className="container mt-5">
+        <div className="card">
+            <div className="card-header">
+              <h1>Login</h1>
+            </div>
 
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            autoComplete="off"
-            onChange={this.handleChange}
-          />
+              <div className="card-body">
+                <form onSubmit={this.handleFormSubmit} autoComplete="off">
 
-          <input type="submit" value="Login" autoComplete="off"/>
-        </form>
+                  <div className="form-group">
+                    <label for="login-username">Username:</label>
+                    <input
+                      type="text"
+                      name="username"
+                      value={username}
+                      autoComplete="off"
+                      onChange={this.handleChange}
+                      id="login-username"
+                      className="form-control"
+                    />
+
+                  </div>                
+
+                  <div className="form-group">
+                    <label for="login-password">Password:</label>
+                    <input
+                      type="password"
+                      name="password"
+                      value={password}
+                      autoComplete="off"
+                      onChange={this.handleChange}
+                      id="login-password"
+                      className="form-control"
+                    />
+
+                  </div>
+
+                  <div className="d-flex justify-content-end">
+                    <input type="submit" value="Login" autoComplete="off" className="btn btn-primary"/>
+                  </div>
+
+                </form>
+
+              </div>
+        
+
+            
+                  <div className="card-footer d-flex justify-content-end">
+
+                    <Link to={'/'}> Back</Link>
+                  </div>
+        </div>
       </div>
     );
   }

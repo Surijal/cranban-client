@@ -12,7 +12,7 @@ class ProjectCard extends Component {
 
 
     render() {
-        console.log('>>>>>>>>>>', this.props.projectData._id);
+        
         
         const { _id, title, description } = this.props.projectData
 

@@ -42,16 +42,7 @@ class ProjectDetails extends Component {
     }
     
     
-    deleteProject = () => {
-        const id = this.props.match.params.id
-        
-        projectsService.deleteProject(id)
-            .then( () => {
-                this.props.history.push('/projects')
-                
-            })
-            .catch( err => console.log(err))
-    }
+
 
 
     handleChange = (e) => {
@@ -127,68 +118,121 @@ class ProjectDetails extends Component {
         const { singleProject } = this.state;
 
         if (singleProject) {
-            const testMoment = moment(this.state.singleProject.deadline).format('MM DD YYYY,')
+            const testMoment = moment(this.state.singleProject.deadline).format('YYYY MM DD,')
             console.log('testMoment', testMoment);
+            
         }
-
+        
         
         return (
-            <div className="container">
+            <div  >
                 
                     {
                         !singleProject
                             ? <h1>Loading</h1>
                             :
                             (
-                                
+                            <div className="container">
                                 <div className="mt-3 card">
                                         
-                                            <div className="card-header row row-cols-3">
+                                            <div className="card-header">
                                             
-                                                <button
-                                                            className="btn btn-primary mr-3"
-                                                            onClick={ () => this.deleteProject()}   
-                                                >
-                                                Delete
-                                                </button>
-                                            
-                                                <AddTask
-                                                            projectId={this.state.singleProject._id} 
-                                                            refreshSingleProject={this.getSingleProject}
-                                                        />
-                                                
-                                                <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshProjectDetails={this.getSingleProject} {...this.props}
-                                                deleteProject={this.deleteProject}
-                                            
-                                            />
+                                                <div className="d-flex justify-content-evenly flex-wrap">
 
+                                                
+                                                
+                                                    <AddTask
+                                                                projectId={this.state.singleProject._id} 
+                                                                refreshSingleProject={this.getSingleProject}
+                                                                className="mr-0"
+                                                            />
+                                                    
+                                                
+                                                        <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshProjectDetails={this.getSingleProject} {...this.props}
+                                                        deleteProject={this.deleteProject}
+                                                        className="p-0"
+                                                    />
+
+                                                    
                                             </div>
+                                        </div>
 
                                             <div className="card-body">
                                                 <h2 className="card-title">{this.state.singleProject.title}</h2>
                                                 <p className="card-text">{this.state.singleProject.description}</p>
-                                                <p>{this.state.singleProject.deadline}</p>
+                                                <p>{this.testMoment}</p>
                                             </div>
 
                                             
                                             
-                                            <div className="card-footer row row-cols-2">
+                                            <div className="card-footer">
                                                     
                                             </div>
 
-                                            <div className="card mt-3">
-                                                <FilterTask singleProject={singleProject} {...this.props}/>
-                                            </div>
                                                     
                                                     
-                                            </div>
+                                    </div>
 
+                                            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                                            <div className="carousel-inner">
+                                                <div className="carousel-item active">
+                                            
+
+                                                        <div className="card mt-3">
+                                                            <div className="card-header">
+                                                            </div>
+                                                            <div className="card-body">
+
+                                                                <FilterTask singleProject={singleProject} {...this.props}/>
+                                                            </div>
+                                                        </div>
+
+
+                                                </div>
+                                                <div className="carousel-item">
+
+
+                                                        <div className="card mt-3">
+                                                            <div className="card-header">
+                                                            </div>
+                                                            <div className="card-body">
+
+                                                                <FilterTask singleProject={singleProject} {...this.props}/>
+                                                            </div>
+                                                        </div>
+                                                
+                                                </div>
+                                                <div className="carousel-item">
+                                                
+
+                                                        <div className="card mt-3">
+                                                            <div className="card-header">
+                                                            </div>
+                                                            <div className="card-body">
+
+                                                                <FilterTask singleProject={singleProject} {...this.props}/>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                </div>
+                                            </div>
+                                            <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span className="sr-only">Previous</span>
+                                            </a>
+                                            <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span className="sr-only">Next</span>
+                                            </a>
+                                            </div>
 
                                 
                                     
                                     
                                 
-                                    
+                            </div>
                                 
                             )
                 
