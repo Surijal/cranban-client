@@ -47,13 +47,12 @@ class EditTask extends Component {
 
     deleteTask = () => {
         const  id  = this.props.match.params.id
-        const projectId = this.state.projectId
         
         
         tasksService.deleteTask(id)
         .then( (deleteTask) => {
                 
-                this.props.history.push(`/projects/${projectId}`)
+                this.props.history.goBack()
             })
             .catch( err => console.log(err))
     }
@@ -88,8 +87,7 @@ class EditTask extends Component {
                     done: false,
                     type: '',
                     status: ''
-                })
-                this.props.refreshTaskDetails();
+                }, () => this.props.history.goBack())
             })
             .catch( err => console.log(err))
         }

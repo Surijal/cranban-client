@@ -48,6 +48,8 @@ class Task {
             .then( response => {
                 const { newTask  } = response.data
 
+                console.log('in tasks service', response.data)
+
                 return newTask
             })
             .catch( err => console.log(err))

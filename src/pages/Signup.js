@@ -34,7 +34,7 @@ class Signup extends Component {
               <form onSubmit={this.handleFormSubmit}  autoComplete="off">
 
                 <div className="form-group">
-                  <label for="signup-username">Username:</label>
+                  <label htmlFor="signup-username">Username:</label>
                     <input
                       type="text"
                       name="username"
@@ -48,7 +48,7 @@ class Signup extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label for="signup-email">email:</label>
+                  <label htmlFor="signup-email">email:</label>
                   <input
                     type="email"
                     name="email"
@@ -61,7 +61,7 @@ class Signup extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label for="signup-password">Password:</label>
+                  <label htmlFor="signup-password">Password:</label>
                   <input
                     type="password"
                     name="password"

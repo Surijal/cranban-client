@@ -2,6 +2,7 @@
 
 import React from 'react';
 import authService from './auth-service'; // IMPORT functions for axios requests to API
+import userService from '../lib/users-service';
 const { Consumer, Provider } = React.createContext();
 
 
@@ -13,7 +14,7 @@ const withAuth = WrappedComponent => {
         <Consumer>
           {/* <Consumer> component provides callback which receives Providers "value" object */}
           {/* (value) => { <WrappedComponent />}  */}
-          {({ login, signup, user, logout, isLoggedin, isLoading }) => {
+          {({ login, signup, user, logout, isLoggedin, isLoading, deleteUser }) => {
             return (
               <WrappedComponent
                 login={login}
@@ -22,6 +23,7 @@ const withAuth = WrappedComponent => {
                 logout={logout}
                 isLoggedin={isLoggedin}
                 isLoading={isLoading}
+                deleteUser={deleteUser}
                 {...this.props}
               />
             );
@@ -45,6 +47,19 @@ class AuthProvider extends React.Component {
       .catch(err =>
         this.setState({ isLoggedin: false, user: null, isLoading: false }),
       );
+  }
+
+
+  deleteUser = () => {
+
+    const userId = this.state.user._id
+
+    return userService.deleteUser(userId)
+                .then( () => {
+        this.setState({ isLoggedin: false, user: null, isLoading: false })
+        
+    })
+    .catch( err => console.log(err))                
   }
 
   signup = user => {
@@ -77,10 +92,10 @@ class AuthProvider extends React.Component {
 
   render() {
     const { isLoading, isLoggedin, user } = this.state;
-    const { login, logout, signup } = this;
+    const { login, logout, signup, deleteUser } = this;
 
     return (
-      <Provider value={{ isLoading, isLoggedin, user, login, logout, signup }}>
+      <Provider value={{ isLoading, isLoggedin, user, login, logout, signup, deleteUser }}>
         {this.props.children}
       </Provider>
     );

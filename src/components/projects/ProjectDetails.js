@@ -24,6 +24,9 @@ class ProjectDetails extends Component {
             statusTesting: false,
             statusToDO: false,
             statusDone: false,
+            showButtons: true,
+            showAddForm: false,
+            showEditForm: false
         }
     }
 
@@ -33,8 +36,7 @@ class ProjectDetails extends Component {
         
         projectsService.getSingleProject(id) 
         .then( (singleProject) => {
-            this.setState({ singleProject })
-            this.convertDate()
+            this.setState({ singleProject }, () => this.convertDate())
         })
         .catch( err => console.log(err))
     }
@@ -97,6 +99,18 @@ class ProjectDetails extends Component {
         }
     }
 
+
+    toggleAddForm = () => {
+
+        this.setState({ showAddForm: !this.state.showAddForm})
+    }
+
+    toggleEditForm = () => {
+
+        this.setState({ showEditForm: !this.state.showEditForm})
+    }
+
+
     convertDate = () => {
         const newDate = this.state.singleProject.deadline
         const parsedDate = new Date (newDate)
@@ -142,21 +156,41 @@ class ProjectDetails extends Component {
                                             
                                             <div className="card-footer">
 
-                                            <div className="d-flex justify-content-around">
+                                            <div className="container">
 
-                                                
-                                                
+                                            <div className="row">
+                                                <button onClick={this.toggleAddForm} className="btn btn-primary">Add</button>
+
+                                                <button onClick={this.toggleEditForm} className="btn btn-primary">Edit</button>
+                                            </div>
+
+                                            {
+                                                !this.state.showAddForm
+                                                ?
+                                                null
+                                                :                                                
+                                                <div className="row">
                                                     <AddTask
-                                                                projectId={this.state.singleProject._id} 
-                                                                refreshSingleProject={this.getSingleProject}
-                                                                className="mr-0"
-                                                            />
-                                                    
+                                                        projectId={this.state.singleProject._id} 
+                                                        refreshSingleProject={this.getSingleProject}                                                
+                                                    />
+                                            </div>
+                                            }
 
+                                            {
+                                                !this.state.showEditForm
+                                                ?
+                                                null
+                                                :
+                                                <div className="row">
                                                     <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshProjectDetails={this.getSingleProject} {...this.props}
                                                     deleteProject={this.deleteProject}
-                                                    className="p-0"
-                                                />
+                                                    
+                                                    />
+                                                </div>
+                                            }
+                                    
+                                                
 
                                     
 
@@ -175,6 +209,17 @@ class ProjectDetails extends Component {
 
                                                         <div className="card mt-3">
                                                             <div className="card-header">
+                                                            <h1>BYE</h1>
+                                                            </div>
+                                                            <div className="card-body">
+
+                                                                <FilterTask singleProject={singleProject} {...this.props}/>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="card mt-3">
+                                                            <div className="card-header">
+                                                            <h1>HELLLO</h1>
                                                             </div>
                                                             <div className="card-body">
 
@@ -183,12 +228,14 @@ class ProjectDetails extends Component {
                                                         </div>
 
 
+
                                                 </div>
                                                 <div className="carousel-item">
 
 
                                                         <div className="card mt-3">
                                                             <div className="card-header">
+                                                            <h1>afterslide</h1>
                                                             </div>
                                                             <div className="card-body">
 

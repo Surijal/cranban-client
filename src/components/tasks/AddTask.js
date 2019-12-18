@@ -12,10 +12,10 @@ class AddTask extends Component {
         this.state = {
             title: '',
             description: '',
-            deadline: null,
+            deadline: "",
             isShowing: false,
-            type: '',
-            status: '',
+            type: 'to do',
+            status: 'preperation',
             done: false
         }
     }
@@ -44,6 +44,7 @@ class AddTask extends Component {
     createTask =  (newTask) => {
         const { title, description, deadline, status, type, done } = this.state;
         const projectId = this.props.projectId;
+        console.log('in create task', this.state)
 
         
         tasksService.createTask({ title, description, deadline, projectId, status,type, done })
@@ -69,15 +70,11 @@ class AddTask extends Component {
 
 
     render() {
+
+        
         return (
             <>
 
-                    {
-                        !this.state.isShowing ?
-                        
-                            <button onClick={this.toggleForm} className="btn btn-primary">Add</button>
-                        :
-                        (
                             <div className="card mt-5 mb-3 ">
                                 <h5 className="card-header">Add</h5>
                                 <form onSubmit={this.handleSubmit} 
@@ -113,8 +110,8 @@ class AddTask extends Component {
                                         name='status'
                                         id="status"
                                         
-                                        defaultValue='to do'
-                                        // value={this.state.type}
+                                        
+                                        value={this.state.type}
                                         onChange={ (e) => this.handleChange(e)}
                                     >
                                         <option >to do</option>
@@ -130,8 +127,8 @@ class AddTask extends Component {
                                         name='type'
                                         id="testid"
                                         className="form-control"
-                                        defaultValue='preperation'
-                                        // value={this.state.type}
+                                        
+                                        value={this.state.type}
                                         onChange={ (e) => this.handleChange(e)}
                                     >
                                         <option >frontend</option>
@@ -153,9 +150,8 @@ class AddTask extends Component {
                                     </div>  
                                 </form>
                             </div>
-                        )
-
-                    }
+                            
+                
             </>
         )
     }

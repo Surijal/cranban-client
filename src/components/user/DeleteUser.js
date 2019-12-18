@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../../lib/AuthProvider';
+import { withRouter } from 'react-router-dom';
+
 
 import userService from '../../lib/users-service';
 
@@ -33,11 +35,10 @@ class DeleteUser extends Component {
 
 
         deleteUser = () =>{
-            const userId = this.props.user._id;
-            console.log('>>>>>>>>>>>> USER PROFILE ID', this.props.user._id)
-
-            userService.deleteUser(userId)
+            
+            this.props.deleteUser()
                 .then( () => {
+                    
                     this.props.history.push('/')
                 })
                 .catch( err => console.log(err))
@@ -83,4 +84,4 @@ class DeleteUser extends Component {
 }
 
 
-export default withAuth(DeleteUser);
+export default withRouter(withAuth(DeleteUser));

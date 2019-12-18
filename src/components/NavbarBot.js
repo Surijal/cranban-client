@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import { withAuth } from './../lib/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 
 
 
 class NavbarBot extends Component {
+
+
+    goBack = () => {
+
+        this.props.history.goBack()
+    }
+
+
     render() {
         const { user, isLoggedin } = this.props;
 
-    
+        
         return (
 
             <div>
@@ -17,14 +25,23 @@ class NavbarBot extends Component {
             
             { isLoggedin ? (
                 
-                    <nav className="navbar  navbar-light bg-light fixed-bottom">
+                    <nav className="navbar  navbar-light bg-dark fixed-bottom" >
                             
                                     <Link to={`/user/${user._id}`} className="nav-link nav-brand">
                                     {' '}
                                     <img alt="profile" src="/images/person.png" width="30px" height="30px"></img>
                                     {' '}
                                     </Link>
+
+
+                                    {
+                                    
+                                    <button className="nav-link nav-brand" onClick={this.goBack}>
+                                    {' '}
+                                    Graph{' '}
+                                    </button>
                                 
+                                    }
                                     <Link to="/projects" className="nav-link nav-brand">
                                     {' '}
                                     <img alt="projects" src="/images/week.png" width="30px" height="30px"></img>
@@ -33,10 +50,7 @@ class NavbarBot extends Component {
                                 
 
 {/*                         
-                                    <Link to="/projects" className="nav-link nav-brand">
-                                    {' '}
-                                    Graph{' '}
-                                    </Link>
+                                
                         
 
                                 
@@ -66,4 +80,4 @@ class NavbarBot extends Component {
 }
 
 
-export default withAuth(NavbarBot);
+export default withRouter(withAuth(NavbarBot));

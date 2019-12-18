@@ -30,7 +30,7 @@ class Login extends Component {
                 <form onSubmit={this.handleFormSubmit} autoComplete="off">
 
                   <div className="form-group">
-                    <label for="login-username">Username:</label>
+                    <label htmlFor="login-username">Username:</label>
                     <input
                       type="text"
                       name="username"
@@ -44,7 +44,7 @@ class Login extends Component {
                   </div>                
 
                   <div className="form-group">
-                    <label for="login-password">Password:</label>
+                    <label htmlFor="login-password">Password:</label>
                     <input
                       type="password"
                       name="password"

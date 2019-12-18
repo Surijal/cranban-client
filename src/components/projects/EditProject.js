@@ -89,18 +89,9 @@ class EditProject extends Component {
         
 
         return (
-            <div className="container">
+            <>
 
-                
-
-                    {
-                        !this.state.isShowing ?
-                        
-                            <button onClick={this.toggleForm} className="btn btn-primary">Edit</button>
-                        :
-                        (
-
-                            <div className="card mt-3">
+                            <div className="card mt-5 mb-3 ">
 
                             <div className="card-header">Edit Project 
                                 {/* <button onClick={ () => this.deleteProject()} >Delete</button> */}
@@ -156,9 +147,8 @@ class EditProject extends Component {
                                 </form>
                                         
                             </div>
-                        )
-                    }
-            </div>
+                    
+            </>
         )
     }
 }
