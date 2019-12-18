@@ -46,6 +46,11 @@ class AddProject extends Component {
     }
 
 
+    componentDidMount(){
+        
+    }
+
+
     render() {
         
         return (

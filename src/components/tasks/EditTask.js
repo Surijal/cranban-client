@@ -11,7 +11,7 @@ class EditTask extends Component {
         this.state = {
             title: "",
             description: "",
-            deadline: '',
+            deadline: "",
             isShowing: null,
             done: false,
             type: '',
@@ -37,9 +37,11 @@ class EditTask extends Component {
     toggleForm = () => {
         const { description, title, deadline, done, type, status } = this.props.singleTask;
 
+        console.log(this.props.singleTask);
+        
+
         this.setState({ isShowing: !this.state.isShowing,  description, title, deadline, done, type, status })
         this.convertDate()
-
     }
 
     toggleChange = () => {
@@ -61,16 +63,13 @@ class EditTask extends Component {
 
     
     convertDate = () => {
-        const {newDate} = this.props.singleTask.deadline
-        console.log('>>>>>>>>>>>>>>', this.props.singleTask.deadline);
-        // newDate = new Date ()
+        const newDate = this.props.singleTask.deadline
+        const parsedDate = new Date (newDate)
         
-        // var newDeadline = newDate.toISOString().substring( 0, 6)
+        var newDeadline = parsedDate.toISOString().substring( 0, 10)
         
-        
-        
-        // console.log(date)
-
+        console.log('>>>>>>>>>>>>>>', newDeadline);
+        this.setState({deadline: newDeadline})
     }
 
 
@@ -103,7 +102,12 @@ class EditTask extends Component {
         
     }
 
-    
+    componentDidMount(){
+        const { deadline, description, title, type, status } = this.props.singleTask
+
+        this.setState({ deadline, description, title, type, status })
+        this.convertDate()
+    }
     
     
     render() {

@@ -12,7 +12,7 @@ class TaskDetails extends Component {
                 this.state = {
                     title: '',
                     description: '',
-                    deadline: '',
+                    deadline: null,
                     projectTasks: null,
                     taskId: '',
                     projectId: '',
@@ -24,6 +24,14 @@ class TaskDetails extends Component {
                 }
         }
     
+        convertDate = () => {
+            const newDate = this.props.singleTask.deadline
+            const parsedDate = new Date (newDate)
+            
+            var newDeadline = parsedDate.toISOString().substring( 0, 10)
+            
+            this.setState({deadline: newDeadline})
+        }
 
         getSingleTask = () => {
         
@@ -59,7 +67,6 @@ class TaskDetails extends Component {
                 })
                 .catch( err => console.log(err))
         }
-
 
         
 
