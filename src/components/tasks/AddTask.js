@@ -24,7 +24,7 @@ class AddTask extends Component {
 
     handleChange = e => {
         const {name, value } = e.target
-        console.log(value);
+        
         
         this.setState({[name]:value})
     }
@@ -82,8 +82,8 @@ class AddTask extends Component {
                             <h5 className="card-title">Add new Task</h5>
                             </div>
                                 
-                                <form onSubmit={this.handleSubmit} 
-                                    >
+                                <form 
+                                    className="form-group">
                                     
                                     <div className="card-body">
 
@@ -159,12 +159,12 @@ class AddTask extends Component {
                                                 onChange={ (e) => this.handleChange(e)}
                                                 className="form-control custom-select"
                                             />
+                                        <button className="btn btn-primary" onClick={this.handleSubmit} >Submit</button>  
                                     </div>
 
                                     </div>  
                                     <div className="card-footer">
                                         
-                                        <button className="btn btn-primary">Submit</button>  
                                     </div>
                                 </form>
                             </div>
