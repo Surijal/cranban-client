@@ -1,3 +1,26 @@
-.nav-color {
+
+body {
+    background-color: #4C443C;
+    color: black;
+}
+
+
+.navbar-color {
     background-color: #71BAA1;
+}
+
+.background-crane {
+    background-image: url('/public/images/crane.png');
+}
+
+.container-color {
+    background-color: #4C443C;
+}
+
+.card-color {
+    background-color: #468D8E;
+}
+
+.project-card-color {
+    background-color: #FAC525;
 }

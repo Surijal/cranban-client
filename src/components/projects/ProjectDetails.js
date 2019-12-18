@@ -139,14 +139,14 @@ class ProjectDetails extends Component {
                             :
                             (
                             <div className="container">
-                                <div className="mt-3 card">
+                                <div className="mt-3 card project-card-color">
                                         
                                             <div className="card-header">
                                             
                                                 <h1>Project:</h1>
                                         </div>
 
-                                            <div className="card-body">
+                                            <div className="card-body project-card-color">
                                                 <h2 className="card-title">{this.state.singleProject.title}</h2>
                                                 <p className="card-text">{this.state.singleProject.description}</p>
                                                 <p>Deadline: {this.state.deadline}</p>
@@ -154,7 +154,7 @@ class ProjectDetails extends Component {
 
                                             
                                             
-                                            <div className="card-footer">
+                                            <div className="card-footer project-card-color">
 
                                             <div className="container">
 
@@ -172,7 +172,7 @@ class ProjectDetails extends Component {
                                                 <div className="row">
                                                     <AddTask
                                                         projectId={this.state.singleProject._id} 
-                                                        refreshSingleProject={this.toggleAddForm}                                                
+                                                        refreshSingleProject={this.getSingleProject}                                                
                                                     />
                                             </div>
                                             }

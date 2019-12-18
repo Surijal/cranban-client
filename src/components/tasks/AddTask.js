@@ -51,7 +51,7 @@ class AddTask extends Component {
         tasksService.createTask({ title, description, deadline, projectId, status, type, done })
             .then( (newTask) => {
                 this.setState({ title: '', description: '', deadline: '', isShowing: false})
-                this.props.refreshSingleProject(newTask)
+                this.props.refreshSingleProject()
             })
             .catch(err => console.log(err))
     }   
@@ -76,7 +76,7 @@ class AddTask extends Component {
         return (
             <>
                         <div className="container">
-                            <div className="card mt-5 mb-3 ">
+                            <div className="card mt-5 mb-3 card-color">
 
                             <div className="card-header">
                             <h5 className="card-title">Add new Task</h5>
@@ -85,7 +85,7 @@ class AddTask extends Component {
                                 <form 
                                     className="form-group">
                                     
-                                    <div className="card-body">
+                                    <div className="card-body card-color">
 
                                     <div className="form-group">
                                         <input
@@ -163,7 +163,7 @@ class AddTask extends Component {
                                     </div>
 
                                     </div>  
-                                    <div className="card-footer">
+                                    <div className="card-footer card-color">
                                         <button className="btn btn-primary" onClick={this.handleSubmit} >Submit</button>  
                                     </div>
                                 </form>

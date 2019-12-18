@@ -17,12 +17,12 @@ class ProjectCard extends Component {
         const { _id, title, description } = this.props.projectData
 
         return (
-            <div key={_id} className="card mt-3 mb-3">
+            <div key={_id} className="card mt-3 mb-3 card-color">
                 <Link   to={`/projects/${_id}`}>
-                    <div className="card-header">Project:</div>
+                    <div className="card-header project-card-color">Project:</div>
 
                     
-                    <div className="card-body">
+                    <div className="card-body project-card-color">
                     <h2 className="card-title">{title}</h2>
                         <p className="card-text
                         ">{description}</p>

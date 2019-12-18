@@ -101,14 +101,14 @@ class EditProject extends Component {
         return (
             <>
                         <div className="container">
-                            <div className="card mt-5 mb-3 ">
+                            <div className="card mt-5 mb-3 card-color">
 
-                            <div className="card-header"> 
+                            <div className="card-header card-color"> 
                                 <h5 className="card-title">Edit Project</h5>
                             </div>
                                 <form >
                                 
-                                    <div className="card-body">
+                                    <div className="card-body card-color">
                                     
                                     <div className="form-group">
                                         <input 
@@ -150,7 +150,7 @@ class EditProject extends Component {
 
                                     
                                         
-                                    <div className="d-flex justify-content-around card-footer">
+                                    <div className="d-flex justify-content-around card-footer card-color">
 
                                         <button className="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
 

@@ -25,7 +25,7 @@ class NavbarBot extends Component {
             
             { isLoggedin ? (
                 
-                    <nav className="navbar  navbar-light bg-dark fixed-bottom" >
+                    <nav className="navbar  navbar-light fixed-bottom navbar-color">
                             
                                     <Link to={`/user/${user._id}`} className="nav-link nav-brand">
                                     {' '}

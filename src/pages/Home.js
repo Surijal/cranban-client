@@ -6,7 +6,7 @@ import {withAuth} from './../lib/AuthProvider'
 class Home extends Component {
     render() {
         return (
-            <div className="container mt-3">
+            <div className="container mt-3 backkground-crane">
                 <Link to="/login">
                     {' '}
                     <button>Login</button>{' '}

@@ -141,7 +141,7 @@ class FilterTask extends Component {
                             })
                             .map( task => {
                                 return (
-                                    <div className="card" key={task._id}>
+                                    <div className="card  mt-3" key={task._id}>
                                         
                                         <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                         <div  className="card-header" >
@@ -176,7 +176,7 @@ class FilterTask extends Component {
                             })
                             .map( task => {
                                 return (
-                                    <div className="card" key={task._id}>
+                                    <div className="card  mt-3" key={task._id}>
                                         
                                         <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                         <div  className="card-header" >
@@ -211,7 +211,7 @@ class FilterTask extends Component {
                                 })
                                 .map( task => {
                                     return (
-                                        <div className="card" key={task._id}>
+                                        <div className="card  mt-3" key={task._id}>
                                         
                                                 <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                                 <div  className="card-header" >
@@ -242,7 +242,7 @@ class FilterTask extends Component {
                                 })
                                 .map( task => {
                                     return (
-                                        <div className="card" key={task._id}>
+                                        <div className="card  mt-3" key={task._id}>
                                         
                                         <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                         <div  className="card-header" >
@@ -272,7 +272,7 @@ class FilterTask extends Component {
                                 })
                                 .map( task => {
                                     return (
-                                        <div className="card" key={task._id}>
+                                        <div className="card  mt-3" key={task._id}>
                                         
                                                 <Link to={`/projects/${task.project}/tasks/${task._id}`} >
                                                 <div  className="card-header" >

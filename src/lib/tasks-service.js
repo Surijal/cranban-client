@@ -7,7 +7,7 @@ class Task {
     constructor(){
 
         this.tasks = axios.create( {
-            baseURL: baseURL,
+            baseURL: `${baseURL}/api/`,
             withCredentials: true,
         })
     }

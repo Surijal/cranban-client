@@ -44,7 +44,7 @@ class ProjectsList extends Component {
                         (
                             
 
-                                    <div className="container">
+                                    <div className="container container-color">
                                     <AddProject refreshProjectList={this.getUserListOfProjects} />
                                         {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
 

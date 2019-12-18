@@ -17,7 +17,7 @@ import PrivateRoute from './components/PrivateRoute';
 
 // import './App.css'
 // import './styles/navbot.css'
-// import './styles/styles.css'
+import './styles/styles.css'
 import TaskDetails from './components/tasks/TaskDetails';
 
 class App extends Component {
