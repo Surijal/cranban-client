@@ -90,16 +90,17 @@ class EditProject extends Component {
 
         return (
             <>
-
+                        <div className="container">
                             <div className="card mt-5 mb-3 ">
 
-                            <div className="card-header">Edit Project 
-                                {/* <button onClick={ () => this.deleteProject()} >Delete</button> */}
+                            <div className="card-header"> 
+                                <h5 className="card-title">Edit Project</h5>
                             </div>
-                                <form onSubmit={this.handleSubmit} className="form-group">
+                                <form onSubmit={this.handleSubmit}>
                                 
                                     <div className="card-body">
                                     
+                                    <div className="form-group">
                                         <input 
                                                 className="card-title form-control mt-3 mb-3"
                                                 type="text"
@@ -107,9 +108,11 @@ class EditProject extends Component {
                                                 placeholder="Title"
                                                 value={this.state.title}
                                                 onChange={ (e) => this.handleInput(e)}
+                                                
                                             />
-
+                                    </div>
                                         
+                                    <div className="form-group">
                                         <textarea
                                                 className="form-control"
                                                 type="text"
@@ -120,8 +123,9 @@ class EditProject extends Component {
                                                 value={this.state.description}
                                                 onChange={ (e) => this.handleInput(e)}
                                             />
+                                        </div>
 
-
+                                        <div className="form-group">
                                             <input
                                                     className="form-control"
                                                     type="date"
@@ -131,8 +135,12 @@ class EditProject extends Component {
                                                     onChange={ (e) => this.handleInput(e)}
                                                 />
                                     </div>
+                                    
+                                    </div>
+
+                                    
                                         
-                                    <div className="d-flex justify-content-around">
+                                    <div className="d-flex justify-content-around card-footer">
 
                                         <button className="btn btn-primary">Submit</button>
 
@@ -143,11 +151,11 @@ class EditProject extends Component {
                                                     Delete
                                                     </button>
                                     </div>
-                                    
                                 </form>
+                                    
                                         
                             </div>
-                    
+                    </div>
             </>
         )
     }
