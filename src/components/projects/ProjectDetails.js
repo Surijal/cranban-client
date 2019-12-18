@@ -7,9 +7,6 @@ import EditProject from './EditProject';
 import AddTask from './../tasks/AddTask';
 import FilterTask from '../tasks/FilterTasks';
 
-import moment from 'moment';
-
-
 class ProjectDetails extends Component {
 
 
@@ -37,6 +34,7 @@ class ProjectDetails extends Component {
         projectsService.getSingleProject(id) 
         .then( (singleProject) => {
             this.setState({ singleProject })
+            this.convertDate()
         })
         .catch( err => console.log(err))
     }
@@ -99,6 +97,14 @@ class ProjectDetails extends Component {
         }
     }
 
+    convertDate = () => {
+        const newDate = this.state.singleProject.deadline
+        const parsedDate = new Date (newDate)
+        
+        var newDeadline = parsedDate.toISOString().substring( 0, 10)
+        this.setState({deadline: newDeadline})
+    }
+
 
     
     componentDidMount() {
@@ -129,7 +135,7 @@ class ProjectDetails extends Component {
                                             <div className="card-body">
                                                 <h2 className="card-title">{this.state.singleProject.title}</h2>
                                                 <p className="card-text">{this.state.singleProject.description}</p>
-                                                <p>{this.state.singleProject.deadline}</p>
+                                                <p>Deadline: {this.state.deadline}</p>
                                             </div>
 
                                             

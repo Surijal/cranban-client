@@ -37,9 +37,6 @@ class EditTask extends Component {
     toggleForm = () => {
         const { description, title, deadline, done, type, status } = this.props.singleTask;
 
-        console.log(this.props.singleTask);
-        
-
         this.setState({ isShowing: !this.state.isShowing,  description, title, deadline, done, type, status })
         this.convertDate()
     }
