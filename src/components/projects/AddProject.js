@@ -71,7 +71,7 @@ class AddProject extends Component {
                     :
                     (
                     <div className="card mt-3">
-                        <form onSubmit={this.handleSubmit}  className="form-group ">
+                        <form onSubmit={this.handleSubmit}>
                             
                             <div className="card-header">
                                 <input
@@ -107,8 +107,9 @@ class AddProject extends Component {
                                         onChange={ (e) => this.handleInput(e)}
                                     />
 
+                            </div>
+                                <div className="card-footer d-flex justify-content-around">
                                 <button className="btn btn-primary">Submit</button> 
-                            
                             </div>
                         </form>
                     </div>

@@ -45,7 +45,7 @@ class ProjectsList extends Component {
                             
 
                                     <div className="container">
-                                                    <AddProject refreshProjectList={this.getUserListOfProjects} />
+                                    <AddProject refreshProjectList={this.getUserListOfProjects} />
                                         {(this.state.listOfProjects.length) ? this.state.listOfProjects.map( project => {
 
                                             
@@ -60,7 +60,9 @@ class ProjectsList extends Component {
                                             )
                                         })
                                         : 
-                                        <AddProject refreshProjectList={this.getUserListOfProjects} />
+
+                                        <h3>Create your first Project</h3>
+                                
                                         }
                                     </div>
                             

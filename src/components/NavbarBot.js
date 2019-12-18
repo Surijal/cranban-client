@@ -38,7 +38,7 @@ class NavbarBot extends Component {
                                     
                                     <button className="nav-link nav-brand" onClick={this.goBack}>
                                     {' '}
-                                    Graph{' '}
+                                    Go back{' '}
                                     </button>
                                 
                                     }

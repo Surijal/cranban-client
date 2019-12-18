@@ -44,7 +44,7 @@ class AddTask extends Component {
     createTask =  (newTask) => {
         const { title, description, deadline, status, type, done } = this.state;
         const projectId = this.props.projectId;
-        console.log('in create task', this.state)
+        
 
         
         tasksService.createTask({ title, description, deadline, projectId, status, type, done })
@@ -113,7 +113,7 @@ class AddTask extends Component {
                                     
                                     <div className="form-group">
                                     <select
-                                        className="form-control"
+                                        className="form-control custom-control"
                                         type="text"
                                         name='status'
                                         id="status"
@@ -160,11 +160,11 @@ class AddTask extends Component {
                                     </div>
 
                                     </div>  
-                                </form>
                                     <div className="card-footer">
                                         
                                         <button className="btn btn-primary">Submit</button>  
                                     </div>
+                                </form>
                             </div>
                         </div>
                 

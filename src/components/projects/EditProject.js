@@ -33,10 +33,13 @@ class EditProject extends Component {
     }
 
     toggleForm = () => {
-        const { title, description, deadline } = this.props.singleProject
-
-        this.setState({isShowing: !this.state.isShowing, title, description, deadline})
-        this.convertDate()
+    
+        
+    
+            this.setState({isShowing: !this.state.isShowing})
+            
+        
+            
     }
 
 
@@ -82,6 +85,11 @@ class EditProject extends Component {
 
     componentDidMount(){
         
+
+        const { deadline, title, description } = this.props.singleProject
+
+        this.setState({ deadline, title, description })
+        this.convertDate()
     }
 
     render() {

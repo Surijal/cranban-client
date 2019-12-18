@@ -158,7 +158,7 @@ class ProjectDetails extends Component {
 
                                             <div className="container">
 
-                                            <div className="row">
+                                            <div className="row d-flex justify-content-around">
                                                 <button onClick={this.toggleAddForm} className="btn btn-primary">Add</button>
 
                                                 <button onClick={this.toggleEditForm} className="btn btn-primary">Edit</button>

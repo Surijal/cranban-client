@@ -3,7 +3,7 @@ import { withAuth } from '../../lib/AuthProvider';
 import { withRouter } from 'react-router-dom';
 
 
-import userService from '../../lib/users-service';
+
 
 class DeleteUser extends Component {
 
@@ -57,21 +57,28 @@ class DeleteUser extends Component {
                     !this.state.isShowing ?
                     null
                     :
-                    <div>
-                        <h2>Confirm your password to delete Profile</h2>
+                    <div >
+                        <h5>Confirm your password to delete Profile</h5>
+
+
 
                         <form onSubmit={this.handleSubmit}>
-                            <label>Password:</label>
+
+                        <div className="form-group">
+                            <label htmlFor="delete-user">Password:</label>
                             <input
                                     type="password"
                                     name="password" 
                                     placeholder="password"
-                                    id="" 
+                                    id="delete-user" 
                                     value={this.state.password}
                                     onChange={ (e) => this.handleInput(e)}
+                                    className="form-control"
                             />
 
-                            <button>Delete Profile</button> 
+                        </div>
+
+                            <button className="btn btn-primary">Delete Profile</button> 
                         </form>
 
                     </div>
