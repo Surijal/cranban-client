@@ -174,13 +174,13 @@ class EditTask extends Component {
                                     <div className="form-group mt-3">
                                         
                                         <select
-                                            className="custom-select form-control"
+                                            className="form-control"
                                             type="text"
                                             name='status'
                                             id="status"
                                             
                                             // defaultValue={status}
-                                            value={this.state.type}
+                                            value={this.state.status}
                                             onChange={ (e) => this.handleInput(e)}
                                         >
                                             <option >to do</option>
@@ -197,7 +197,7 @@ class EditTask extends Component {
                                             type="text"
                                             name='type'
                                             id="testid"
-                                            className="custom-select form-control"
+                                            className="form-control"
                                             
                                             value={this.state.type}
                                             onChange={ (e) => this.handleInput(e)}

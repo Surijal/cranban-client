@@ -24,7 +24,8 @@ class AddTask extends Component {
 
     handleChange = e => {
         const {name, value } = e.target
-
+        console.log(value);
+        
         this.setState({[name]:value})
     }
     
@@ -113,13 +114,13 @@ class AddTask extends Component {
                                     
                                     <div className="form-group">
                                     <select
-                                        className="form-control custom-control"
+                                        className="form-control"
                                         type="text"
                                         name='status'
                                         id="status"
                                         
                                         
-                                        value=""
+                                        value={this.state.status}
                                         onChange={ (e) => this.handleChange(e)}
                                     >
                                         <option >to do</option>
@@ -138,9 +139,10 @@ class AddTask extends Component {
                                         id="testid"
                                         className="form-control"
                                         
-                                        value=""
+                                        value={this.state.type}
                                         onChange={ (e) => this.handleChange(e)}
                                     >
+                                        
                                         <option >frontend</option>
                                         <option >backend</option>
                                         <option >styles</option>
@@ -155,7 +157,7 @@ class AddTask extends Component {
                                                 placeholder="Deadline"
                                                 value={this.state.deadline}
                                                 onChange={ (e) => this.handleChange(e)}
-                                                className="form-control custom-control"
+                                                className="form-control custom-select"
                                             />
                                     </div>
 
