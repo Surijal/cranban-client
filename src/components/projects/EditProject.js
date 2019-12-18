@@ -36,6 +36,7 @@ class EditProject extends Component {
         const { title, description, deadline } = this.props.singleProject
 
         this.setState({isShowing: !this.state.isShowing, title, description, deadline})
+        this.convertDate()
     }
 
 
@@ -48,6 +49,15 @@ class EditProject extends Component {
                 
             })
             .catch( err => console.log(err))
+    }
+
+    convertDate = () => {
+        const newDate = this.props.singleProject.deadline
+        const parsedDate = new Date (newDate)
+        
+        var newDeadline = parsedDate.toISOString().substring( 0, 10)
+        
+        this.setState({deadline: newDeadline})
     }
 
 
@@ -70,7 +80,14 @@ class EditProject extends Component {
             .catch( err => console.log(err))
     }
 
+    componentDidMount(){
+        
+    }
+
     render() {
+
+        
+
         return (
             <div className="container">
 
@@ -118,7 +135,7 @@ class EditProject extends Component {
                                                     className="form-control"
                                                     type="date"
                                                     name="deadline" 
-                                                    placeholder="Deadline"
+                                                    //placeholder="Deadline"
                                                     value={this.state.deadline}
                                                     onChange={ (e) => this.handleInput(e)}
                                                 />
