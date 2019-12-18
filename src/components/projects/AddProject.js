@@ -45,9 +45,17 @@ class AddProject extends Component {
             .catch((err) => console.log(err))
     }
 
+    convertDate = () => {
+        const parsedDate = new Date ()
+        
+        var newDeadline = parsedDate.toISOString().substring( 0, 10)
+        this.setState({deadline: newDeadline})
+    }
+
+
 
     componentDidMount(){
-        
+        this.convertDate()
     }
 
 
