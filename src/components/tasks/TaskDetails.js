@@ -24,23 +24,15 @@ class TaskDetails extends Component {
                 }
         }
     
-        convertDate = () => {
-            const newDate = this.props.singleTask.deadline
-            const parsedDate = new Date (newDate)
-            
-            var newDeadline = parsedDate.toISOString().substring( 0, 10)
-            
-            this.setState({deadline: newDeadline})
-        }
-
+        
         getSingleTask = () => {
-        
-
-        const {id} = this.props.match.params
-        
-        tasksService.getSingleTask(id)
-        .then( singleTask => {
             
+            
+            const {id} = this.props.match.params
+            
+            tasksService.getSingleTask(id)
+            .then( singleTask => {
+                
                 this.setState({
                     title: singleTask.title,
                     description: singleTask.description,
@@ -52,10 +44,14 @@ class TaskDetails extends Component {
                     singleTask: singleTask,
                     status: singleTask.status
                 })
+                
+                
+                this.convertDate()
             })
             .catch( err => console.log(err))
         }
         
+    
         
         getProjectTask = () => {
             const { projectId, taskId } = this.props
@@ -68,6 +64,14 @@ class TaskDetails extends Component {
                 .catch( err => console.log(err))
         }
 
+        convertDate = () => {
+            const newDate = this.state.deadline
+            const parsedDate = new Date (newDate)
+
+            var newDeadline = parsedDate.toISOString().substring( 0, 10)
+            this.setState({deadline: newDeadline})
+        }
+
         
 
         componentDidMount(){
@@ -78,6 +82,7 @@ class TaskDetails extends Component {
 
     render() {
 
+        
         const { title, description, deadline, taskId, status, type, done } = this.state;
         const singleTask = { title, description, deadline, taskId , status, type, done} 
 
@@ -102,7 +107,7 @@ class TaskDetails extends Component {
                         <div className="card-body">
                             <h2 className="card-title">{title}</h2>
                             <p className="card-text"> {description}</p>
-                            <p>Deadline: {deadline}</p>
+                            <p>Deadline: {this.state.deadline}</p>
                             <p>Done: {done}</p>
 
                         </div>
@@ -110,7 +115,7 @@ class TaskDetails extends Component {
                         <div className="card-footer">
 
                             <p>{status}</p>
-                            <p>s{type}</p>
+                            <p>{type}</p>
 
                         </div>
                             

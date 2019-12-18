@@ -12,7 +12,7 @@ class AddTask extends Component {
         this.state = {
             title: '',
             description: '',
-            deadline: '',
+            deadline: null,
             isShowing: false,
             type: '',
             status: '',
@@ -53,6 +53,19 @@ class AddTask extends Component {
             })
             .catch(err => console.log(err))
     }   
+
+
+    convertDate = () => {
+        const parsedDate = new Date ()
+        
+        var newDeadline = parsedDate.toISOString().substring( 0, 10)
+        this.setState({deadline: newDeadline})
+    }
+
+
+    componentDidMount(){
+        this.convertDate()
+    }
 
 
     render() {

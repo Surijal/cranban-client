@@ -107,18 +107,8 @@ class ProjectDetails extends Component {
     }
     
     render() {
-        
-        // const date = new Date(this.state.singleProject.deadline);
 
-        
         const { singleProject } = this.state;
-
-        if (singleProject) {
-            const testMoment = moment(this.state.singleProject.deadline).format('YYYY MM DD,')
-            console.log('testMoment', testMoment);
-            
-        }
-        
         
         return (
             <div  >
@@ -139,7 +129,7 @@ class ProjectDetails extends Component {
                                             <div className="card-body">
                                                 <h2 className="card-title">{this.state.singleProject.title}</h2>
                                                 <p className="card-text">{this.state.singleProject.description}</p>
-                                                <p>{this.testMoment}</p>
+                                                <p>{this.state.singleProject.deadline}</p>
                                             </div>
 
                                             

@@ -67,8 +67,6 @@ class EditTask extends Component {
         const parsedDate = new Date (newDate)
         
         var newDeadline = parsedDate.toISOString().substring( 0, 10)
-        
-        console.log('>>>>>>>>>>>>>>', newDeadline);
         this.setState({deadline: newDeadline})
     }
 
