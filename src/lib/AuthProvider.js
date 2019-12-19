@@ -73,8 +73,6 @@ class AuthProvider extends React.Component {
 
   login = user => {
     const { username, password } = user;
-
-    console.log('user', user);
     
 
     authService
