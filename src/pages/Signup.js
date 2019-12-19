@@ -80,11 +80,7 @@ class Signup extends Component {
 
                   </div>
 
-                  <div>
-                    <p>Already have account?</p>
-                    <Link to={'/login'}> Login</Link>
-
-                  </div>
+                  
 
                 </div>
               </form>

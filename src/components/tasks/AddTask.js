@@ -46,13 +46,15 @@ class AddTask extends Component {
         const { title, description, deadline, status, type, done } = this.state;
         const projectId = this.props.projectId;
         
-        console.log('sdgagas', this.props.history)
         
         tasksService.createTask({ title, description, deadline, projectId, status, type, done })
             .then( (newTask) => {
                 this.setState({ title: '', description: '', deadline: '', isShowing: false})
-                this.props.refreshSingleProject()
-            },  () => this.props.history.goBack())
+            this.props.refreshSingleProject()
+            this.props.toggleAddForm()
+            
+                
+            },  () =>this.props.value.history.goBack() )
             .catch(err => console.log(err))
     }   
 

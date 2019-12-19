@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { withAuth } from './../../lib/AuthProvider';
 import projectsService from './../../lib/projects-service';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
 
 class EditProject extends Component {
@@ -45,14 +47,30 @@ class EditProject extends Component {
 
     deleteProject = () => {
         const id = this.props.match.params.id
-        
+
+        confirmAlert({
+            title: 'Confirm to submit',
+            message: 'Are you sure to do this.',
+            buttons: [
+                {
+                label: 'Yes',
+                onClick: () => alert('Click Yes')
+            },
+            {
+                label: 'No',
+                onClick: () => alert('Click No')
+            }
+            ]
+        })
+        this.setState({deadline: ""})
         projectsService.deleteProject(id)
-            .then( () => {
-                this.props.history.push('/projects')
-                
-            })
+            // .then( () => 
+                // this.props.history.goForward('/projects'))
             .catch( err => console.log(err))
     }
+    
+
+
 
     convertDate = () => {
         const newDate = this.props.singleProject.deadline
@@ -70,18 +88,22 @@ class EditProject extends Component {
         
         
         projectsService.updateProject({ title, description, deadline, id })
-            .then( updatedProject => {
+            .then( () => {
+                
                 this.setState({
-                                        title: '',
-                                        description: '',
-                                        deadline: '',
-                                        updatedProject: null,
-                                        isShowing: false
-                                    }
-                                    )
-                                    console.log(updatedProject)
-                                    this.props.refreshProjectDetails()
+                    title: '',
+                    description: '',
+                    deadline: '',
+                    updatedProject: null,
+                    isShowing: false
+                }
+                )
+                
+                this.props.toggleEditForm()
+                //this.props.refreshSingleProject()
             })
+            
+            .then( () => this.props.history.push('/projects'))
             .catch( err => console.log(err))
     }
 

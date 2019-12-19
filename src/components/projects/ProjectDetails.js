@@ -172,7 +172,8 @@ class ProjectDetails extends Component {
                                                 <div className="row">
                                                     <AddTask
                                                         projectId={this.state.singleProject._id} 
-                                                        refreshSingleProject={this.getSingleProject}                                                
+                                                        refreshSingleProject={this.getSingleProject}                                toggleAddForm={this.toggleAddForm}
+                                                        {...this.props}    
                                                     />
                                             </div>
                                             }
@@ -183,7 +184,7 @@ class ProjectDetails extends Component {
                                                 null
                                                 :
                                                 <div className="row">
-                                                    <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshProjectDetails={this.getSingleProject} {...this.props}
+                                                    <EditProject projectId={this.state.singleProject._id} singleProject={this.state.singleProject} refreshSingleProject={this.getSingleProject} {...this.props}
                                                     deleteProject={this.deleteProject}
                                                     toggleEditForm={this.toggleEditForm}
                                                     />

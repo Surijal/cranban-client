@@ -6,17 +6,24 @@ import {withAuth} from './../lib/AuthProvider'
 class Home extends Component {
     render() {
         return (
-            <div className="container mt-3 backkground-crane">
-                <Link to="/login">
-                    {' '}
-                    <button>Login</button>{' '}
-                </Link>
+            <div className="container mt-3 d-flex align-content-around" >
 
-                <Link to="/signup">
-                    {' '}
-                    <p>Sign up</p>{' '}
-                </Link>
+                <div className="container ">
+                    {/* <img alt="crane" src="/images/crane.png"  className="backkground-crane" /> */}
 
+                    <h2 className="m-5 p-3 text-center">Welcome <br></br>to Cranban</h2>
+                    <div className="d-flex justify-content-around">
+                        <Link to="/login">
+                            {' '}
+                            <button className="btn btn-secondary m-5">Login</button>{' '}
+                        </Link>
+
+                        <Link to="/signup">
+                            {' '}
+                            <button className="btn btn-secondary m-5">or Sign up</button>{' '}
+                        </Link>
+                    </div>
+                </div>
             </div>
 
             

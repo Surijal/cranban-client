@@ -53,7 +53,10 @@ class ProjectsList extends Component {
                                                     
                                                 
                                                     <div key={project._id}>
-                                                    <ProjectCard   projectData={project} /> 
+                                                    <ProjectCard   projectData={project}
+                                                            {...this.props}
+
+                                                        /> 
                                                     </div>
                                                     
                                                 

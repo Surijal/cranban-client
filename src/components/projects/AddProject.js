@@ -41,6 +41,7 @@ class AddProject extends Component {
             .then( (newProject) => {
                 this.setState({ title: '', description: '', deadline: '', isShowing: false});
                 this.props.refreshProjectList()
+                
             })
             .catch((err) => console.log(err))
     }

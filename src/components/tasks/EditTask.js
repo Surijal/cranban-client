@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { withAuth } from '../../lib/AuthProvider';
 import tasksService from '../../lib/tasks-service';
 
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'
+
 
 class EditTask extends Component {
 
@@ -46,16 +49,34 @@ class EditTask extends Component {
     }
 
     deleteTask = () => {
-        const  id  = this.props.match.params.id
-        
-        
-        tasksService.deleteTask(id)
-        .then( (deleteTask) => {
-                
-                this.props.history.goBack()
-            })
-            .catch( err => console.log(err))
-    }
+
+
+        confirmAlert({
+            title: 'Confirm to submit',
+            message: 'Are you sure to do this.',
+            buttons: [
+                {
+                label: 'Yes',
+                onClick: () => alert('Click Yes')
+            },
+            {
+                label: 'No',
+                onClick: () => alert('Click No')
+            }
+        ]
+    })
+    const  id  = this.props.match.params.id
+    
+    
+    tasksService.deleteTask(id)
+    .then( (deleteTask) => {
+            
+            this.props.history.goBack()
+        })
+        .catch( err => console.log(err))
+    };
+
+    
 
     
     convertDate = () => {
