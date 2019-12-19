@@ -14,8 +14,8 @@ class AddTask extends Component {
             description: '',
             deadline: "",
             isShowing: false,
-            type: '',
-            status: '',
+            type: 'preperation',
+            status: 'to do',
             done: false
         }
     }
@@ -45,11 +45,13 @@ class AddTask extends Component {
     createTask =  (newTask) => {
         const { title, description, deadline, status, type, done } = this.state;
         const projectId = this.props.projectId;
+
+        
         
         
         tasksService.createTask({ title, description, deadline, projectId, status, type, done })
             .then( (newTask) => {
-                this.setState({ title: '', description: '', deadline: '', isShowing: false})
+                this.setState({ title: '', description: '', deadline: '', type: "to do", status: "preperation", isShowing: false})
             this.props.refreshSingleProject()
             this.props.toggleAddForm()
             

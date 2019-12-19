@@ -38,7 +38,7 @@ class NavbarBot extends Component {
                                     
                                     <button className="nav-link nav-brand" onClick={this.goBack}>
                                     {' '}
-                                    <img alt="back" src="images/back.png" width="30px" height="30px"></img>
+                                    <img alt="back" src="/images/back.png" width="30px" height="30px"></img>
                                     {' '}
                                     </button>
                                 

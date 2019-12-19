@@ -24,6 +24,7 @@ a {
     margin: 10vh auto;
     background-repeat: no-repeat;
     background-size: cover;
+    background-image: url('/images/crane2.png');
 }
 
 .container-color {
@@ -44,3 +45,4 @@ a {
     width: 30px;
     background-repeat: contain;
 }
+
