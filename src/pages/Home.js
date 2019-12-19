@@ -9,6 +9,7 @@ class Home extends Component {
             <div className="container mt-3 d-flex align-content-between" >
 
                 <div className=" background-crane ">
+                <h1>hello</h1>
                     {/* <img alt="crane" src="/images/crane.png"  className="backkground-crane" /> */}
                     <h2 className="m-5 p-3 text-center">Welcome <br></br>to Cranban</h2>
 
