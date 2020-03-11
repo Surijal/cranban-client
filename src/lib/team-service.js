@@ -13,6 +13,20 @@ class Team {
     }
 
 
+    createTeam( team ) {
+        const { teamLeader, member, name } = team;
+
+        return this.team
+            .post('/', { teamLeader, member, name })
+            .then( response => {
+                const { newTeam } = response.data;
+
+                return newTeam;
+            })
+            .catch( err => console.log(err))
+    }
+
+
     getTeamById = ( id ) => {
 
         return this.team
