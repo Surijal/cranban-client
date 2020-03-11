@@ -14,10 +14,10 @@ class Team {
 
 
     createTeam( team ) {
-        const { teamLeader, member, name } = team;
+        const { teamleader, members, name } = team;
 
         return this.team
-            .post('/', { teamLeader, member, name })
+            .post('/', { teamleader, members, name })
             .then( response => {
                 const { newTeam } = response.data;
 
